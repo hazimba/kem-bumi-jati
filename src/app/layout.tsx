@@ -1,9 +1,10 @@
-import "./globals.css";
+import NavigationBar from "@/components/navigation-bar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import NavigationBar from "@/components/NavigationBar";
+import { Geist, Geist_Mono, Roboto_Mono } from "next/font/google";
+import "./globals.css";
+import { NavRender } from "@/components/nav-render";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,10 +16,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "Kem Bumi Jati",
-  description:
-    "Kem Bumi Jati is a website that provides information about the company and their services.",
+  description: "Kem Bumi Jati is a website that provides information about the company and their services.",
 };
 
 export default function RootLayout({
@@ -29,17 +34,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${robotoMono.variable}  h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NavigationBar />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <NavRender />
           <>{children}</>
           <Toaster />
         </ThemeProvider>
