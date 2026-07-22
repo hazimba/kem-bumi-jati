@@ -82,14 +82,12 @@ const HeroSection = () => {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
       aria-roledescription="carousel"
-      aria-label="Kem Bumi Jati highlights"
-    >
+      aria-label="Kem Bumi Jati highlights">
       {slides.map((s, i) => (
         <div
           key={s.heading}
           className={cn("absolute inset-0 transition-opacity duration-700 ease-out", i === index ? "opacity-100 z-10" : "opacity-0 z-0")}
-          aria-hidden={i !== index}
-        >
+          aria-hidden={i !== index}>
           <Image
             src={s.image}
             alt=""
@@ -109,15 +107,29 @@ const HeroSection = () => {
         <NavigationBar variant="overlay" />
       </div>
 
-      <div className="absolute bottom-8 right-8 z-20 hidden sm:flex h-20 w-20 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
+      <div className="absolute bottom-8 right-8 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
+        <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
+          HRDF
+          <br />
+          Registered
+        </span>
+      </div>
+      <div className="absolute bottom-8 right-38 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
         <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
           EST.
           <br />
           1973
         </span>
       </div>
+      <div className="absolute bottom-8 right-68 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
+        <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
+          MOF
+          <br />
+          Registered
+        </span>
+      </div>
 
-      <div className="relative z-20 flex h-full items-center px-8 sm:px-14">
+      <div className="relative z-20 flex h-full items-center px-8 sm:px-14 max-w-7xl mx-auto">
         <div className="max-w-xl" aria-live="polite">
           <p className="mb-3 text-xs tracking-[0.25em] uppercase text-[#D4A24C]">{slide.eyebrow}</p>
           <h2 className="font-serif text-4xl sm:text-5xl italic leading-tight text-[#F3EDE0]">{slide.heading}</h2>
@@ -131,15 +143,13 @@ const HeroSection = () => {
       <button
         onClick={goPrev}
         aria-label="Previous slide"
-        className="absolute left-3 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex"
-      >
+        className="absolute left-3 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
         <ChevronLeft className="h-5 w-5" />
       </button>
       <button
         onClick={goNext}
         aria-label="Next slide"
-        className="absolute right-3 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex"
-      >
+        className="absolute right-3 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
         <ChevronRight className="h-5 w-5" />
       </button>
 

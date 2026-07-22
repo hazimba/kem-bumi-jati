@@ -26,7 +26,6 @@ const NavigationDesktop = ({ isOverlay }: NavigationDesktopProps) => {
 
         <div className="flex items-center gap-4">
           <Button className={cn(isOverlay && "bg-[#D4A24C] text-[#16261C] hover:bg-[#D4A24C]/90")}>Contact Us</Button>
-
           <ModeToggle />
         </div>
       </div>

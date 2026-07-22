@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { NavRender } from "@/components/nav-render";
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,12 +36,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${robotoMono.variable}  h-full antialiased`}
-      suppressHydrationWarning
-    >
+      suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NavRender />
           <>{children}</>
+          <Footer />
           <Toaster />
         </ThemeProvider>
       </body>

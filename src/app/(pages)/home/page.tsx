@@ -1,10 +1,14 @@
-import HeroSection from "@/components/hero-section";
+import HeroSection from "@/app/(pages)/home/hero-section";
+import AboutSection from "./about-us";
+import WhyChooseUs from "./why-choose-us";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="flex flex-col md:gap-38 gap-16">
       <HeroSection />
-      <h1>Welcome to the Home Page</h1>
+      <WhyChooseUs />
+      <AboutSection />
+      {/* <h1>Welcome to the Home Page</h1> */}
     </div>
   );
 };

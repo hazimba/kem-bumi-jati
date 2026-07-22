@@ -12,15 +12,9 @@ const NavigationBar = ({ variant = "solid" }: NavigationBarProps) => {
 
   return (
     <nav className={cn("relative", isOverlay ? "bg-transparent border-b border-white/15" : "border-b bg-background")}>
-      <div className="flex items-center justify-between p-4">
+      <div className="flex items-center justify-between p-4 max-w-7xl mx-auto">
         <div className="flex items-center gap-4">
-          <Image
-            src="https://img.magnific.com/premium-vector/kbj-creative-abstract-letter-initial-symbol-icon-vector-logo-design_1237311-4358.jpg?semt=ais_hybrid&w=740&q=80"
-            alt="Kem Bumi Jati Logo"
-            width={50}
-            height={50}
-            className="rounded-full"
-          />
+          <Image src="/assets/kbj-icon.jpeg" alt="Kem Bumi Jati Logo" width={50} height={50} className="" />
           <div>
             <h1 className={cn("text-lg md:text-xl font-serif", isOverlay && "text-[#F3EDE0]")}>Kem Bumi Jati</h1>
             <p className={cn("text-xs", isOverlay ? "text-[#F3EDE0]/70" : "text-muted-foreground")}>Since 1972</p>

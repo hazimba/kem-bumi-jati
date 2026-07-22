@@ -18,19 +18,19 @@ export const slides = [
   {
     image: "/assets/bg-hero-2.webp",
     tint: "from-[#2F4A37]/85 via-[#16261C]/40 to-transparent",
-    eyebrow: "The Grounds",
-    heading: "Built for adventure, since 1973",
+    eyebrow: "Pusat Latihan Profesional",
+    heading: "Membina Potensi, Melahirkan Kepimpinan",
     description:
-      "Obstacle courses, open fields, dormitories, and a river crossing that's initiated three generations of campers. Every corner of the site still earns its keep.",
+      "Pusat latihan, kem motivasi dan pembangunan insan profesional sejak 1993 di Shah Alam, Selangor. Menyediakan persekitaran latihan yang kondusif, selesa dan lengkap untuk program pembangunan insan, kursus korporat, seminar, bengkel, kem pelajar dan team building.",
     cta: { label: "Explore Facilities", href: "/facility" },
   },
   {
     image: "/assets/bg-hero-3.jpg",
     tint: "from-[#4A3728]/80 via-[#16261C]/40 to-transparent",
-    eyebrow: "The Community",
-    heading: "More than a camp — a tradition",
+    eyebrow: "",
+    heading: "Kem Bumi Jati",
     description:
-      "Alumni send their own kids back. Some of our facilitators first arrived as campers themselves. See what four decades of return visits look like.",
+      "Kem Bumi Jati merupakan pusat latihan dan kem motivasi profesional di bawah pengurusan ZH Warisan Holdings Sdn. Bhd. yang telah beroperasi sejak tahun 1993. Terletak di Shah Alam, Selangor, kami menyediakan persekitaran latihan yang kondusif, selesa dan lengkap untuk program pembangunan insan, kursus korporat, seminar, bengkel, kem pelajar dan team building.",
     cta: { label: "See the Camp", href: "/gallery" },
   },
 ];
