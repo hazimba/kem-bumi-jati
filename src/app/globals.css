@@ -128,3 +128,182 @@
     @apply font-mono;
   }
 }
+
+@keyframes card-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.92) rotate(-2deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.94) rotate(2deg);
+  }
+}
+
+@keyframes fade-up-down {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+}
+
+.reveal-card {
+  animation: card-in-out linear both;
+  animation-timeline: view();
+  animation-range: entry 0% exit 100%;
+}
+
+.reveal-up {
+  animation: fade-up-down linear both;
+  animation-timeline: view();
+  animation-range: entry 0% exit 100%;
+}
+
+/* Fallback for browsers without scroll-timeline support (Safari, Firefox) */
+@supports not (animation-timeline: view()) {
+  .reveal-card,
+  .reveal-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slide-left-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+@keyframes slide-right-left {
+  0% {
+    opacity: 0;
+    transform: translateX(60px) scale(0.96);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(40px) scale(0.96);
+  }
+}
+
+@keyframes pop-in-out {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-8deg);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7) rotate(6deg);
+  }
+}
+
+.reveal-left {
+  animation: slide-left-right linear both;
+  animation-timeline: view();
+  animation-range: entry 0% exit 100%;
+}
+
+.reveal-right {
+  animation: slide-right-left linear both;
+  animation-timeline: view();
+  animation-range: entry 0% exit 100%;
+}
+
+.reveal-pop {
+  animation: pop-in-out linear both;
+  animation-timeline: view();
+  animation-range: entry 20% exit 100%;
+}
+
+/* Fallback for browsers without scroll-timeline support */
+@supports not (animation-timeline: view()) {
+  .reveal-left,
+  .reveal-right,
+  .reveal-pop {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hall-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.85);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+}
+
+.reveal-hall {
+  animation: hall-in-out linear both;
+  animation-timeline: view();
+  animation-range: entry 0% exit 100%;
+}
+
+@supports not (animation-timeline: view()) {
+  .reveal-hall {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

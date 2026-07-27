@@ -1,3 +1,6 @@
+"use client";
+import { cardVariants, containerVariants, iconVariants } from "@/lib/motion";
+import { motion } from "motion/react";
 import { ShieldCheck, Globe, BadgeCheck, Headset, Zap, Moon } from "lucide-react";
 import { Fraunces } from "next/font/google";
 
@@ -51,7 +54,7 @@ const WhyChooseUs = () => {
   return (
     <section className="py-4">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="mb-10 text-center">
+        <div className="mb-10 text-center reveal-up">
           <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium">Bersama Kami</p>
 
           <h2 className={`${fraunces.className} mt-2 text-3xl md:text-4xl font-semibold italic text-foreground`}>
@@ -63,15 +66,17 @@ const WhyChooseUs = () => {
             pengalaman pembelajaran yang bermakna.
           </p>
         </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {ReasonWhyChooseUs.map((item, idx) => (
             <div
               key={idx}
-              className={`group flex items-start gap-4 p-4 rounded-xl transition-all duration-300 border border-transparent ${
+              style={{ animationDelay: `${idx * 80}ms` }}
+              className={`reveal-card group flex items-start gap-4 p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-primary/20 hover:bg-primary/5 hover:shadow-lg hover:-translate-y-1.5 ${
                 item.mobile ? "" : "hidden md:flex"
               }`}>
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors duration-300">
-                <div className="">{item.icon}</div>
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-6">
+                <div>{item.icon}</div>
               </div>
               <div>
                 <h1 className="font-semibold transition-colors italic md:not-italic">{item.title}</h1>
@@ -80,7 +85,8 @@ const WhyChooseUs = () => {
             </div>
           ))}
         </div>
-        <div className="pt-6">
+
+        <div className="pt-6 reveal-up">
           <p className="text-xs md:text-sm text-slate-500 italic">
             Komitmen kami adalah memberikan pengalaman training yang{" "}
             <span className="text-primary font-medium">selamat, bermakna, dan sukar dilupakan.</span>
