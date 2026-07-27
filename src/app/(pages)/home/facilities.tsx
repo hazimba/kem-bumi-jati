@@ -9,11 +9,11 @@ const fraunces = Fraunces({
 });
 
 const halls = [
-  { name: "Dewan Cemerlang", capacity: "300 peserta" },
-  { name: "Dewan Gemilang", capacity: "120 peserta" },
-  { name: "Dewan Bestari", capacity: "80 peserta" },
-  { name: "Dewan Terbilang", capacity: "50 peserta" },
-  { name: "Dewan Mini Hidayah", capacity: "30 peserta" },
+  { name: "Dewan Cemerlang", capacity: "300 pax", mobile: true },
+  { name: "Dewan Gemilang", capacity: "120 pax", mobile: true },
+  { name: "Dewan Bestari", capacity: "80 pax", mobile: true },
+  { name: "Dewan Terbilang", capacity: "50 pax", mobile: true },
+  { name: "Dewan Mini Hidayah", capacity: "30 pax", mobile: false },
 ];
 
 const FacilitiesSection = () => {
@@ -36,7 +36,10 @@ const FacilitiesSection = () => {
             <div
               key={hall.name}
               style={{ animationDelay: `${240 + idx * 100}ms` }}
-              className="reveal-hall group relative rounded-xl border border-[#D4A24C]/30 bg-white/[0.02] px-4 py-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-[#D4A24C]/80 hover:bg-[#D4A24C]/5 hover:shadow-[0_0_25px_-5px_rgba(212,162,76,0.5)]">
+              className={cn(
+                "reveal-hall group relative rounded-xl border border-[#D4A24C]/30 bg-white/[0.02] px-4 py-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-[#D4A24C]/80 hover:bg-[#D4A24C]/5 hover:shadow-[0_0_25px_-5px_rgba(212,162,76,0.5)]",
+                !hall.mobile && "hidden sm:block"
+              )}>
               <p className="font-serif text-sm sm:text-base font-semibold italic text-white">{hall.name}</p>
               <p className="mt-1.5 text-xs sm:text-sm font-medium text-[#D4A24C]">{hall.capacity}</p>
             </div>

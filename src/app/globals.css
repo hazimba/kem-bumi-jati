@@ -253,9 +253,9 @@
 }
 
 .reveal-right {
-  animation: slide-right-left linear both;
+  animation: slide-right-left linear ;
   animation-timeline: view();
-  animation-range: entry 0% exit 100%;
+  /* animation-range: entry 0% exit 20%; */
 }
 
 .reveal-pop {

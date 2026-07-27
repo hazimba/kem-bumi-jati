@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import NavigationBar from "@/components/navigation-bar";
 import { Fraunces } from "next/font/google";
@@ -26,6 +27,19 @@ const HeroSection = () => {
   const [reducedMotion, setReducedMotion] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // 1. Hook into scroll position of the hero container
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  // 2. Map scroll progress (0 to 1) to animation values
+  const textY = useTransform(scrollYProgress, [0, 1], ["0px", "-80px"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  const badgeY = useTransform(scrollYProgress, [0, 1], ["0px", "50px"]);
+  const badgeOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -107,37 +121,47 @@ const HeroSection = () => {
         <NavigationBar variant="overlay" />
       </div>
 
-      <div className="absolute bottom-8 right-8 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
+      {/* Animated Badges */}
+      <motion.div
+        style={{ y: badgeY, opacity: badgeOpacity }}
+        className="absolute bottom-8 right-8 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
         <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
           HRDF
           <br />
           Registered
         </span>
-      </div>
-      <div className="absolute bottom-8 right-38 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
+      </motion.div>
+
+      <motion.div
+        style={{ y: badgeY, opacity: badgeOpacity }}
+        className="absolute bottom-8 right-38 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
         <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
           EST.
           <br />
           1973
         </span>
-      </div>
-      <div className="absolute bottom-8 right-68 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
+      </motion.div>
+
+      <motion.div
+        style={{ y: badgeY, opacity: badgeOpacity }}
+        className="absolute bottom-8 right-68 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
         <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
           MOF
           <br />
           Registered
         </span>
-      </div>
+      </motion.div>
 
+      {/* Animated Hero Content */}
       <div className="relative z-20 flex h-full items-center px-8 sm:px-14 max-w-7xl mx-auto">
-        <div className="max-w-xl" aria-live="polite">
+        <motion.div style={{ y: textY, opacity: textOpacity }} className="max-w-xl" aria-live="polite">
           <p className="mb-3 text-xs tracking-[0.25em] uppercase text-[#D4A24C]">{slide.eyebrow}</p>
           <h2 className="font-serif text-4xl sm:text-5xl italic leading-tight text-[#F3EDE0]">{slide.heading}</h2>
           <p className="mt-5 text-sm sm:text-base leading-relaxed text-[#F3EDE0]/80">{slide.description}</p>
           <Button asChild className="mt-8 bg-[#D4A24C] text-[#16261C] hover:bg-[#D4A24C]/90">
             <Link href={slide.cta.href}>{slide.cta.label}</Link>
           </Button>
-        </div>
+        </motion.div>
       </div>
 
       <button

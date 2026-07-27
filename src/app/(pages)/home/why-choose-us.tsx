@@ -3,6 +3,8 @@ import { cardVariants, containerVariants, iconVariants } from "@/lib/motion";
 import { motion } from "motion/react";
 import { ShieldCheck, Globe, BadgeCheck, Headset, Zap, Moon } from "lucide-react";
 import { Fraunces } from "next/font/google";
+import { ScrambleText } from "@/components/scramble-text";
+import { WhyChooseUsCard } from "@/components/why-choose-us-card";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -69,20 +71,7 @@ const WhyChooseUs = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {ReasonWhyChooseUs.map((item, idx) => (
-            <div
-              key={idx}
-              style={{ animationDelay: `${idx * 80}ms` }}
-              className={`reveal-card group flex items-start gap-4 p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-primary/20 hover:bg-primary/5 hover:shadow-lg hover:-translate-y-1.5 ${
-                item.mobile ? "" : "hidden md:flex"
-              }`}>
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-6">
-                <div>{item.icon}</div>
-              </div>
-              <div>
-                <h1 className="font-semibold transition-colors italic md:not-italic">{item.title}</h1>
-                <h2 className="text-xs md:text-sm text-muted-foreground leading-snug mt-1">{item.description}</h2>
-              </div>
-            </div>
+            <WhyChooseUsCard key={idx} item={item} delay={idx * 80} />
           ))}
         </div>
 

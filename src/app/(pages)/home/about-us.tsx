@@ -41,7 +41,7 @@ const AboutSection = () => {
         </div>
 
         <div className="relative reveal-right">
-          <div className="relative h-80 w-full overflow-hidden rounded-2xl sm:h-[26rem]">
+          <div className="relative h-80 w-9/10 overflow-hidden rounded-2xl sm:h-[26rem]">
             <Image src="/assets/training-center.webp" alt="Campers at Kem Bumi Jati" fill className="object-cover" />
           </div>
 
