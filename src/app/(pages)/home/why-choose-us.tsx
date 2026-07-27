@@ -1,10 +1,7 @@
 "use client";
-import { cardVariants, containerVariants, iconVariants } from "@/lib/motion";
-import { motion } from "motion/react";
-import { ShieldCheck, Globe, BadgeCheck, Headset, Zap, Moon } from "lucide-react";
-import { Fraunces } from "next/font/google";
-import { ScrambleText } from "@/components/scramble-text";
 import { WhyChooseUsCard } from "@/components/why-choose-us-card";
+import { BadgeCheck, Globe, Headset, Moon, ShieldCheck, Zap } from "lucide-react";
+import { Fraunces } from "next/font/google";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
