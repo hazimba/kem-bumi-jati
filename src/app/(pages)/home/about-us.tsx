@@ -11,45 +11,66 @@ const fraunces = Fraunces({
 
 const AboutSection = () => {
   return (
-    <section className={cn(fraunces.variable, "py-20 px-8 sm:px-14")}>
+    // Updated text color slightly for light mode to a more premium near-black.
+    <section className={cn(fraunces.variable, "py-24 px-8 text-[#1A1A1A] sm:px-14 dark:text-[#F3EDE0]")}>
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2">
-        <div className="reveal-left">
-          <p className="text-xs tracking-[0.25em] uppercase text-[#D4A24C]">About Us</p>
-          <h2 className="mt-3 font-serif text-3xl italic leading-tight text-[#16261C] dark:text-[#F3EDE0] sm:text-4xl">
+        {/* TEXT CONTENT (right side on desktop, bottom on mobile) */}
+        {/* Changed order to make image stack on top in mobile */}
+        <div className="order-last md:order-none">
+          <p className="text-xs font-medium tracking-[0.25em] uppercase text-[#D4A24C]">About Us</p>
+          <h2 className="mt-3 font-serif text-4xl italic leading-tight sm:text-5xl" style={{ animationDelay: "80ms" }}>
             More than a campground — a tradition
           </h2>
-          <p className="mt-6 text-sm sm:text-base leading-relaxed text-muted-foreground">
-            Kem ini ditadbir dan diuruskan oleh syarikat ZH Warisan Holding.Sdn.Bhd. Telah siap dibina pada tahun 1993 ini terletak di Batu
-            7, Kampung Jalan Kebun, Seksyen 30, Shah Alam,Selangor. <br /> <br /> Kem ini beroperasi sepenuhnya pada bulan Disember 1993.
-            Kem Bumi Jati merupakan pusat latihan dan kem motivasi profesional di bawah pengurusan ZH Warisan Holdings Sdn. Bhd. yang telah
-            beroperasi sejak tahun 1993. Terletak di Shah Alam, Selangor, kami menyediakan persekitaran latihan yang kondusif, selesa dan
-            lengkap untuk program pembangunan insan, kursus korporat, seminar, bengkel, kem pelajar dan team building.
+          <p className="reveal-up mt-8 text-sm sm:text-base leading-relaxed text-muted-foreground" style={{ animationDelay: "160ms" }}>
+            Kem ini ditadbir dan diuruskan oleh syarikat ZH Warisan Holding Sdn. Bhd. Telah siap dibina pada tahun 1993, ia terletak di Batu
+            7, Kampung Jalan Kebun, Seksyen 30, Shah Alam, Selangor.
+            <br />
+            <br />
+            Kem ini beroperasi sepenuhnya pada bulan Disember 1993. Kem Bumi Jati merupakan pusat latihan dan kem motivasi profesional yang
+            menyediakan persekitaran latihan yang kondusif, selesa dan lengkap untuk program pembangunan insan, kursus korporat, seminar,
+            bengkel, kem pelajar dan team building.
           </p>
-          <div className="mt-8 flex items-center gap-3 border-t pt-6 reveal-up" style={{ animationDelay: "150ms" }}>
+
+          {/* New Footer/Logo Area: More modern and cohesive */}
+          <div
+            className="mt-12 flex items-center gap-4 border-t border-neutral-200/60 pt-8 reveal-up dark:border-neutral-800"
+            style={{ animationDelay: "240ms" }}>
             <Image
               src="https://img.magnific.com/premium-vector/kbj-creative-abstract-letter-initial-symbol-icon-vector-logo-design_1237311-4358.jpg?semt=ais_hybrid&w=740&q=80"
               alt="Kem Bumi Jati Logo"
-              width={36}
-              height={36}
-              className="rounded-full"
+              width={40}
+              height={40}
+              className="rounded-full ring-2 ring-neutral-100 dark:ring-neutral-800"
             />
             <div>
-              <p className="font-serif text-base text-[#16261C] dark:text-[#F3EDE0]">Kem Bumi Jati</p>
-              <p className="text-xs text-muted-foreground">Since 1973</p>
+              <p className="font-serif text-lg font-semibold text-[#1A1A1A] dark:text-[#F3EDE0]">Kem Bumi Jati</p>
+              <p className="text-xs text-neutral-500">Sejak Tahun 1993</p>
             </div>
           </div>
         </div>
 
+        {/* IMAGE CONTENT (left side on desktop, top on mobile) */}
         <div className="relative reveal-right">
-          <div className="relative h-80 w-9/10 overflow-hidden rounded-2xl sm:h-[26rem]">
-            <Image src="/assets/training-center.webp" alt="Campers at Kem Bumi Jati" fill className="object-cover" />
+          {/* Main image container: Made full width with a nicer shadow */}
+          <div className="relative aspect-video w-full overflow-hidden rounded-3xl shadow-xl md:aspect-[5/6] sm:aspect-square">
+            <Image
+              src="https://mishu.my/wp-content/uploads/2026/04/example-of-a-training-centre-in-malaysia-1024x1024.webp"
+              alt="Training center and campers at Kem Bumi Jati"
+              fill
+              className="object-cover"
+            />
           </div>
 
+          {/* Floating 'Counter' Box: Styled more professionally */}
           <div
-            className="absolute md:-bottom-8 -bottom-4 md:-left-8 -left-4 flex h-32 w-32 flex-col items-center justify-center rounded-xl bg-[#D4A24C] text-center shadow-lg sm:h-36 sm:w-36 reveal-pop"
-            style={{ animationDelay: "250ms" }}>
-            <span className="font-serif text-3xl text-[#16261C] sm:text-4xl">30+</span>
-            <span className="mt-1 text-[11px] uppercase tracking-wide text-[#16261C]/80">Pengalaman</span>
+            className="absolute -bottom-6 -left-6 z-10 flex h-36 w-36 flex-col items-center justify-center rounded-2xl bg-[#D4A24C] p-4 text-center shadow-2xl reveal-pop"
+            style={{ animationDelay: "320ms" }}>
+            {/* The years count */}
+            <span className="font-serif text-5xl font-semibold leading-none text-[#16261C]">30+</span>
+            {/* simplified text */}
+            <span className="mt-2 text-xs font-medium uppercase tracking-wide text-[#16261C]/90">
+              Tahun <br /> Pengalaman
+            </span>
           </div>
         </div>
       </div>

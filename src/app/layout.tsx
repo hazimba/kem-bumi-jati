@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Roboto_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { NavRender } from "@/components/nav-render";
 import Footer from "@/components/footer";
@@ -19,6 +19,13 @@ const geistMono = Geist_Mono({
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
   subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
 });
 
 const siteUrl = "https://kembumijati.com";
@@ -101,7 +108,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${robotoMono.variable}  h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${robotoMono.variable} ${fraunces.variable} ${fraunces.className}  h-full antialiased`}
       suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

@@ -20,7 +20,7 @@ export function WhyChooseUsCard({ item, delay }: WhyChooseUsCardProps) {
       className={`reveal-card group flex items-start gap-4 p-4 rounded-xl transition-all duration-300 border border-transparent hover:border-primary/20 hover:bg-primary/5 hover:shadow-lg hover:-translate-y-1.5 ${
         item.mobile ? "" : "hidden md:flex"
       }`}>
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-6">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/90 transition-all duration-300 group-hover:bg-primary/50 group-hover:scale-110 group-hover:rotate-6">
         <div>{item.icon}</div>
       </div>
       <div>

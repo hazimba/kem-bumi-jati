@@ -24,7 +24,7 @@ const FacilitiesSection = () => {
       <div className="relative mx-auto max-w-6xl text-center">
         <p className="reveal-up text-xs tracking-[0.3em] uppercase text-[#D4A24C] font-semibold">Fasiliti</p>
         <h2 className="reveal-up mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white" style={{ animationDelay: "80ms" }}>
-          Kemudahan Lengkap Untuk Setiap Program
+          <span className="text-primary">Kemudahan Lengkap</span> Untuk Setiap Program
         </h2>
         <p
           className="reveal-up mx-auto mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-300"

@@ -1,14 +1,6 @@
 "use client";
 import { WhyChooseUsCard } from "@/components/why-choose-us-card";
 import { BadgeCheck, Globe, Headset, Moon, ShieldCheck, Zap } from "lucide-react";
-import { Fraunces } from "next/font/google";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
-});
 
 const WhyChooseUs = () => {
   const ReasonWhyChooseUs = [
@@ -53,14 +45,14 @@ const WhyChooseUs = () => {
   return (
     <section className="py-4">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="mb-10 text-center reveal-up">
-          <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium">Bersama Kami</p>
+        <div className="mb-10 text-center">
+          <p className="text-sm uppercase tracking-[0.3em] text-secondary font-medium">Bersama Kami</p>
 
-          <h2 className={`${fraunces.className} mt-2 text-3xl md:text-4xl font-semibold italic text-foreground`}>
-            Langkah Anda Bermula Di Sini
+          <h2 className={`font-fraunces mt-2 text-3xl md:text-4xl font-semibold italic text-foreground`}>
+            Langkah Anda <span className="text-primary">Bermula</span> Di Sini
           </h2>
 
-          <p className="mx-auto mt-4 max-w-7xl text-sm md:text-base text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-7xl text-sm md:text-base text-muted-foreground ">
             Kami percaya setiap peserta mempunyai potensi untuk berkembang melalui latihan yang berkualiti, bimbingan profesional, dan
             pengalaman pembelajaran yang bermakna.
           </p>
@@ -75,7 +67,7 @@ const WhyChooseUs = () => {
         <div className="pt-6 reveal-up">
           <p className="text-xs md:text-sm text-slate-500 italic">
             Komitmen kami adalah memberikan pengalaman training yang{" "}
-            <span className="text-primary font-medium">selamat, bermakna, dan sukar dilupakan.</span>
+            <span className="text-secondary font-medium">selamat, bermakna, dan sukar dilupakan.</span>
           </p>
         </div>
       </div>
