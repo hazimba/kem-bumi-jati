@@ -2,16 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Fraunces } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
-});
 
 const packages = [
   {
@@ -65,7 +57,7 @@ const PricingSection = () => {
   const [earlyBird, setEarlyBird] = useState(true);
 
   return (
-    <section className={cn(fraunces.variable, "bg-[#FBEFD8] py-20 px-6 sm:px-14")}>
+    <section className="fraunces bg-[#FBEFD8] py-20 px-6 sm:px-14">
       <div className="mx-auto max-w-6xl text-center">
         <p className="reveal-up text-xs tracking-[0.3em] uppercase text-[#D4A24C] font-semibold">Pakej Program</p>
 
