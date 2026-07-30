@@ -15,7 +15,7 @@ const packages = [
     features: ["Guna dewan latihan asas", "PA System & LCD projector", "1 sesi program (4 jam)", "Air mineral disediakan"],
     cta: "Pilih Pakej Asas",
     image: "https://mishu.my/wp-content/uploads/2026/04/example-of-a-training-centre-in-malaysia-1024x1024.webp",
-    recommended: false,
+    recommended: true,
   },
   {
     name: "Pakej Standard",
@@ -57,7 +57,7 @@ const PricingSection = () => {
   const [earlyBird, setEarlyBird] = useState(true);
 
   return (
-    <section className="fraunces bg-[#FBEFD8] py-20 px-6 sm:px-14">
+    <section className="fraunces bg-tertiary py-20 px-6 sm:px-14">
       <div className="mx-auto max-w-6xl text-center">
         <p className="reveal-up text-xs tracking-[0.3em] uppercase text-[#D4A24C] font-semibold">Pakej Program</p>
 
@@ -117,7 +117,7 @@ const PricingSection = () => {
                 key={pkg.name}
                 style={{ animationDelay: `${280 + idx * 140}ms` }}
                 className={cn(
-                  "reveal-pricing-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border bg-white text-left transition-shadow duration-300",
+                  "relative flex flex-col justify-between overflow-hidden rounded-2xl border bg-white text-left transition-shadow duration-300",
                   "w-[85%] sm:w-[320px] snap-center shrink-0 md:w-auto md:shrink md:snap-none",
                   pkg.recommended ? "border-[#D4A24C] card-glow" : "border-neutral-200 hover:shadow-xl"
                 )}>

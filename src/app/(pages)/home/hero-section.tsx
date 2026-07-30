@@ -158,7 +158,7 @@ const HeroSection = () => {
           <p className="mb-3 text-xs tracking-[0.25em] uppercase text-[#D4A24C]">{slide.eyebrow}</p>
           <h2 className="font-serif text-4xl sm:text-5xl italic leading-tight text-[#F3EDE0]">{slide.heading}</h2>
           <p className="mt-5 text-sm sm:text-base leading-relaxed text-[#F3EDE0]/80">{slide.description}</p>
-          <Button asChild className="mt-8 bg-[#D4A24C] text-[#16261C] hover:bg-[#D4A24C]/90">
+          <Button asChild className="mt-8 bg-secondary text-primary py-4 px-6 border-[primary] border hover:bg-[#D4A24C]/90">
             <Link href={slide.cta.href}>{slide.cta.label}</Link>
           </Button>
         </motion.div>

@@ -21,7 +21,7 @@ export function WhyChooseUsCard({ item, delay }: WhyChooseUsCardProps) {
         item.mobile ? "" : "hidden md:flex"
       }`}>
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/90 transition-all duration-300 group-hover:bg-primary/50 group-hover:scale-110 group-hover:rotate-6">
-        <div>{item.icon}</div>
+        <div className="text-brand-dark dark:text-brand">{item.icon}</div>
       </div>
       <div>
         <ScrambleText ref={scrambleRef} as="h1" text={item.title} className="font-semibold italic md:not-italic" />

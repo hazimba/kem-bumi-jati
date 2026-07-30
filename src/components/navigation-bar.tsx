@@ -16,8 +16,8 @@ const NavigationBar = ({ variant = "solid" }: NavigationBarProps) => {
         <div className="flex items-center gap-4">
           <Image src="/assets/kbj-icon.jpeg" alt="Kem Bumi Jati Logo" width={50} height={50} className="" />
           <div>
-            <h1 className={cn("text-lg md:text-xl font-serif", isOverlay && "text-[#F3EDE0]")}>Kem Bumi Jati</h1>
-            <p className={cn("text-xs", isOverlay ? "text-[#F3EDE0]/70" : "text-muted-foreground")}>Since 1972</p>
+            <h1 className={cn("text-lg md:text-xl font-serif", isOverlay && "text-secondary")}>Kem Bumi Jati</h1>
+            <p className={cn("text-md", isOverlay ? "text-secondary/70" : "text-muted-foreground")}>Since 1972</p>
           </div>
         </div>
         <NavigationDesktop isOverlay={isOverlay} />
