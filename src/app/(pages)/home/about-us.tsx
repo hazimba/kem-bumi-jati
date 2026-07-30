@@ -12,16 +12,14 @@ const fraunces = Fraunces({
 const AboutSection = () => {
   return (
     // Updated text color slightly for light mode to a more premium near-black.
-    <section className={cn(fraunces.variable, "py-24 px-8 text-[#1A1A1A] sm:px-14 dark:text-[#F3EDE0]")}>
+    <section className={cn(fraunces.variable, " px-8 text-[#1A1A1A] sm:px-14 dark:text-[#F3EDE0]")}>
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2">
-        {/* TEXT CONTENT (right side on desktop, bottom on mobile) */}
-        {/* Changed order to make image stack on top in mobile */}
-        <div className="order-last md:order-none">
+        <div className="">
           <p className="text-xs font-medium tracking-[0.25em] uppercase text-[#D4A24C]">About Us</p>
           <h2 className="mt-3 font-serif text-4xl italic leading-tight sm:text-5xl" style={{ animationDelay: "80ms" }}>
             More than a campground — a tradition
           </h2>
-          <p className="reveal-up mt-8 text-sm sm:text-base leading-relaxed text-muted-foreground" style={{ animationDelay: "160ms" }}>
+          <p className="mt-8 text-sm sm:text-base leading-relaxed text-muted-foreground" style={{ animationDelay: "160ms" }}>
             Kem ini ditadbir dan diuruskan oleh syarikat ZH Warisan Holding Sdn. Bhd. Telah siap dibina pada tahun 1993, ia terletak di Batu
             7, Kampung Jalan Kebun, Seksyen 30, Shah Alam, Selangor.
             <br />
@@ -61,14 +59,13 @@ const AboutSection = () => {
             />
           </div>
 
-          {/* Floating 'Counter' Box: Styled more professionally */}
           <div
-            className="absolute -bottom-6 -left-6 z-10 flex h-36 w-36 flex-col items-center justify-center rounded-2xl bg-[#D4A24C] p-4 text-center shadow-2xl reveal-pop"
+            className="absolute -bottom-6 -left-4 md:-left-8 z-10 flex h-36 w-36 flex-col items-center justify-center rounded-2xl bg-brand p-4 text-center shadow-2xl reveal-pop"
             style={{ animationDelay: "320ms" }}>
             {/* The years count */}
-            <span className="font-serif text-5xl font-semibold leading-none text-[#16261C]">30+</span>
+            <span className="font-serif text-5xl font-semibold leading-none text-brand-dark">30+</span>
             {/* simplified text */}
-            <span className="mt-2 text-xs font-medium uppercase tracking-wide text-[#16261C]/90">
+            <span className="mt-2 text-xs font-medium uppercase tracking-wide text-brand-dark/90">
               Tahun <br /> Pengalaman
             </span>
           </div>

@@ -123,7 +123,7 @@ const HeroSection = () => {
 
       {/* Animated Badges */}
       <motion.div
-        style={{ y: badgeY, opacity: badgeOpacity }}
+        // style={{ y: badgeY, opacity: badgeOpacity }}
         className="absolute bottom-8 right-8 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
         <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
           HRDF
@@ -133,7 +133,7 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div
-        style={{ y: badgeY, opacity: badgeOpacity }}
+        // style={{ y: badgeY, opacity: badgeOpacity }}
         className="absolute bottom-8 right-38 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
         <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
           EST.
@@ -143,7 +143,7 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div
-        style={{ y: badgeY, opacity: badgeOpacity }}
+        // style={{ y: badgeY, opacity: badgeOpacity }}
         className="absolute bottom-8 right-68 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
         <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
           MOF

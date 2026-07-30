@@ -9,13 +9,13 @@ const packages = [
   {
     name: "Pakej Asas",
     normalPrice: 15,
-    earlyPrice: 15,
+    earlyPrice: 13,
     unit: "/peserta",
     note: "Program setengah hari (4 jam)",
     features: ["Guna dewan latihan asas", "PA System & LCD projector", "1 sesi program (4 jam)", "Air mineral disediakan"],
     cta: "Pilih Pakej Asas",
     image: "https://mishu.my/wp-content/uploads/2026/04/example-of-a-training-centre-in-malaysia-1024x1024.webp",
-    recommended: true,
+    recommended: false,
   },
   {
     name: "Pakej Standard",
@@ -62,7 +62,7 @@ const PricingSection = () => {
         <p className="reveal-up text-xs tracking-[0.3em] uppercase text-[#D4A24C] font-semibold">Pakej Program</p>
 
         <h2
-          className="reveal-up mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A1A1A]"
+          className="reveal-up mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark italic"
           style={{ animationDelay: "80ms" }}>
           Pilih Pakej Latihan Anda
         </h2>
@@ -76,14 +76,14 @@ const PricingSection = () => {
         {/* Toggle */}
         <div className="mt-10 flex flex-col items-center gap-3" style={{ animationDelay: "220ms" }}>
           <div className="flex items-center gap-4">
-            <span className={cn("text-sm font-medium transition-colors", !earlyBird ? "text-[#1A1A1A]" : "text-neutral-400")}>
+            <span className={cn("text-sm font-medium transition-colors", !earlyBird ? "text-brand-dark italic" : "text-neutral-400")}>
               Harga Normal
             </span>
 
             <div className="relative">
               <button
                 onClick={() => setEarlyBird((v) => !v)}
-                className="relative h-7 w-14 rounded-full bg-[#D4A24C] transition-colors duration-300"
+                className="relative h-7 w-14 rounded-full bg-secondary transition-colors duration-300"
                 aria-label="Toggle early bird pricing">
                 <span
                   className={cn(
@@ -94,7 +94,7 @@ const PricingSection = () => {
               </button>
             </div>
 
-            <span className={cn("text-sm font-medium transition-colors", earlyBird ? "text-[#1A1A1A]" : "text-neutral-400")}>
+            <span className={cn("text-sm font-medium transition-colors", earlyBird ? "text-brand-dark italic" : "text-neutral-400")}>
               Tempahan Awal
             </span>
           </div>
@@ -132,12 +132,12 @@ const PricingSection = () => {
                 <div className={cn("flex flex-col flex-1 justify-between p-6", pkg.recommended ? "pt-12" : "pt-6")}>
                   <div>
                     <div className="flex items-start justify-between">
-                      <p className="font-serif text-lg font-semibold uppercase tracking-wide text-[#1A1A1A]">{pkg.name}</p>
+                      <p className="font-serif text-lg font-semibold uppercase tracking-wide text-brand-dark italic">{pkg.name}</p>
                       {saved > 0 && earlyBird && <p className="text-xs italic text-neutral-500">Jimat RM{saved}</p>}
                     </div>
 
                     <div className="mt-4 flex items-baseline gap-1">
-                      <span className="font-serif text-4xl font-bold text-[#1A1A1A]">RM{price}</span>
+                      <span className="font-serif text-4xl font-bold text-brand-dark italic">RM{price}</span>
                       <span className="text-sm text-neutral-500">{pkg.unit}</span>
                     </div>
 
@@ -165,7 +165,7 @@ const PricingSection = () => {
                         "w-full rounded-lg border py-2.5 text-sm font-semibold transition-all duration-300",
                         pkg.recommended
                           ? "border-[#1A1A1A] bg-[#1A1A1A] text-white hover:bg-[#333]"
-                          : "border-neutral-300 text-[#1A1A1A] hover:border-[#D4A24C] hover:bg-[#D4A24C]/5"
+                          : "border-neutral-300 text-brand-dark italic hover:border-[#D4A24C] hover:bg-[#D4A24C]/5"
                       )}>
                       {pkg.cta}
                     </button>
