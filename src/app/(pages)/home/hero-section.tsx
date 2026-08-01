@@ -121,7 +121,6 @@ const HeroSection = () => {
         <NavigationBar variant="overlay" />
       </div>
 
-      {/* Animated Badges */}
       <motion.div
         // style={{ y: badgeY, opacity: badgeOpacity }}
         className="absolute bottom-8 right-8 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
@@ -152,7 +151,6 @@ const HeroSection = () => {
         </span>
       </motion.div>
 
-      {/* Animated Hero Content */}
       <div className="relative z-20 flex h-full items-center px-8 sm:px-14 max-w-7xl mx-auto">
         <motion.div style={{ y: textY, opacity: textOpacity }} className="max-w-xl" aria-live="polite">
           <p className="mb-3 text-xs tracking-[0.25em] uppercase text-[#D4A24C]">{slide.eyebrow}</p>
@@ -167,13 +165,13 @@ const HeroSection = () => {
       <button
         onClick={goPrev}
         aria-label="Previous slide"
-        className="absolute left-3 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
+        className="absolute left-40 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
         <ChevronLeft className="h-5 w-5" />
       </button>
       <button
         onClick={goNext}
         aria-label="Next slide"
-        className="absolute right-3 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
+        className="absolute right-40 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
         <ChevronRight className="h-5 w-5" />
       </button>
 

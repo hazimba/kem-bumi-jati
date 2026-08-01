@@ -13,7 +13,7 @@ const AboutSection = () => {
   return (
     // Updated text color slightly for light mode to a more premium near-black.
     <section className={cn(fraunces.variable, " px-8 text-[#1A1A1A] sm:px-14 dark:text-[#F3EDE0]")}>
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2 py-20 md:py-0">
         <div className="">
           <p className="text-xs font-medium tracking-[0.25em] uppercase text-[#D4A24C]">About Us</p>
           <h2 className="mt-3 font-serif text-4xl italic leading-tight sm:text-5xl" style={{ animationDelay: "80ms" }}>

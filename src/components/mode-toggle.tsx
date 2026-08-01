@@ -17,7 +17,7 @@ export function ModeToggle() {
         <Button
           variant="outline"
           size="icon"
-          className="cursor-pointer text-brand-dark dark:text-brand-light border-[secondary] hover:bg-secondary/10 hover:text-secondary"
+          className="cursor-pointer text-brand-dark bg-brand-light dark:text-brand-light border-[secondary] hover:bg-secondary/40 hover:text-primary"
           onClick={() => {
             const nextTheme = currentTheme === "light" ? "dark" : "light";
             setCurrentTheme(nextTheme);

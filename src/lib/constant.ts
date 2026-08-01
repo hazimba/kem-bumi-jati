@@ -13,7 +13,7 @@ export const slides = [
     heading: "Where every generation finds its ground",
     description:
       "Fifty years of school camps, scouting weeks, and family retreats under the same canopy. Bumi Jati is still teaching people to read a trail, pitch a tent, and slow down.",
-    cta: { label: "Plan Your Stay", href: "/contact" },
+    cta: { label: "Plan Your Stay", href: "/activity" },
   },
   {
     image: "/assets/bg-hero-2.webp",

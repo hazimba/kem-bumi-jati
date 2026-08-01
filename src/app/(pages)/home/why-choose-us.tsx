@@ -1,5 +1,6 @@
 "use client";
 import { WhyChooseUsCard } from "@/components/why-choose-us-card";
+import { WhyChooseHeading } from "@/components/why-choose-us-heading";
 import { BadgeCheck, Globe, Headset, Moon, ShieldCheck, Zap } from "lucide-react";
 
 const WhyChooseUs = () => {
@@ -48,9 +49,7 @@ const WhyChooseUs = () => {
         <div className="mb-10 text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-brand dark:text-brand-light font-medium">Bersama Kami</p>
 
-          <h2 className={`font-fraunces mt-2 text-3xl md:text-4xl font-semibold italic text-foreground`}>
-            Langkah Anda <span className="text-primary underline">Bermula</span> Di Sini
-          </h2>
+          <WhyChooseHeading />
 
           <p className="mx-auto mt-4 max-w-7xl text-sm md:text-base text-muted-foreground ">
             Kami percaya setiap peserta mempunyai potensi untuk berkembang melalui latihan yang berkualiti, bimbingan profesional, dan

@@ -44,7 +44,7 @@ const NavigationMobile = ({ isOverlay }: NavigationMobileProps) => {
           <div className="flex h-full flex-col">
             <div className="border-b p-6">
               <h2 className="font-serif text-2xl">Kem Bumi Jati</h2>
-              <p className="mt-1 text-sm text-muted-foreground">Since 1972 · Nature Camp</p>
+              <p className="mt-1 text-sm text-muted-foreground">Since 1993 · Nature Camp</p>
             </div>
 
             <nav className="flex-1 py-8">

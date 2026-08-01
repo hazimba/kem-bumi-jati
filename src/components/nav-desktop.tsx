@@ -18,7 +18,7 @@ const NavigationDesktop = ({ isOverlay }: NavigationDesktopProps) => {
       <div className="hidden md:flex items-center gap-12">
         <div className="flex items-center gap-6 text-sm text-[#16261C]">
           {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className={linkClass}>
+            <Link key={link.href} href={link.href} className={linkClass} prefetch={false}>
               {link.label}
             </Link>
           ))}

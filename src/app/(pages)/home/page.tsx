@@ -4,7 +4,12 @@ import WhyChooseUs from "./why-choose-us";
 import FacilitiesSection from "./facilities";
 import PricingSection from "./packages";
 
-const HomePage = () => {
+async function getHomeData() {
+  await new Promise((resolve) => setTimeout(resolve, 500));
+}
+
+const HomePage = async () => {
+  await getHomeData();
   return (
     <div className="flex flex-col md:gap-38 gap-16">
       <HeroSection />

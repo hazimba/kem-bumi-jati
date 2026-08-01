@@ -21,7 +21,7 @@ const FacilitiesSection = () => {
     <section
       className={cn(fraunces.variable, "relative overflow-hidden bg-[#272635] py-20 h-1/2 px-6 sm:px-14 flex flex-col justify-center")}>
       <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#D4A24C]/10 blur-3xl" />
-      <div className="relative mx-auto max-w-6xl text-center">
+      <div className="relative mx-auto max-w-6xl text-center py-20 md:py-10">
         <p className="reveal-up text-xs tracking-[0.3em] uppercase text-[#D4A24C] font-semibold">Fasiliti</p>
         <h2 className="reveal-up mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white" style={{ animationDelay: "80ms" }}>
           <span className="text-primary">Kemudahan Lengkap</span> Untuk Setiap Program
