@@ -44,7 +44,7 @@ export function LocationMap() {
       zoom={15}
       scrollWheelZoom={false}
       dragging={!L.Browser.mobile} // Enables smooth 1-finger scrolling past the map on mobile
-      tap={false}
+      // tap={false}
       className="h-full w-full z-0"
       style={{ background: "#f5f5f0" }}>
       <MapResizeHandler />
