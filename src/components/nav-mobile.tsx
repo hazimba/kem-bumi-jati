@@ -36,7 +36,7 @@ const NavigationMobile = ({ isOverlay }: NavigationMobileProps) => {
             size="icon"
             aria-label="Toggle menu"
             className={cn(isOverlay && "text-[#F3EDE0] hover:bg-white/10 hover:text-[#F3EDE0]")}>
-            <Menu className="!h-7 !w-7 !text-brand-dark dark:!text-brand-light" />
+            <Menu className={`!h-7 !w-7 ${isOverlay ? "!text-brand-dark" : "text-brand-dark dark:!text-brand-light"}`} />
           </Button>
         </SheetTrigger>
 

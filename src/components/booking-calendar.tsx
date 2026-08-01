@@ -24,7 +24,11 @@ function getDatesBetween(from: Date, to: Date) {
 }
 
 export function BookingCalendar() {
-  const [range, setRange] = useState<DateRange | undefined>(undefined);
+  const dateNow = new Date();
+  const [range, setRange] = useState<DateRange | undefined>({
+    from: new Date(dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDate()),
+    to: new Date(dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDate()),
+  });
 
   const isUnavailable = (day: Date) => UNAVAILABLE_DATES.some((d) => isSameDay(d, day));
 
@@ -74,7 +78,7 @@ export function BookingCalendar() {
         ) : (
           <p
             className={cn(
-              "text-center text-sm text-brand-dark dark:text-brand-light transition-all duration-300",
+              "text-center text-sm text-brand-dark dark:text-brand-dark transition-all duration-300",
               range?.from ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-1 opacity-0"
             )}>
             {range?.from && !range?.to && (
