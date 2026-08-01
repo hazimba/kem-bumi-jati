@@ -26,12 +26,7 @@ const Footer = () => {
               Selangor
             </p>
             <div className="flex space-x-4 pt-2">
-              <Link
-                prefetch={false}
-                href="https://www.facebook.com/TMToursTravel"
-                target="_blank"
-                key={"facebook"}
-                rel="noopener noreferrer">
+              <Link prefetch={false} href="https://www.facebook.com/kembumijati" target="_blank" key={"facebook"} rel="noopener noreferrer">
                 <span className="sr-only">Facebook</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +44,7 @@ const Footer = () => {
               </Link>
               <Link
                 prefetch={false}
-                href="https://www.instagram.com/TMToursTravel"
+                href="https://www.instagram.com/kem_bumi_jati"
                 target="_blank"
                 key={"instagram"}
                 rel="noopener noreferrer">
@@ -69,7 +64,12 @@ const Footer = () => {
                   <path d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37m1.5-4.87h.01" />
                 </svg>
               </Link>
-              <Link prefetch={false} key="whatsapp" href="https://wa.me/60176037054" target="_blank" rel="noopener noreferrer">
+              <Link
+                prefetch={false}
+                key="whatsapp"
+                href="https://wa.me/+601114615206?text=Hi%20Kem%20Bumi%20Jati%2C%20saya%20ingin%20mendapatkan%20maklumat%20mengenai%20pakej%20program%20anda."
+                target="_blank"
+                rel="noopener noreferrer">
                 <span className="sr-only">WhatsApp</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

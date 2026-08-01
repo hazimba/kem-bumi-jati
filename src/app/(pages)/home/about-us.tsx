@@ -54,7 +54,7 @@ const AboutSection = () => {
           </p>
           <div className="flex flex-col px-0 pt-10">
             <Link prefetch={false} href="/about-us" className="flex items-center gap-2 font-medium h-12">
-              <Button variant="link" size="lg" className="!px-0 hover:text-black cursor-pointer !text-brand-dark">
+              <Button variant="link" size="lg" className="!px-0 hover:text-black cursor-pointer !text-brand-dark dark:!text-[#F3EDE0]">
                 Learn More About Us <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>

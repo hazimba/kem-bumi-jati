@@ -21,14 +21,14 @@ interface LocationSectionProps {
 
 const LocationSection = ({ showContactDetails = false, className }: LocationSectionProps) => {
   return (
-    <section className={cn(fraunces.variable, "relative overflow-hidden bg-white", className)}>
+    <section className={cn(fraunces.variable, "relative overflow-hidden", className)}>
       <div className="pointer-events-none absolute left-1/2 top-0 w-72 -translate-x-1/2 rounded-full bg-brand/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl px-6 pb-10 text-center sm:px-14">
         <p className="reveal-wipe text-xs tracking-[0.3em] uppercase text-[#D4A24C] font-semibold">Lokasi</p>
 
         <h2
-          className="reveal-wipe mt-3 font-fraunces text-3xl sm:text-4xl md:text-5xl text-brand-dark mt-3 font-serif text-4xl italic leading-tight sm:text-5xl"
+          className="reveal-wipe mt-3 font-fraunces text-3xl sm:text-4xl md:text-5xl text-brand-dark dark:text-brand-light mt-3 font-serif text-4xl italic leading-tight sm:text-5xl"
           style={{ animationDelay: "80ms" }}>
           Lokasi Strategik Di Shah Alam
         </h2>

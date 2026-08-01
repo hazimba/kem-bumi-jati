@@ -513,3 +513,20 @@
 .leaflet-control {
   z-index: 1 !important;
 }
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.92) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+.reveal-card {
+  animation: card-in linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}

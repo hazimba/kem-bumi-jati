@@ -4,6 +4,7 @@ import WhyChooseUs from "./why-choose-us";
 import FacilitiesSection from "./facilities";
 import PricingSection from "./packages";
 import LocationSection from "@/components/location";
+import BookingCtaSection from "./booking-cta";
 
 async function getHomeData() {
   await new Promise((resolve) => setTimeout(resolve, 500));
@@ -19,6 +20,7 @@ const HomePage = async () => {
       <AboutSection />
       <PricingSection />
       <LocationSection />
+      <BookingCtaSection />
     </div>
   );
 };

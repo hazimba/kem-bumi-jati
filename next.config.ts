@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.plmgrp.com",
       },
+      {
+        protocol: "https",
+        hostname: "infinity.edu.my",
+      },
     ],
   },
 };
