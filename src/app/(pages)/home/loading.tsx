@@ -13,7 +13,7 @@ export default function Loading() {
         </div>
 
         {/* Loading Text */}
-        <div className="flex items-center text-sm font-semibold tracking-widest text-[#16261C] dark:text-[#F3EDE0] sm:text-base">
+        <div className="flex items-center text-sm font-semibold tracking-widest text-[#16261C] sm:text-base">
           <span className="uppercase">Your Next Training Center</span>
           <span className="ml-1 inline-flex">
             <span className="animate-bounce [animation-delay:0ms]">.</span>

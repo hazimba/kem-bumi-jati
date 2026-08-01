@@ -6,6 +6,7 @@ import "./globals.css";
 import { NavRender } from "@/components/nav-render";
 import Footer from "@/components/footer";
 import PageLoader from "@/components/page-loader";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -114,7 +115,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NavRender />
-          <PageLoader />
+          <Suspense fallback={null}>
+            <PageLoader />
+          </Suspense>
           <>{children}</>
           <Footer />
           <Toaster />
