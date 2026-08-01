@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { Fraunces } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -11,15 +14,36 @@ const fraunces = Fraunces({
 
 const AboutSection = () => {
   return (
-    // Updated text color slightly for light mode to a more premium near-black.
-    <section className={cn(fraunces.variable, " px-8 text-[#1A1A1A] sm:px-14 dark:text-[#F3EDE0]")}>
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2 py-20 md:py-0">
-        <div className="">
+    <section className={cn(fraunces.variable, "px-8 text-[#1A1A1A] sm:px-14 dark:text-[#F3EDE0]")}>
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2 py-6 md:py-0">
+        {/* IMAGE CONTAINER: Shows FIRST on mobile, SECOND (right side) on desktop */}
+        <div className="relative reveal-right order-first md:order-last">
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-xl md:aspect-[5/6] sm:aspect-square">
+            <Image
+              src="https://mishu.my/wp-content/uploads/2026/04/example-of-a-training-centre-in-malaysia-1024x1024.webp"
+              alt="Training center and campers at Kem Bumi Jati"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          <div
+            className="absolute -bottom-6 -left-4 md:-left-8 z-10 flex md:h-36 md:w-36 flex-col items-center justify-center rounded-xl bg-brand p-4 text-center shadow-2xl reveal-pop"
+            style={{ animationDelay: "320ms" }}>
+            <span className="font-serif md:text-4xl text-3xl font-semibold leading-none text-brand-dark">30+</span>
+            <span className="mt-2 text-xs font-medium uppercase tracking-wide text-brand-dark/90">
+              Tahun <br /> Pengalaman
+            </span>
+          </div>
+        </div>
+
+        {/* TEXT CONTENT: Shows SECOND on mobile, FIRST (left side) on desktop */}
+        <div className="order-last md:order-first">
           <p className="text-xs font-medium tracking-[0.25em] uppercase text-[#D4A24C]">About Us</p>
           <h2 className="mt-3 font-serif text-4xl italic leading-tight sm:text-5xl" style={{ animationDelay: "80ms" }}>
             More than a campground — a tradition
           </h2>
-          <p className="mt-8 text-sm sm:text-base leading-relaxed text-muted-foreground" style={{ animationDelay: "160ms" }}>
+          <p className="mt-8 text-sm sm:text-sm leading-relaxed text-muted-foreground" style={{ animationDelay: "160ms" }}>
             Kem ini ditadbir dan diuruskan oleh syarikat ZH Warisan Holding Sdn. Bhd. Telah siap dibina pada tahun 1993, ia terletak di Batu
             7, Kampung Jalan Kebun, Seksyen 30, Shah Alam, Selangor.
             <br />
@@ -28,8 +52,13 @@ const AboutSection = () => {
             menyediakan persekitaran latihan yang kondusif, selesa dan lengkap untuk program pembangunan insan, kursus korporat, seminar,
             bengkel, kem pelajar dan team building.
           </p>
-
-          {/* New Footer/Logo Area: More modern and cohesive */}
+          <div className="flex flex-col px-0 pt-10">
+            <Link prefetch={false} href="/about-us" className="flex items-center gap-2 font-medium h-12">
+              <Button variant="link" size="lg" className="!px-0 hover:text-black cursor-pointer !text-brand-dark">
+                Learn More About Us <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
           <div
             className="mt-12 flex items-center gap-4 border-t border-neutral-200/60 pt-8 reveal-up dark:border-neutral-800"
             style={{ animationDelay: "240ms" }}>
@@ -44,30 +73,6 @@ const AboutSection = () => {
               <p className="font-serif text-lg font-semibold text-[#1A1A1A] dark:text-[#F3EDE0]">Kem Bumi Jati</p>
               <p className="text-xs text-neutral-500">Sejak Tahun 1993</p>
             </div>
-          </div>
-        </div>
-
-        {/* IMAGE CONTENT (left side on desktop, top on mobile) */}
-        <div className="relative reveal-right">
-          {/* Main image container: Made full width with a nicer shadow */}
-          <div className="relative aspect-video w-full overflow-hidden rounded-3xl shadow-xl md:aspect-[5/6] sm:aspect-square">
-            <Image
-              src="https://mishu.my/wp-content/uploads/2026/04/example-of-a-training-centre-in-malaysia-1024x1024.webp"
-              alt="Training center and campers at Kem Bumi Jati"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          <div
-            className="absolute -bottom-6 -left-4 md:-left-8 z-10 flex h-36 w-36 flex-col items-center justify-center rounded-2xl bg-brand p-4 text-center shadow-2xl reveal-pop"
-            style={{ animationDelay: "320ms" }}>
-            {/* The years count */}
-            <span className="font-serif text-5xl font-semibold leading-none text-brand-dark">30+</span>
-            {/* simplified text */}
-            <span className="mt-2 text-xs font-medium uppercase tracking-wide text-brand-dark/90">
-              Tahun <br /> Pengalaman
-            </span>
           </div>
         </div>
       </div>

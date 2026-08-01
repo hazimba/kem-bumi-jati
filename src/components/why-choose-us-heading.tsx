@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { ScrambleText, type ScrambleTextHandle } from "./scramble-text";
 
 export function WhyChooseHeading() {
+  const scrambleRefFirst = useRef<ScrambleTextHandle>(null);
   const scrambleRef = useRef<ScrambleTextHandle>(null);
   const sectionRef = useRef<HTMLHeadingElement>(null);
   const hasRunRef = useRef(false);
@@ -21,13 +22,14 @@ export function WhyChooseHeading() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasRunRef.current) {
             hasRunRef.current = true;
+            scrambleRefFirst.current?.scramble();
             scrambleRef.current?.scramble();
             observer.disconnect(); // only ever fire once
           }
         });
       },
       {
-        threshold: 0.6, // fires once heading is 60% visible
+        threshold: 1, // fires once heading is 60% visible
       }
     );
 
@@ -38,7 +40,8 @@ export function WhyChooseHeading() {
 
   return (
     <h2 ref={sectionRef} className="font-fraunces mt-2 text-3xl md:text-4xl font-semibold italic text-foreground">
-      Langkah Anda <ScrambleText ref={scrambleRef} as="span" text="Bermula" className="text-primary underline" /> Di Sini
+      <ScrambleText ref={scrambleRefFirst} as="span" text="Langkah Anda" />{" "}
+      <ScrambleText ref={scrambleRef} as="span" text="Bermula" className="text-primary underline" /> Di Sini
     </h2>
   );
 }

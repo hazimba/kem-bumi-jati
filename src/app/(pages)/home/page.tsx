@@ -3,6 +3,7 @@ import AboutSection from "./about-us";
 import WhyChooseUs from "./why-choose-us";
 import FacilitiesSection from "./facilities";
 import PricingSection from "./packages";
+import LocationSection from "@/components/location";
 
 async function getHomeData() {
   await new Promise((resolve) => setTimeout(resolve, 500));
@@ -17,7 +18,7 @@ const HomePage = async () => {
       <FacilitiesSection />
       <AboutSection />
       <PricingSection />
-      {/* <h1>Welcome to the Home Page</h1> */}
+      <LocationSection />
     </div>
   );
 };

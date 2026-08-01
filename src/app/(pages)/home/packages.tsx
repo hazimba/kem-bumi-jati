@@ -67,10 +67,17 @@ const PricingSection = () => {
           Pilih Pakej Latihan Anda
         </h2>
 
-        <p
-          className="reveal-up mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-neutral-600"
-          style={{ animationDelay: "160ms" }}>
-          Pilih pakej yang sesuai dengan keperluan program anda. Hubungi kami jika perlukan pakej tersuai.
+        <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-neutral-600" style={{ animationDelay: "160ms" }}>
+          Pilih pakej yang sesuai dengan keperluan program anda.{" "}
+          <span className="text-brand-dark underline cursor-pointer">
+            <a
+              href={`https://wa.me/+601114615206?text=Hi%20Kem%20Bumi%20Jati%2C%20saya%20ingin%20mendapatkan%20maklumat%20mengenai%20pakej%20program%20anda.`}
+              target="_blank"
+              rel="noopener noreferrer">
+              Hubungi Kami
+            </a>
+          </span>{" "}
+          jika perlukan bantuan.
         </p>
 
         {/* Toggle */}
@@ -194,7 +201,16 @@ const PricingSection = () => {
         </div>
 
         <p className="reveal-up mt-10 text-xs sm:text-sm text-neutral-500 italic" style={{ animationDelay: "700ms" }}>
-          Anda boleh tempah pakej mengikut bilangan peserta. Hubungi kami untuk pakej tersuai.
+          Anda boleh tempah pakej mengikut bilangan peserta.{" "}
+          <span className="text-brand-dark underline cursor-pointer">
+            <a
+              href={`https://wa.me/+601114615206?text=Hi%20Kem%20Bumi%20Jati%2C%20saya%20ingin%20mendapatkan%20maklumat%20mengenai%20pakej%20program%20anda.`}
+              target="_blank"
+              rel="noopener noreferrer">
+              Hubungi Kami
+            </a>
+          </span>{" "}
+          jika perlukan bantuan.
         </p>
       </div>
     </section>
