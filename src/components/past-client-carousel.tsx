@@ -76,21 +76,7 @@ export default function PastClientsSection() {
 
   return (
     <section className="w-full pb-16 md:pb-24 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Trusted by Companies We&apos;ve Trained</h2>
-            <p className="mt-3 text-muted-foreground">
-              A look at some of the organizations that have partnered with our training center to develop their teams.
-            </p>
-          </div>
-
-          <Button variant="outline" className="shrink-0 group self-start sm:self-auto">
-            View All Clients
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Button>
-        </div>
-
+      <div className="mx-auto max-w-7xl px-8 sm:px-6 lg:px-8">
         <Carousel
           setApi={setApi}
           opts={{
@@ -98,16 +84,41 @@ export default function PastClientsSection() {
             loop: true,
           }}
           className="w-full animate-in fade-in duration-1000">
-          <CarouselContent className="">
+          {/* Header Section */}
+          <div className="mb-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Trusted by Companies We&apos;ve Trained</h2>
+              <p className="mt-3 text-muted-foreground">
+                A look at some of the organizations that have partnered with our training center to develop their teams.
+              </p>
+            </div>
+
+            {/* Mobile Header Row: View All Button + Navigation Controls on the same row */}
+            <div className="flex items-center justify-between gap-3 w-full sm:w-auto">
+              <Button variant="outline" className="shrink-0 group">
+                View All Clients
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+
+              {/* Mobile Only Carousel Controls */}
+              <div className="flex items-center gap-2 md:hidden">
+                <CarouselPrevious className="static translate-y-0" />
+                <CarouselNext className="static translate-y-0" />
+              </div>
+            </div>
+          </div>
+
+          {/* Carousel Content */}
+          <CarouselContent>
             {pastClients.map((client, index) => {
               const isSelected = index === selectedIndex;
 
               return (
-                <CarouselItem key={client.id} className="basis-[85%] sm:basis-1/2 lg:basis-[42%]">
+                <CarouselItem key={client.id} className="basis-[100%] sm:basis-1/2 lg:basis-[42%]">
                   <Card
                     className={cn(
                       "overflow-hidden h-full pt-0 gap-0 origin-center transition-all duration-500 ease-out",
-                      isSelected ? "scale-[0.90] opacity-100 shadow-xl z-10" : "scale-[0.75] opacity-60 shadow-none"
+                      isSelected ? "scale-100 opacity-100 shadow-xl z-10" : "scale-[0.75] opacity-60 shadow-none"
                     )}>
                     <div className="relative w-full aspect-square">
                       <Image
@@ -129,7 +140,8 @@ export default function PastClientsSection() {
             })}
           </CarouselContent>
 
-          <div className="mt-8 flex justify-center gap-3">
+          {/* Desktop Navigation Controls: Centered below carousel */}
+          <div className="mt-8 hidden justify-center gap-3 md:flex">
             <CarouselPrevious className="static translate-y-0" />
             <CarouselNext className="static translate-y-0" />
           </div>
