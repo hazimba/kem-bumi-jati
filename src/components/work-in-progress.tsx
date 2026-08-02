@@ -1,4 +1,3 @@
-// components/admin-ui/WorkInProgress.tsx
 import { Hammer } from "lucide-react";
 
 interface WorkInProgressProps {

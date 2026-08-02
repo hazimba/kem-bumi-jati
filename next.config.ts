@@ -24,6 +24,34 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "infinity.edu.my",
       },
+      {
+        protocol: "https",
+        hostname: "cadtraining.com.my",
+      },
+      {
+        protocol: "https",
+        hostname: "www.bikesrepublic.com",
+      },
+      {
+        protocol: "https",
+        hostname: "mmcgamudamrt.com.my",
+      },
+      {
+        protocol: "https",
+        hostname: "storage.googleapis.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.timetraining.ae",
+      },
+      {
+        protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.hach.com",
+      },
     ],
   },
 };

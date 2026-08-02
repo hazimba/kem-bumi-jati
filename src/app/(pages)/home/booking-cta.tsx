@@ -10,7 +10,6 @@ interface BookingCtaSectionProps {
 const BookingCtaSection = ({ className }: BookingCtaSectionProps) => {
   return (
     <section className={cn("relative w-full overflow-hidden", className)}>
-      {/* Full-bleed background image */}
       <div className="absolute inset-0">
         <Image
           src="https://infinity.edu.my/wp-content/uploads/2026/01/Gemini_Generated_Image_ldxghcldxghcldxg-1.png"
@@ -19,12 +18,11 @@ const BookingCtaSection = ({ className }: BookingCtaSectionProps) => {
           className="object-cover"
           priority={false}
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <div className="relative mx-auto flex min-h-[640px] max-w-6xl items-center justify-center px-4 py-20 sm:px-8">
         <div className="reveal-card grid w-full grid-cols-1 overflow-hidden rounded-2xl bg-[#FBEFD8] shadow-2xl md:grid-cols-2">
-          {/* Left: text + CTA */}
           <div className="flex flex-col items-start justify-center gap-4 p-8 sm:p-12">
             <div className="flex items-center gap-2 text-sm text-brand-dark">
               <div className="flex items-center gap-0.5">
