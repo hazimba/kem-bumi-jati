@@ -6,6 +6,8 @@ import PricingSection from "./packages";
 import LocationSection from "@/components/location";
 import BookingCtaSection from "./booking-cta";
 import PastClientSection from "./past-client";
+import WhyUs from "./why-us";
+import LocationBanner from "./location-banner";
 
 async function getHomeData() {
   await new Promise((resolve) => setTimeout(resolve, 500));
@@ -16,13 +18,15 @@ const HomePage = async () => {
   return (
     <div className="flex flex-col md:gap-38 gap-16">
       <HeroSection />
-      <WhyChooseUs />
-      <FacilitiesSection />
-      <AboutSection />
-      <PricingSection />
-      <LocationSection />
-      <BookingCtaSection />
-      <PastClientSection />
+      <WhyUs />
+      <LocationBanner />
+      {/* <WhyChooseUs /> */}
+      {/* <FacilitiesSection /> */}
+      {/* <AboutSection /> */}
+      {/* <PricingSection /> */}
+      {/* <LocationSection /> */}
+      {/* <BookingCtaSection /> */}
+      {/* <PastClientSection /> */}
     </div>
   );
 };

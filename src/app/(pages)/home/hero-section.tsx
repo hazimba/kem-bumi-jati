@@ -119,9 +119,10 @@ const HeroSection = () => {
 
       <div className="absolute inset-x-0 top-0 z-50">
         <NavigationBar variant="overlay" />
+        {/* <NavigationBar /> */}
       </div>
 
-      <motion.div
+      {/* <motion.div
         // style={{ y: badgeY, opacity: badgeOpacity }}
         className="absolute bottom-8 right-8 z-20 hidden sm:flex h-16 w-16 -rotate-6 items-center justify-center rounded-full border border-[#D4A24C]/60 text-center">
         <span className="font-serif text-[11px] leading-tight tracking-widest text-[#F3EDE0]">
@@ -149,14 +150,14 @@ const HeroSection = () => {
           <br />
           Registered
         </span>
-      </motion.div>
+      </motion.div> */}
 
       <div className="relative z-20 flex h-full items-center px-8 sm:px-14 max-w-7xl mx-auto">
         <motion.div style={{ y: textY, opacity: textOpacity }} className="max-w-xl" aria-live="polite">
           <p className="mb-3 text-xs tracking-[0.25em] uppercase text-[#D4A24C]">{slide.eyebrow}</p>
           <h2 className="font-serif text-4xl sm:text-5xl italic leading-tight text-[#F3EDE0]">{slide.heading}</h2>
           <p className="mt-5 text-sm sm:text-base leading-relaxed text-[#F3EDE0]/80">{slide.description}</p>
-          <Button asChild className="mt-8 bg-secondary text-primary py-4 px-6 border-[primary] border hover:bg-[#D4A24C]/90">
+          <Button asChild className="mt-8 bg-secondary text-primary py-4 px-6 border hover:bg-[#D4A24C]/90">
             <Link href={slide.cta.href}>{slide.cta.label}</Link>
           </Button>
         </motion.div>

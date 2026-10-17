@@ -15,8 +15,7 @@ const fraunces = Fraunces({
 const AboutSection = () => {
   return (
     <section className={cn(fraunces.variable, "px-8 text-[#1A1A1A] sm:px-14 dark:text-[#F3EDE0]")}>
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2 py-6 md:py-0">
-        {/* IMAGE CONTAINER: Shows FIRST on mobile, SECOND (right side) on desktop */}
+      <div className="grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-2 py-6 md:py-0">
         <div className="relative reveal-right order-first md:order-last">
           <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-xl md:aspect-[5/6] sm:aspect-square">
             <Image

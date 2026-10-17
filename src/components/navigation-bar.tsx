@@ -11,7 +11,11 @@ const NavigationBar = ({ variant = "solid" }: NavigationBarProps) => {
   const isOverlay = variant === "overlay";
 
   return (
-    <nav className={cn("relative", isOverlay ? "bg-transparent border-b border-white/15" : "border-b bg-background")}>
+    <nav
+      className={cn(
+        "relative z-50 transition-colors duration-300",
+        isOverlay ? "border-b border-white/5 bg-black/5 backdrop-blur-[2px]" : "border-b bg-background dark:bg-brand-dark"
+      )}>
       <div className="flex items-center justify-between p-4 max-w-7xl mx-auto">
         <div className="flex items-center gap-4">
           <Image src="/assets/kbj-icon.jpeg" alt="Kem Bumi Jati Logo" width={50} height={50} className="" />

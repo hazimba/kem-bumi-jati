@@ -94,13 +94,21 @@ const Footer = () => {
           <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-2 gap-8">
             <div className="space-y-3">
               <h3 className="font-bold text-white border-b border-gray-700 pb-2">PAUTAN PANTAS</h3>
-              <div className="text-sm space-y-1">
-                <p className="font-semibold text-gray-200">Tenting Kami</p>
-                <p>Kemudahan</p>
-                <p>Aktiviti</p>
-                <p>Pakej</p>
-                <p>Galeri</p>
-                <p className="pt-2 italic">Hubungi Kami</p>
+              <div className="text-sm space-y-1 flex flex-col">
+                <a className="pt-1 italic" href="/latar-belakang">
+                  Tentang Kami
+                </a>
+                <a className="pt-1 italic" href="/fasiliti">
+                  Kemudahan
+                </a>
+                {/* <p>Aktiviti</p> */}
+                <a className="pt-1 italic" href="/pakej">
+                  Pakej
+                </a>
+                <a className="pt-1 italic" href="/galeri">
+                  Galeri
+                </a>
+                <p className="pt-1 italic">Hubungi Kami</p>
               </div>
             </div>
 
