@@ -6,6 +6,7 @@ import "./globals.css";
 import { NavRender } from "@/components/nav-render";
 import Footer from "@/components/footer";
 import PageLoader from "@/components/page-loader";
+import WhatsAppButton from "@/components/whatsapp-button";
 import { Suspense } from "react";
 
 const geistSans = Geist({
@@ -120,6 +121,7 @@ export default function RootLayout({
           </Suspense>
           <>{children}</>
           <Footer />
+          <WhatsAppButton />
           <Toaster />
         </ThemeProvider>
       </body>

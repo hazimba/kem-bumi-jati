@@ -70,10 +70,10 @@ const NavigationMobile = ({ isOverlay }: NavigationMobileProps) => {
 
             <div className="border-t p-6 space-y-4">
               <Button
-                onClick={() => handleNavigation("/contact")}
+                onClick={() => handleNavigation("/hubungi-kami")}
                 disabled={isPending}
                 className="w-full bg-[#D4A24C] text-[#16261C] hover:bg-[#D4A24C]/90">
-                Contact Us
+                Hubungi Kami
               </Button>
 
               <p className="text-center text-xs text-muted-foreground">Explore • Adventure • Memories</p>

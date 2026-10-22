@@ -1,9 +1,8 @@
 export const NAV_LINKS = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "Utama" },
   { href: "/latar-belakang", label: "Latar Belakang" },
   // { href: "/activity", label: "Latar Belakang" },
   { href: "/fasiliti", label: "Fasiliti" },
-  { href: "/pakej", label: "Pakej" },
   { href: "/galeri", label: "Galeri" },
   // { href: "/kalendar", label: "Kalendar" },
   { href: "/lokasi-kami", label: "Lokasi" },

@@ -72,7 +72,7 @@ const WhyChooseSection = () => {
 
         {/* Programs */}
         <h2 className="mt-12 text-center text-xl font-extrabold uppercase text-neutral-800 dark:text-neutral-100 sm:text-3xl">
-          Pakej Program
+          Program
         </h2>
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {programs.map(({ title, description, image }) => (

@@ -59,7 +59,7 @@ const PricingSection = () => {
   return (
     <section className="fraunces bg-tertiary py-20 px-6 sm:px-14">
       <div className="mx-auto max-w-6xl text-center">
-        <p className="reveal-up text-xs tracking-[0.3em] uppercase text-[#D4A24C] font-semibold">Pakej Program</p>
+        <p className="reveal-up text-xs tracking-[0.3em] uppercase text-[#D4A24C] font-semibold">Program</p>
 
         <h2
           className="reveal-up mt-3 font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark italic"

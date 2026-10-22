@@ -4,7 +4,7 @@ import { CheckCircle2, GraduationCap, UserRound, Users, type LucideIcon } from "
 import PageBanner from "@/components/page-banner";
 
 export const metadata: Metadata = {
-  title: "Pakej Program | Kem Bumi Jati",
+  title: "Program | Kem Bumi Jati",
   description: "Pakej Kem Akademik, Team Building serta Motivasi & Kepimpinan.",
 };
 
@@ -50,7 +50,7 @@ const pakej: Pakej[] = [
 const PakejPage = () => {
   return (
     <main className="w-full bg-background text-foreground">
-      <PageBanner title="Pakej Program" image={BANNER_IMAGE} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Pakej" }]} />
+      <PageBanner title="Program" image={BANNER_IMAGE} breadcrumbs={[{ label: "Utama", href: "/" }]} />
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
