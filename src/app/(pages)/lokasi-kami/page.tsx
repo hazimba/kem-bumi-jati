@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Car, MapPin } from "lucide-react";
 import PageBanner from "@/components/page-banner";
+import ImagePreviewDialog from "@/components/image-preview-dialog";
 
 export const metadata: Metadata = {
   title: "Lokasi Kami | Kem Bumi Jati",
@@ -10,13 +11,14 @@ export const metadata: Metadata = {
 
 const GREEN = "#1f6b3a";
 
-const BANNER_IMAGE = "https://placehold.co/1600x500/png?text=Banner";
-const MAP_LAYOUT_IMAGE = "https://placehold.co/1400x500/png?text=Peta+%26+Layout+Kem";
+const BANNER_IMAGE =
+  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260224_122828.jpg";
+const MAP_LAYOUT_IMAGE =
+  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
 
 // Replace with the real coordinates / place link
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Shah+Alam,+Selangor";
-const WAZE_URL = "https://waze.com/ul?q=Shah%20Alam%20Selangor&navigate=yes";
-const MAP_EMBED_URL = "https://www.google.com/maps?q=Shah+Alam,+Selangor&output=embed";
+const MAP_EMBED_URL = "https://maps.google.com/maps?q=2.9633331,101.5424996&z=17&output=embed";
 
 const LokasiKamiPage = () => {
   return (
@@ -29,9 +31,7 @@ const LokasiKamiPage = () => {
           <div>
             <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">Kem Bumi Jati</h2>
             <p className="mt-3 text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
-              Jalan Kebun
-              <br />
-              Shah Alam, Selangor
+              Lot 3319 Jalan Kem Bumi Jati, Batu 7, Jalan Kebun, 40460 Shah Alam, Selangor
             </p>
 
             <div className="mt-8 space-y-6">
@@ -46,21 +46,6 @@ const LokasiKamiPage = () => {
                     className="mt-2 inline-block rounded-lg px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                     style={{ backgroundColor: GREEN }}>
                     Buka Google Maps
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <Car className="mt-1 h-9 w-9 shrink-0 text-neutral-800 dark:text-neutral-300" aria-hidden="true" />
-                <div>
-                  <p className="text-base font-medium text-neutral-700 dark:text-neutral-300">Waze</p>
-                  <a
-                    href={WAZE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-block rounded-lg px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                    style={{ backgroundColor: GREEN }}>
-                    Buka Waze
                   </a>
                 </div>
               </div>
@@ -83,17 +68,12 @@ const LokasiKamiPage = () => {
         {/* Peta & Layout */}
         <section className="mt-12">
           <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">Peta &amp; Layout Kem</h3>
-          <div className="relative mt-4 aspect-[16/6] w-full overflow-hidden rounded-xl shadow-sm">
-            <Image src={MAP_LAYOUT_IMAGE} alt="Peta dan layout Kem Bumi Jati" fill unoptimized className="object-cover" />
-            <a
-              href={MAP_LAYOUT_IMAGE}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute bottom-4 right-4 rounded-lg border-2 border-white/80 px-5 py-3 text-sm font-semibold text-white shadow-lg transition-opacity hover:opacity-90"
-              style={{ backgroundColor: GREEN }}>
-              Lihat Peta Besar
-            </a>
-          </div>
+          <ImagePreviewDialog
+            src={MAP_LAYOUT_IMAGE}
+            alt="Peta dan layout Kem Bumi Jati"
+            title="Peta & Layout Kem"
+            // buttonLabel="Lihat Peta & Layout Kem"
+          />
         </section>
       </div>
     </main>

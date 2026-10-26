@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 const GREEN = "#1f6b3a";
 
-const BANNER_IMAGE = "https://placehold.co/1600x500/png?text=Banner";
-const SIDE_IMAGE = "https://placehold.co/700x800/png?text=Kem+Bumi+Jati";
+const BANNER_IMAGE =
+  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260108_123242.jpg";
+const SIDE_IMAGE = "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211449.jpg";
 
-const WHATSAPP_DISPLAY = "+60 12-345 6789";
-const WHATSAPP_URL = "https://wa.me/60123456789";
+const WHATSAPP_DISPLAY = "+60 11-1461 5206";
 const EMAIL = "info@kembumijati.com";
 
 const HubungiKamiPage = () => {
@@ -36,14 +36,7 @@ const HubungiKamiPage = () => {
               <div>
                 <p className="text-sm font-semibold text-neutral-700 dark:text-neutral-300">WhatsApp</p>
                 <p className="mt-0.5 text-base text-neutral-600 dark:text-neutral-400">{WHATSAPP_DISPLAY}</p>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-block rounded-lg px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: GREEN }}>
-                  WhatsApp Kami
-                </a>
+                <p className="text-xs text-neutral-500 dark:text-neutral-400">Tekan icon WhatsApp untuk berbual dengan kami</p>
               </div>
             </li>
 
@@ -62,9 +55,7 @@ const HubungiKamiPage = () => {
               <div>
                 <p className="text-sm font-semibold text-neutral-700 dark:text-neutral-300">Alamat</p>
                 <p className="mt-0.5 text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
-                  Kem Bumi Jati, Jalan Kebun,
-                  <br />
-                  Shah Alam, Selangor
+                  Lot 3319 Jalan Kem Bumi Jati, Batu 7, Jalan Kebun, 40460 Shah Alam, Selangor
                 </p>
               </div>
             </li>

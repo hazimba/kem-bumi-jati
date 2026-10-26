@@ -11,7 +11,8 @@ export const NAV_LINKS = [
 
 export const slides = [
   {
-    image: "/assets/test.jpg",
+    image:
+      "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/hero/1000156967.jpg?width=1200&quality=80",
     tint: "from-[#16261C]/95 via-[#16261C]/45 to-black/50",
     eyebrow: "Jalan Kebun, Shah Alam, Selangor",
     heading: "SELAMAT DATANG KE KEM BUMI JATI",
@@ -19,7 +20,8 @@ export const slides = [
     cta: { label: "Lihat Kemudahan", href: "/fasiliti" },
   },
   {
-    image: "/assets/hero-section-1.jpg",
+    image:
+      "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/hero/1000156981.jpg?width=1200&quality=80",
     tint: "from-[#2F4A37]/95 via-[#16261C]/50 to-black/50",
     eyebrow: "Pusat Latihan Profesional",
     heading: "Pusat Latihan, Kem Motivasi & Aktiviti Berkumpulan",
@@ -27,12 +29,12 @@ export const slides = [
     cta: { label: "Lihat Galeri", href: "/galeri" },
   },
   {
-    image: "/assets/why-choose-1.jpg",
+    image:
+      "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/hero/WhatsApp%20Image%202026-10-23%20at%2021.27.14.jpeg?width=1200&quality=80",
     tint: "from-[#4A3728]/95 via-[#16261C]/50 to-black/50",
     eyebrow: "",
     heading: "Jalan Kebun, Shah Alam, Selangor",
-    description:
-      "Kem Bumi Jati merupakan pusat latihan dan kem motivasi profesional di bawah pengurusan ZH Warisan Holdings Sdn. Bhd. yang telah beroperasi sejak tahun 1993. Terletak di Shah Alam, Selangor, kami menyediakan persekitaran latihan yang kondusif, selesa dan lengkap untuk program pembangunan insan, kursus korporat, seminar, bengkel, kem pelajar dan team building.",
+    description: "Kem Bumi Jati merupakan pusat latihan dan kem motivasi profesional...",
     cta: { label: "Hubungi Kami", href: "/hubungi-kami" },
   },
 ];

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Check, Eye, Mountain, Target } from "lucide-react";
 import PageBanner from "@/components/page-banner";
+import ImagePreviewDialog from "@/components/image-preview-dialog";
 
 export const metadata: Metadata = {
   title: "Latar Belakang | Kem Bumi Jati",
@@ -11,11 +12,13 @@ export const metadata: Metadata = {
 const GREEN = "#1f6b3a";
 const ORANGE = "#D4A24C";
 
-const BANNER_IMAGE = "https://placehold.co/1600x500/png?text=Banner";
-const ABOUT_IMAGE = "https://placehold.co/800x560/png?text=Kem+Bumi+Jati";
-const MAP_IMAGE = "https://placehold.co/1200x800/png?text=Peta+%26+Layout";
-const VIDEO_SRC = "https://www.w3schools.com/html/mov_bbb.mp4";
-const VIDEO_POSTER = "https://placehold.co/800x560/png?text=Video";
+const BANNER_IMAGE = "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg";
+const ABOUT_IMAGE =
+  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg";
+const MAP_IMAGE =
+  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
+const VIDEO_SRC = "https://www.youtube.com/embed/wdxeBjvC2FU";
+const VIDEO_POSTER = "https://img.youtube.com/vi/wdxeBjvC2FU/maxresdefault.jpg";
 
 const objektif = [
   "Menyediakan lokasi yang selesa dan sesuai untuk program berkumpulan.",
@@ -79,7 +82,7 @@ const LatarBelakangPage = () => {
 
         {/* Peta & Video */}
         <section className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-[1.5fr_1fr]">
-          <div>
+          {/* <div>
             <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">Peta &amp; Layout Kem</h3>
             <div className="relative mt-3 aspect-[4/3] w-full overflow-hidden rounded-xl shadow-sm">
               <Image src={MAP_IMAGE} alt="Peta dan layout Kem Bumi Jati" fill unoptimized className="object-cover" />
@@ -92,14 +95,25 @@ const LatarBelakangPage = () => {
               style={{ backgroundColor: GREEN }}>
               Lihat Dalam Saiz Penuh
             </a>
-          </div>
+          </div> */}
+          <ImagePreviewDialog
+            src={MAP_IMAGE}
+            alt="Peta dan layout Kem Bumi Jati"
+            title="Peta & Layout Kem"
+            // buttonLabel="Lihat Peta & Layout Kem"
+          />
 
           <div>
             <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">Video Masuk Kem</h3>
             <div className="mt-3 overflow-hidden rounded-xl bg-black shadow-sm">
-              <video className="aspect-[4/3] w-full object-cover" controls preload="metadata" poster={VIDEO_POSTER}>
-                <source src={VIDEO_SRC} type="video/mp4" />
-              </video>
+              <iframe
+                src={VIDEO_SRC}
+                title="Kem Bumi Jati Video"
+                className="aspect-[4/3] w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
             </div>
           </div>
         </section>

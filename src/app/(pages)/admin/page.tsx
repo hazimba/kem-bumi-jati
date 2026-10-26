@@ -66,12 +66,13 @@ export default function AdminDashboard() {
               <Link
                 key={action.label}
                 href={action.href}
-                className="group block p-5 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-white dark:bg-neutral-900 hover:border-brand-dark/50 hover:bg-brand-dark/5 dark:hover:bg-brand-dark/10 transition-all"
-              >
+                className="group block p-5 border border-neutral-200 dark:border-neutral-800 rounded-xl bg-white dark:bg-neutral-900 hover:border-brand-dark/50 hover:bg-brand-dark/5 dark:hover:bg-brand-dark/10 transition-all">
                 <div className="p-3 bg-brand-dark/10 dark:bg-brand-dark/20 rounded-lg w-fit mb-4 group-hover:scale-105 transition-transform">
                   <action.icon className="h-6 w-6 text-brand-dark" />
                 </div>
-                <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-brand-dark transition-colors">{action.label}</h3>
+                <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-brand-dark transition-colors">
+                  {action.label}
+                </h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">{action.desc}</p>
               </Link>
             ))}

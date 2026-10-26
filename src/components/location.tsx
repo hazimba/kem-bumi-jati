@@ -2,17 +2,9 @@ import LocationMap from "./location-map-loader";
 import { MapPin, ExternalLink, Phone, Mail, Clock } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Fraunces } from "next/font/google";
 
 const ADDRESS = "Lot 3319, Jalan Kem Bumi Jati, Batu 7, Jalan Kebun, Seksyen 30, 40460 Shah Alam, Selangor Darul Ehsan.";
 const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Kem+Bumi+Jati+Shah+Alam";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
-});
 
 interface LocationSectionProps {
   showContactDetails?: boolean;
@@ -21,7 +13,7 @@ interface LocationSectionProps {
 
 const LocationSection = ({ showContactDetails = false, className }: LocationSectionProps) => {
   return (
-    <section className={cn(fraunces.variable, "relative overflow-hidden", className)}>
+    <section className={cn("relative overflow-hidden", className)}>
       <div className="pointer-events-none absolute left-1/2 top-0 w-72 -translate-x-1/2 rounded-full bg-brand/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl px-6 pb-10 text-center sm:px-14">

@@ -10,10 +10,10 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <Image
                 src="/assets/kbj-icon.jpeg"
-                alt="TM Tour Travel Logo"
+                alt="Kem Bumi Jati Logo"
                 width={10}
                 height={10}
-                loading="eager"
+                priority
                 className="object-contain w-auto h-14 pr-4"
               />
               <div>

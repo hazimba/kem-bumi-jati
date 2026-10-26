@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, Users, Package, Image as ImageIconLucide, Settings, LogOut, Menu, X } from "lucide-react";
+import { LayoutDashboard, Users, Package, Image as ImageIconLucide, Settings, LogOut, Menu, X, Layers } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
@@ -13,7 +13,8 @@ const ADMIN_NAV_LINKS = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/users", label: "Pengguna", icon: Users },
   { href: "/admin/packages", label: "Pakej Program", icon: Package },
-  { href: "/admin/gallery", label: "Galeri", icon: ImageIconLucide },
+  // { href: "/admin/gallery", label: "Galeri dan Fasiliti", icon: ImageIconLucide },
+  { href: "/admin/fasiliti", label: "Galeri dan Fasiliti", icon: Layers },
   { href: "/admin/settings", label: "Tetapan", icon: Settings },
 ];
 
@@ -37,7 +38,9 @@ const AdminNavBar = () => {
               <span className="font-serif text-xl font-bold text-neutral-900 dark:text-neutral-100 hidden sm:block">Kem Bumi Jati</span>
               <span className="font-serif text-lg font-bold text-brand-dark sm:hidden">KBJ</span>
             </div>
-            <span className="text-[10px] font-bold text-neutral-600 dark:text-neutral-400 uppercase tracking-wider hidden sm:inline-block">Admin</span>
+            <span className="text-[10px] font-bold text-neutral-600 dark:text-neutral-400 uppercase tracking-wider hidden sm:inline-block">
+              Admin
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

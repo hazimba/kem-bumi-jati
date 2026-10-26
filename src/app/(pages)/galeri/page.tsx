@@ -7,7 +7,8 @@ export const metadata: Metadata = {
   description: "Galeri program dan kemudahan Kem Bumi Jati.",
 };
 
-const BANNER_IMAGE = "https://placehold.co/1600x500/png?text=Banner";
+const BANNER_IMAGE =
+  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260115_155433.jpg";
 
 const GaleriPage = () => {
   return (

@@ -18,22 +18,22 @@ const programs: Program[] = [
   {
     title: "Kem Akademik",
     description: "Program akademik, motivasi dan kecemerlangan pelajar.",
-    image: "/assets/why-choose-1.jpg",
+    image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
   },
   {
     title: "Team Building",
     description: "Kursus, latihan organisasi dan aktiviti kumpulan.",
-    image: "/assets/why-choose-2.jpg",
+    image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
   },
   {
     title: "Motivasi & Kepimpinan",
     description: "Program pembangunan diri dan kepimpinan.",
-    image: "/assets/why-choose-3.jpg",
+    image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg",
   },
   {
     title: "Latihan & Kursus",
     description: "Program latihan dan kursus untuk organisasi dan individu.",
-    image: "/assets/why-choose-3.jpg",
+    image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg",
   },
 ];
 

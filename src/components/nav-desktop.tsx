@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/mode-toggle";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/lib/constant";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -25,7 +25,7 @@ const NavigationDesktop = ({ isOverlay }: NavigationDesktopProps) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <Button className={cn(isOverlay && "bg-[#D4A24C] text-[#16261C] hover:bg-[#D4A24C]/90")}>Hubungi Kami</Button>
+          {/* <Button className={cn(isOverlay && "bg-[#D4A24C] text-[#16261C] hover:bg-[#D4A24C]/90")}>Hubungi Kami</Button> */}
           <ModeToggle />
         </div>
       </div>

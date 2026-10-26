@@ -1,35 +1,35 @@
+import Footer from "@/components/footer";
+import { NavRender } from "@/components/nav-render";
+import PageLoader from "@/components/page-loader";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Roboto_Mono, Fraunces } from "next/font/google";
-import "./globals.css";
-import { NavRender } from "@/components/nav-render";
-import Footer from "@/components/footer";
-import PageLoader from "@/components/page-loader";
 import WhatsAppButton from "@/components/whatsapp-button";
+import type { Metadata, Viewport } from "next";
+import { Roboto_Mono } from "next/font/google";
 import { Suspense } from "react";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
   subsets: ["latin"],
 });
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
-});
+// const fraunces = Fraunces({
+//   subsets: ["latin"],
+//   weight: ["500", "600"],
+//   style: ["normal", "italic"],
+//   variable: "--font-fraunces",
+// });
 
 const siteUrl = "https://kembumijati.com";
 
@@ -109,10 +109,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${robotoMono.variable} ${fraunces.variable}  h-full antialiased`}
-      suppressHydrationWarning>
+    <html lang="en" className={` ${robotoMono.variable}  h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NavRender />
