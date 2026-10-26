@@ -12,7 +12,7 @@ export const NAV_LINKS = [
 export const slides = [
   {
     image: "/assets/test.jpg",
-    tint: "from-[#16261C]/85 via-[#16261C]/35 to-transparent",
+    tint: "from-[#16261C]/95 via-[#16261C]/45 to-black/50",
     eyebrow: "Jalan Kebun, Shah Alam, Selangor",
     heading: "SELAMAT DATANG KE KEM BUMI JATI",
     description: "Pusat Latihan, Kem Motivasi & Aktiviti Berkumpulan.",
@@ -20,15 +20,15 @@ export const slides = [
   },
   {
     image: "/assets/hero-section-1.jpg",
-    tint: "from-[#2F4A37]/85 via-[#16261C]/40 to-transparent",
+    tint: "from-[#2F4A37]/95 via-[#16261C]/50 to-black/50",
     eyebrow: "Pusat Latihan Profesional",
     heading: "Pusat Latihan, Kem Motivasi & Aktiviti Berkumpulan",
     description: "Pusat latihan, kem motivasi dan pembangunan insan profesional sejak 1993 di Shah Alam, Selangor.",
-    cta: { label: "Semak Pakej", href: "/pakej" },
+    cta: { label: "Lihat Galeri", href: "/galeri" },
   },
   {
     image: "/assets/why-choose-1.jpg",
-    tint: "from-[#4A3728]/80 via-[#16261C]/40 to-transparent",
+    tint: "from-[#4A3728]/95 via-[#16261C]/50 to-black/50",
     eyebrow: "",
     heading: "Jalan Kebun, Shah Alam, Selangor",
     description:

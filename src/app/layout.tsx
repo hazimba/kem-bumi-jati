@@ -119,7 +119,7 @@ export default function RootLayout({
           <Suspense fallback={null}>
             <PageLoader />
           </Suspense>
-          <>{children}</>
+          <div className="flex-1">{children}</div>
           <Footer />
           <WhatsAppButton />
           <Toaster />
