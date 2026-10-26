@@ -8,7 +8,7 @@ type Category = "Kemudahan" | "Aktiviti" | "Program" | "Kawasan";
 type Filter = "Semua" | Category;
 type Photo = { src: string; alt: string; category: Category; ratio: number };
 
-const filters: Filter[] = ["Semua", "Kemudahan", "Aktiviti", "Program", "Kawasan"];
+const filters: Filter[] = ["Semua", "Aktiviti", "Program", "Kawasan"];
 
 // ratio = width / height. Replace `src` with real photos.
 const ph = (w: number, h: number, text: string) => `https://placehold.co/${w}x${h}/png?text=${encodeURIComponent(text)}`;

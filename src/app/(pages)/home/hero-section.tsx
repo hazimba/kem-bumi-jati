@@ -113,7 +113,7 @@ const HeroSection = () => {
               i === index && reducedMotion && "scale-100"
             )}
           />
-          <div className={cn("absolute inset-0 bg-gradient-to-t", s.tint)} />
+          <div className={cn("absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent", s.tint)} />
         </div>
       ))}
 

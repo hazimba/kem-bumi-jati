@@ -11,7 +11,7 @@ interface NavigationDesktopProps {
 const NavigationDesktop = ({ isOverlay }: NavigationDesktopProps) => {
   const linkClass = cn(
     "transition-colors",
-    isOverlay ? "text-[#F3EDE0] hover:text-[#D4A24C] text-[#16261C]" : "text-foreground hover:text-muted-foreground"
+    isOverlay ? "text-[#F3EDE0] hover:text-[#D4A24C] text-white/60" : "text-foreground hover:text-muted-foreground"
   );
   return (
     <>
