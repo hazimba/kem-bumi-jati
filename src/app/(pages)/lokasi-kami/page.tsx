@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Car, MapPin } from "lucide-react";
+// import Image from "next/image";
+// import { Car, MapPin } from "lucide-react";
 import PageBanner from "@/components/page-banner";
 import ImagePreviewDialog from "@/components/image-preview-dialog";
 
@@ -9,15 +9,15 @@ export const metadata: Metadata = {
   description: "Lokasi Kem Bumi Jati, pautan Google Maps dan Waze serta peta layout kem.",
 };
 
-const GREEN = "#1f6b3a";
+// const GREEN = "#1f6b3a";
 
 const BANNER_IMAGE =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260224_122828.jpg";
+  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati/73aa3e5f-e96a-49ec-839b-1edf029a9b48.jpg";
 const MAP_LAYOUT_IMAGE =
   "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
 
 // Replace with the real coordinates / place link
-const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Shah+Alam,+Selangor";
+// const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Shah+Alam,+Selangor";
 const MAP_EMBED_URL = "https://maps.google.com/maps?q=2.9633331,101.5424996&z=17&output=embed";
 
 const LokasiKamiPage = () => {
@@ -34,7 +34,7 @@ const LokasiKamiPage = () => {
               Lot 3319 Jalan Kem Bumi Jati, Batu 7, Jalan Kebun, 40460 Shah Alam, Selangor
             </p>
 
-            <div className="mt-8 space-y-6">
+            {/* <div className="mt-8 space-y-6">
               <div className="flex items-start gap-4">
                 <MapPin className="mt-1 h-9 w-9 shrink-0" style={{ color: GREEN }} aria-hidden="true" />
                 <div>
@@ -49,7 +49,7 @@ const LokasiKamiPage = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Map */}

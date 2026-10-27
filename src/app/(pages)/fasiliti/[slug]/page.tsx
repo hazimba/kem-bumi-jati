@@ -25,6 +25,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${data.type.label} | Kem Bumi Jati`,
     description: data.type.description || `Galeri gambar untuk ${data.type.label}`,
+    openGraph: {
+      title: `${data.type.label} | Kem Bumi Jati`,
+      description: data.type.description || `Galeri gambar untuk ${data.type.label}`,
+      images: [data.type.cover_url || BANNER_IMAGE],
+    },
   };
 }
 
@@ -42,7 +47,7 @@ export default async function FasilitiDetailPage({ params }: Props) {
     <main className="w-full bg-white dark:bg-neutral-950">
       <PageBanner
         title={type.label}
-        image={BANNER_IMAGE}
+        image={type.cover_url || BANNER_IMAGE}
         breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Fasiliti", href: "/fasiliti" }, { label: type.label }]}
       />
 

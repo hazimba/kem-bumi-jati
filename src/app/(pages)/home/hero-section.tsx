@@ -10,7 +10,7 @@ import NavigationBar from "@/components/navigation-bar";
 import { cn } from "@/lib/utils";
 import { slides } from "@/lib/constant";
 
-const AUTOPLAY_MS = 6500;
+const AUTOPLAY_MS = 10000;
 const SWIPE_THRESHOLD = 50;
 
 const HeroSection = () => {
@@ -146,13 +146,13 @@ const HeroSection = () => {
       <button
         onClick={goPrev}
         aria-label="Previous slide"
-        className="absolute left-10 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
+        className="absolute left-10 top-1/2 z-50 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
         <ChevronLeft className="h-5 w-5" />
       </button>
       <button
         onClick={goNext}
         aria-label="Next slide"
-        className="absolute right-10 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
+        className="absolute right-10 top-1/2 z-50 hidden -translate-y-1/2 rounded-full border border-white/20 p-2 text-[#F3EDE0] transition hover:bg-white/10 sm:flex">
         <ChevronRight className="h-5 w-5" />
       </button>
 

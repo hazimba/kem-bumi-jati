@@ -94,32 +94,36 @@ const Footer = () => {
           <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-2 gap-8">
             <div className="space-y-3">
               <h3 className="font-bold text-white border-b border-gray-700 pb-2">PAUTAN PANTAS</h3>
-              <div className="text-sm space-y-1 flex flex-col">
-                <a className="pt-1 italic" href="/latar-belakang">
+              <div className="text-sm space-y-3 flex flex-col">
+                <Link className="pt-1 italic" href="/latar-belakang">
                   Tentang Kami
-                </a>
-                <a className="pt-1 italic" href="/fasiliti">
+                </Link>
+                <Link className="pt-1 italic" href="/fasiliti">
                   Kemudahan
-                </a>
+                </Link>
                 {/* <p>Aktiviti</p> */}
-                <a className="pt-1 italic" href="/pakej">
+                <Link className="pt-1 italic" href="/pakej">
                   Pakej
-                </a>
-                <a className="pt-1 italic" href="/galeri">
+                </Link>
+                <Link className="pt-1 italic" href="/galeri">
                   Galeri
-                </a>
-                <p className="pt-1 italic">Hubungi Kami</p>
+                </Link>
+                <Link className="pt-1 italic" href="/hubungi-kami">
+                  Hubungi Kami
+                </Link>
               </div>
             </div>
 
             <div className="space-y-3">
               <h3 className="font-bold text-white border-b border-gray-700 pb-2">HUBUNGI</h3>
-              <div className="text-sm space-y-1">
+              <div className="text-sm space-y-4">
                 <p className="font-semibold text-gray-200">+0351616692/ 0162294114</p>
-                <p>Lot 3319, Jalan Kem Bumi Jati</p>
-                <p>Batu 7, Jalan Kebun, Seksyen 30</p>
-                <p>40460 Shah Alam</p>
-                <p>Selangor, MALAYSIA</p>
+                <div className="space-y-1">
+                  <p>Lot 3319, Jalan Kem Bumi Jati</p>
+                  <p>Batu 7, Jalan Kebun, Seksyen 30</p>
+                  <p>40460 Shah Alam</p>
+                  <p>Selangor, MALAYSIA</p>
+                </div>
                 <p className="pt-2 italic">bumijati4114@gmail.com</p>
               </div>
             </div>

@@ -23,7 +23,7 @@ type PageBannerProps = {
 const PageBanner = ({ title, image, breadcrumbs = [], imageAlt = "" }: PageBannerProps) => {
   return (
     <section className="relative h-44 w-full overflow-hidden sm:h-60 lg:h-72">
-      <Image src={image} alt={imageAlt} fill priority unoptimized className="object-cover" />
+      <Image src={image} alt={imageAlt} fill priority unoptimized className="object-cover" loading="eager" />
       {/* dark overlay, stronger on the left so the text stays readable */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/10" />
 

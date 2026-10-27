@@ -1,5 +1,6 @@
 import { Home, Hotel, MapPin, Tent, Utensils, Waves, type LucideIcon } from "lucide-react";
 import Image from "next/image";
+import { GoogleCalendarSync } from "@/components/google-calendar-sync";
 
 type Feature = { label: string; icon: LucideIcon };
 type Program = { title: string; description: string; image: string };
@@ -54,7 +55,6 @@ const WhyChooseSection = () => {
   return (
     <section className="w-full bg-white dark:bg-neutral-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
         <h2 className="text-center text-2xl font-extrabold uppercase tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-4xl">
           Kenapa Pilih Kem Bumi Jati?
         </h2>
@@ -63,7 +63,6 @@ const WhyChooseSection = () => {
           organisasi dan aktiviti pembangunan diri.
         </p>
 
-        {/* Features */}
         <div className="mt-8 grid grid-cols-3 gap-3 lg:grid-cols-6">
           {features.map(({ label, icon: Icon }) => (
             <div
@@ -77,7 +76,6 @@ const WhyChooseSection = () => {
           ))}
         </div>
 
-        {/* Programs */}
         <h2 className="mt-12 text-center text-xl font-extrabold uppercase text-neutral-800 dark:text-neutral-100 sm:text-3xl">Program</h2>
 
         <div className="program-slider mt-6 overflow-hidden">
@@ -97,8 +95,10 @@ const WhyChooseSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Clients */}
+        {/* Google Calendar component synced with personal Google Calendar */}
+        <div className="mt-16">
+          <GoogleCalendarSync />
+        </div>
         <h2 className="mt-16 text-center text-lg font-extrabold uppercase text-neutral-800 dark:text-neutral-100 sm:text-2xl">
           Organisasi Yang Telah Bersama Kami
         </h2>

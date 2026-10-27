@@ -38,7 +38,6 @@ const ICONS: Record<string, LucideIcon> = {
 
 const FasilitiPage = async () => {
   const facilities = await getFacilityTypes();
-  console.log("Facilities:", facilities);
 
   return (
     <main className="w-full bg-white dark:bg-neutral-950">

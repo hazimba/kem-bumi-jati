@@ -1,8 +1,21 @@
 export const NAV_LINKS = [
   { href: "/", label: "Utama" },
   { href: "/latar-belakang", label: "Latar Belakang" },
-  // { href: "/activity", label: "Latar Belakang" },
-  { href: "/fasiliti", label: "Fasiliti" },
+  {
+    href: "/fasiliti",
+    label: "Fasiliti",
+    sublinks: [
+      { href: "/fasiliti", label: "Semua Fasiliti" },
+      { href: "/fasiliti/asrama", label: "Asrama" },
+      { href: "/fasiliti/dewan-makan", label: "Dewan Makan" },
+      { href: "/fasiliti/bilik-urusetia", label: "Bilik Urusetia" },
+      { href: "/fasiliti/padang-kawad", label: "Padang Kawad" },
+      { href: "/fasiliti/surau", label: "Surau" },
+      { href: "/fasiliti/obstacle", label: "Obstacle Course" },
+      { href: "/fasiliti/kolam-renang", label: "Kolam Renang" },
+      { href: "/fasiliti/dewan-kuliah", label: "Dewan Kuliah" },
+    ],
+  },
   { href: "/galeri", label: "Galeri" },
   // { href: "/kalendar", label: "Kalendar" },
   { href: "/lokasi-kami", label: "Lokasi" },
@@ -34,7 +47,7 @@ export const slides = [
     tint: "from-[#4A3728]/95 via-[#16261C]/50 to-black/50",
     eyebrow: "",
     heading: "Jalan Kebun, Shah Alam, Selangor",
-    description: "Kem Bumi Jati merupakan pusat latihan dan kem motivasi profesional...",
+    description: "Kem Bumi Jati merupakan pusat latihan dan kem motivasi profesional sejak 1993 di Shah Alam, Selangor.",
     cta: { label: "Hubungi Kami", href: "/hubungi-kami" },
   },
 ];

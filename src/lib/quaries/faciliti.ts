@@ -49,7 +49,7 @@ export async function getFacilityType(slug: string) {
 
   const { data: type } = await supabase
     .from("image_types")
-    .select("id, slug, label, description")
+    .select("id, slug, label, description, cover_url")
     .eq("section", "faciliti")
     .eq("slug", slug)
     .eq("is_active", true)

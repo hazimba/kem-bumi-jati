@@ -80,8 +80,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/assets/favicon.ico",
-    shortcut: "/assets/favicon-16x16.png",
-    apple: "/assets/apple-touch-icon.png",
+    shortcut: "/assets/favicon.ico",
+    apple: "/assets/favicon.ico",
   },
   robots: {
     index: true,
