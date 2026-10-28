@@ -25,10 +25,7 @@ export function AdminVisitorAnalytics() {
     async function fetchAnalytics() {
       try {
         const supabase = createClient();
-        const { data, error } = await supabase
-          .from("site_visitors")
-          .select("*")
-          .order("visited_at", { ascending: false });
+        const { data, error } = await supabase.from("site_visitors").select("*").order("visited_at", { ascending: false });
 
         if (error) {
           console.error("Error fetching analytics:", error);
@@ -145,9 +142,9 @@ export function AdminVisitorAnalytics() {
                   <div key={ip} className="space-y-1.5">
                     <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300">
                       <div className="flex items-center gap-2">
-                        <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-bold text-blue-700 dark:bg-neutral-800 dark:text-blue-400">
+                        {/* <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-bold text-blue-700 dark:bg-neutral-800 dark:text-blue-400">
                           {ip}
-                        </code>
+                        </code> */}
                         <span className="flex items-center gap-1 text-[11px] text-neutral-500 dark:text-neutral-400">
                           <MapPin className="h-3 w-3 text-rose-500" />
                           {city}
