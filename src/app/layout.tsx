@@ -8,6 +8,7 @@ import type { Metadata, Viewport } from "next";
 import { Roboto_Mono } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
+import { AnalyticsTracker } from "@/components/analytic-tracker";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -117,6 +118,7 @@ export default function RootLayout({
             <PageLoader />
           </Suspense>
           <div className="flex-1">{children}</div>
+          <AnalyticsTracker />
           <Footer />
           <WhatsAppButton />
           <Toaster />

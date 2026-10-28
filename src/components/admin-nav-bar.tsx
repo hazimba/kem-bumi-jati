@@ -44,7 +44,7 @@ const AdminNavBar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden 2xl:flex items-center gap-1">
             {ADMIN_NAV_LINKS.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/admin" && pathname.startsWith(link.href));
               return (
@@ -65,7 +65,7 @@ const AdminNavBar = () => {
           </div>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden 2xl:flex items-center gap-3">
             <ModeToggle />
             <Link
               href="/"
@@ -93,7 +93,7 @@ const AdminNavBar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:text-neutral-400"
+            className="2xl:hidden p-2 rounded-lg text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:text-neutral-400"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}>
@@ -103,7 +103,7 @@ const AdminNavBar = () => {
 
         {/* Mobile Navigation */}
         {mobileOpen && (
-          <div className="md:hidden py-4 border-t border-neutral-200 dark:border-neutral-800">
+          <div className="2xl:hidden py-4 border-t border-neutral-200 dark:border-neutral-800">
             <div className="flex items-center justify-between px-3 mb-4">
               <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400">Tema</span>
               <ModeToggle />

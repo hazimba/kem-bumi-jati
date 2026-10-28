@@ -111,7 +111,7 @@ const HeroSection = () => {
               loading={i === 0 ? "eager" : "lazy"}
               // PERF FIX 3: Specify sizes so browser loads optimized resolution version
               sizes="100vw"
-              quality={80}
+              quality={75}
               className={cn(
                 "object-cover transition-transform ease-linear will-change-transform",
                 isActive && !reducedMotion && "scale-105 duration-[7000ms]",

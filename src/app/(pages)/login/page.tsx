@@ -39,7 +39,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-tertiary px-4 py-12">
+    <div className="flex items-center justify-center bg-tertiary px-4 py-12">
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="flex justify-center mb-8">
@@ -54,7 +54,7 @@ const LoginPage = () => {
 
         <Card className="shadow-xl border-neutral-200 dark:border-neutral-700">
           <CardHeader className="text-center pb-2">
-            <CardTitle className="font-serif text-2xl text-brand-dark">Log Masuk Admin</CardTitle>
+            <CardTitle className="font-serif text-2xl text-brand-dark dark:text-brand-light">Log Masuk Admin</CardTitle>
             <CardDescription className="text-neutral-500 dark:text-neutral-400">
               Masukkan email dan kata laluan untuk mengakses panel pentadbir
             </CardDescription>
@@ -137,11 +137,11 @@ const LoginPage = () => {
           <CardFooter className="flex flex-col items-center gap-2 pt-4 border-t border-neutral-100 dark:border-neutral-800">
             <p className="text-xs text-neutral-500 dark:text-neutral-400">
               Demo:{" "}
-              <code className="bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded text-brand-dark font-mono text-[11px]">
+              <code className="bg-neutral-100 dark:bg-neutral-800 dark:text-white px-1.5 py-0.5 rounded text-brand-dark font-mono text-[11px]">
                 admin@kembumijati.com
               </code>{" "}
               /{" "}
-              <code className="bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded text-brand-dark font-mono text-[11px]">
+              <code className="bg-neutral-100 dark:bg-neutral-800 dark:text-white px-1.5 py-0.5 rounded text-brand-dark font-mono text-[11px]">
                 admin123
               </code>
             </p>

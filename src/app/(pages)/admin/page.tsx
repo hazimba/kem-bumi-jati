@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Package, ImageIcon, Calendar } from "lucide-react";
 import Link from "next/link";
+import { AdminVisitorAnalytics } from "@/components/admin-visitor-analytics";
 
 const stats = [
   { label: "Total Pengguna", value: "1,234", icon: Users, color: "text-blue-500", bg: "bg-blue-500/10" },
@@ -59,7 +60,13 @@ export default function AdminDashboard() {
           ))}
         </div>
 
-        <div>
+        {/* Visitor Analytics Section */}
+        <div className="mb-12">
+          <h2 className="font-serif text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">Statistik Pelawat & Trafik Web</h2>
+          <AdminVisitorAnalytics />
+        </div>
+
+        <div className="mb-8">
           <h2 className="font-serif text-xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">Tindakan Pantas</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {quickActions.map((action) => (
