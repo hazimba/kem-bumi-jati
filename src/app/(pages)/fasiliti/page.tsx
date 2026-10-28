@@ -17,14 +17,17 @@ import PageBanner from "@/components/page-banner";
 import { getFacilityTypes } from "@/lib/quaries/faciliti";
 
 export const metadata: Metadata = {
-  title: "Fasiliti Utama | Kem Bumi Jati",
-  description: "Kemudahan lengkap untuk memastikan program anda berjalan dengan lancar dan selesa.",
+  title: "Fasiliti Kem Bumi Jati | Penginapan & Kemudahan",
+  description:
+    "Terokai fasiliti Kem Bumi Jati di Selangor, termasuk kemudahan penginapan asrama untuk kem akademik, kem motivasi dan program berkumpulan.",
+  alternates: {
+    canonical: "/fasiliti",
+  },
 };
 
 const GREEN = "#1f6b3a";
 const BANNER_IMAGE = "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg";
 
-// icons per slug; unknown/new types fall back to ImageIcon
 const ICONS: Record<string, LucideIcon> = {
   "dewan-kuliah": Presentation,
   asrama: BedDouble,

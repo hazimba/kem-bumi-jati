@@ -6,6 +6,9 @@ import PageBanner from "@/components/page-banner";
 export const metadata: Metadata = {
   title: "Hubungi Kami | Kem Bumi Jati",
   description: "Hubungi pasukan Kem Bumi Jati untuk maklumat berkaitan pakej, tarikh, kemudahan dan tempahan.",
+  alternates: {
+    canonical: "/hubungi-kami",
+  },
 };
 
 const GREEN = "#1f6b3a";
@@ -17,7 +20,7 @@ const SIDE_IMAGE = "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/p
 const WHATSAPP_DISPLAY = "+60 11-1461 5206";
 const EMAIL = "info@kembumijati.com";
 
-const HubungiKamiPage = () => {
+const HubungiKamiPage = async () => {
   return (
     <main className="w-full bg-white dark:bg-neutral-950">
       <PageBanner title="Hubungi Kami" image={BANNER_IMAGE} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Hubungi Kami" }]} />

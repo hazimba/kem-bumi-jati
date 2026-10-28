@@ -5,12 +5,15 @@ import GalleryGrid from "@/components/gallery-grid";
 export const metadata: Metadata = {
   title: "Galeri | Kem Bumi Jati",
   description: "Galeri program dan kemudahan Kem Bumi Jati.",
+  alternates: {
+    canonical: "/galeri",
+  },
 };
 
 const BANNER_IMAGE =
   "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260115_155433.jpg";
 
-const GaleriPage = () => {
+const GaleriPage = async () => {
   return (
     <main className="w-full bg-background text-foreground">
       <PageBanner

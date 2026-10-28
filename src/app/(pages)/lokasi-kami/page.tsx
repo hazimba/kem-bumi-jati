@@ -6,7 +6,10 @@ import ImagePreviewDialog from "@/components/image-preview-dialog";
 
 export const metadata: Metadata = {
   title: "Lokasi Kami | Kem Bumi Jati",
-  description: "Lokasi Kem Bumi Jati, pautan Google Maps dan Waze serta peta layout kem.",
+  description: "Lokasi Kem Bumi Jati, pautan Google Maps serta peta layout kem.",
+  alternates: {
+    canonical: "/lokasi-kami",
+  },
 };
 
 // const GREEN = "#1f6b3a";
@@ -20,7 +23,7 @@ const MAP_LAYOUT_IMAGE =
 // const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Shah+Alam,+Selangor";
 const MAP_EMBED_URL = "https://maps.google.com/maps?q=2.9633331,101.5424996&z=17&output=embed";
 
-const LokasiKamiPage = () => {
+const LokasiKamiPage = async () => {
   return (
     <main className="w-full bg-white dark:bg-neutral-950">
       <PageBanner title="Lokasi Kami" image={BANNER_IMAGE} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Lokasi" }]} />

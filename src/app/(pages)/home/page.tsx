@@ -8,10 +8,19 @@ import BookingCtaSection from "./booking-cta";
 import PastClientSection from "./past-client";
 import WhyUs from "./why-us";
 import LocationBanner from "./location-banner";
+import { Metadata } from "next";
 
 async function getHomeData() {
   await new Promise((resolve) => setTimeout(resolve, 500));
 }
+
+export const metadata: Metadata = {
+  title: "Utama | Kem Bumi Jati",
+  description: "Kemudahan lengkap untuk memastikan program anda berjalan dengan lancar dan selesa.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const HomePage = async () => {
   await getHomeData();

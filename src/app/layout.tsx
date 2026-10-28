@@ -10,46 +10,30 @@ import { Suspense } from "react";
 import "./globals.css";
 import { AnalyticsTracker } from "@/components/analytic-tracker";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
   subsets: ["latin"],
 });
-
-// const fraunces = Fraunces({
-//   subsets: ["latin"],
-//   weight: ["500", "600"],
-//   style: ["normal", "italic"],
-//   variable: "--font-fraunces",
-// });
 
 const siteUrl = "https://kembumijati.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Kem Bumi Jati | Outdoor Camp & Retreat Since 1973",
+    default: "Kem Bumi Jati | Kem Motivasi, Team Building & Outdoor Camp",
     template: "%s | Kem Bumi Jati",
   },
   description:
-    "Kem Bumi Jati is an outdoor camp and retreat centre established in 1973, offering school camps, scouting programmes, team-building activities, and nature retreats set on jungle grounds.",
+    "Kem Bumi Jati menyediakan kemudahan lengkap untuk kem akademik, kem motivasi, latihan organisasi, team building, dan penginapan asrama di Selangor sejak 1973.",
   keywords: [
     "Kem Bumi Jati",
-    "outdoor camp Malaysia",
-    "school camp",
-    "scouting camp",
-    "team building retreat",
-    "jungle camp",
-    "nature retreat Malaysia",
+    "Kem motivasi Selangor",
+    "Kem akademik",
+    "Tempat team building Selangor",
+    "Outdoor camp Malaysia",
+    "Kem penginapan asrama",
+    "Lokasi kem motivasi",
+    "Kem latihan organisasi",
   ],
   authors: [{ name: "Kem Bumi Jati" }],
   creator: "Kem Bumi Jati",
@@ -57,27 +41,30 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  verification: {
+    google: "YOUR_GOOGLE_SEARCH_CONSOLE_CODE", // Insert code from Google Search Console
+  },
   openGraph: {
     type: "website",
-    locale: "en_MY",
+    locale: "ms_MY",
     url: siteUrl,
     siteName: "Kem Bumi Jati",
-    title: "Kem Bumi Jati | Outdoor Camp & Retreat Since 1973",
-    description: "Outdoor camp and retreat centre since 1973 — school camps, scouting programmes, and nature retreats.",
+    title: "Kem Bumi Jati | Kem Motivasi, Team Building & Outdoor Camp",
+    description: "Pusat kem latihan, motivasi, dan team building lengkap di Selangor sejak 1973.",
     images: [
       {
-        url: "/assets/",
+        url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
         width: 1200,
         height: 630,
-        alt: "Kem Bumi Jati camp grounds",
+        alt: "Kawasan Kem Bumi Jati",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kem Bumi Jati | Outdoor Camp & Retreat Since 1973",
-    description: "Outdoor camp and retreat centre since 1973 — school camps, scouting programmes, and nature retreats.",
-    images: ["/assets/og-image.webp"],
+    title: "Kem Bumi Jati | Outdoor Camp & Retreat",
+    description: "Pusat kem latihan, motivasi, dan team building lengkap di Selangor sejak 1973.",
+    images: ["https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg"],
   },
   icons: {
     icon: "/assets/favicon.ico",

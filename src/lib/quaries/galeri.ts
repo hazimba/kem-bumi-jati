@@ -57,3 +57,28 @@ export async function getGaleriImages({ typeSlug, page = 1 }: { typeSlug?: strin
     hasMore: count ? from + PAGE_SIZE < count : false,
   };
 }
+
+export async function getGaleri() {
+  const supabase = await createClient();
+
+  const [typesRes, imagesRes] = await Promise.all([
+    supabase.from("image_types").select("id, slug, label").eq("section", "galeri").eq("is_active", true).order("sort_order"),
+    supabase
+      .from("site_images_view")
+      .select("id, url, caption, type_id, type_slug, type_label")
+      .eq("section", "galeri")
+      .order("sort_order")
+      .order("created_at", { ascending: false }),
+  ]);
+
+  if (typesRes.error) throw new Error(typesRes.error.message);
+  if (imagesRes.error) throw new Error(imagesRes.error.message);
+
+  const types = (typesRes.data ?? []) as GaleriType[];
+  const activeIds = new Set(types.map((t) => t.id));
+
+  // drop images that belong to deactivated types
+  const images = ((imagesRes.data ?? []) as GaleriImage[]).filter((i) => activeIds.has(i.type_id));
+
+  return { types, images };
+}

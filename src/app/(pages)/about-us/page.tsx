@@ -1,8 +1,17 @@
 import { Briefcase, Building2, Map, Plane } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 // import PartnersSection from "../home/Partners";
 
-const AboutUsPage = () => {
+export const metadata: Metadata = {
+  title: "About Us | Kem Bumi Jati",
+  description: "Ketahui lebih lanjut tentang Kem Bumi Jati, legasi, visi dan misi kami.",
+  alternates: {
+    canonical: "/about-us",
+  },
+};
+
+const AboutUsPage = async () => {
   const ourServices = [
     {
       title: "Flights & Visa Services",

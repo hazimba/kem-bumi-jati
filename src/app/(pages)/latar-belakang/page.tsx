@@ -7,6 +7,9 @@ import ImagePreviewDialog from "@/components/image-preview-dialog";
 export const metadata: Metadata = {
   title: "Latar Belakang | Kem Bumi Jati",
   description: "Mengenai Kem Bumi Jati, objektif, visi dan misi.",
+  alternates: {
+    canonical: "/latar-belakang",
+  },
 };
 
 const GREEN = "#1f6b3a";
@@ -27,7 +30,7 @@ const objektif = [
   "Menyediakan persekitaran yang kondusif.",
 ];
 
-const LatarBelakangPage = () => {
+const LatarBelakangPage = async () => {
   return (
     <main className="w-full bg-white dark:bg-neutral-950">
       <PageBanner title="Latar Belakang" image={BANNER_IMAGE} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Latar Belakang" }]} />

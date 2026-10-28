@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import PageBanner from "@/components/page-banner";
 import { getFacilityType } from "@/lib/quaries/faciliti";
 import { ImageIcon } from "lucide-react";
