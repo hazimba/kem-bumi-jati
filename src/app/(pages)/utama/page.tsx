@@ -1,4 +1,4 @@
-import HeroSection from "@/app/(pages)/home/hero-section";
+import HeroSection from "@/app/(pages)/utama/hero-section";
 import AboutSection from "./about-us";
 import WhyChooseUs from "./why-choose-us";
 import FacilitiesSection from "./facilities";
@@ -15,7 +15,7 @@ async function getHomeData() {
 }
 
 export const metadata: Metadata = {
-  title: "Utama | Kem Bumi Jati",
+  title: "Utama",
   description: "Kemudahan lengkap untuk memastikan program anda berjalan dengan lancar dan selesa.",
   alternates: {
     canonical: "/",

@@ -1,26 +1,30 @@
 import type { Metadata } from "next";
-// import Image from "next/image";
-// import { Car, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Car, MapPin } from "lucide-react";
 import PageBanner from "@/components/page-banner";
 import ImagePreviewDialog from "@/components/image-preview-dialog";
+import MapFacade from "@/components/map-facade";
 
 export const metadata: Metadata = {
-  title: "Lokasi Kami | Kem Bumi Jati",
+  title: "Lokasi Kami",
   description: "Lokasi Kem Bumi Jati, pautan Google Maps serta peta layout kem.",
   alternates: {
     canonical: "/lokasi-kami",
   },
 };
 
-// const GREEN = "#1f6b3a";
+const GREEN = "#1f6b3a";
 
 const BANNER_IMAGE =
   "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati/73aa3e5f-e96a-49ec-839b-1edf029a9b48.jpg";
 const MAP_LAYOUT_IMAGE =
   "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
 
+const MAP_PREVIEW_IMAGE =
+  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/Screenshot%202026-10-29%20at%202.36.40%20PM.png";
+
 // Replace with the real coordinates / place link
-// const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Shah+Alam,+Selangor";
+const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Shah+Alam,+Selangor";
 const MAP_EMBED_URL = "https://maps.google.com/maps?q=2.9633331,101.5424996&z=17&output=embed";
 
 const LokasiKamiPage = async () => {
@@ -55,20 +59,9 @@ const LokasiKamiPage = async () => {
             </div> */}
           </div>
 
-          {/* Map */}
-          <div className="overflow-hidden rounded-xl shadow-sm">
-            <iframe
-              title="Lokasi Kem Bumi Jati"
-              src={MAP_EMBED_URL}
-              className="h-72 w-full border-0 sm:h-96"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-          </div>
+          <MapFacade embedUrl={MAP_EMBED_URL} title="Lokasi Kem Bumi Jati" previewImage={MAP_PREVIEW_IMAGE} />
         </section>
 
-        {/* Peta & Layout */}
         <section className="mt-12">
           <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">Peta &amp; Layout Kem</h3>
           <ImagePreviewDialog

@@ -14,7 +14,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const whatsappUrl =
-    "https://wa.me/+601114615206?text=Hi%20Kem%20Bumi%20Jati%2C%20saya%20ingin%20mendapatkan%20maklumat%20mengenai%20pakej%20program%20anda.";
+    "https://wa.me/+60162294114?text=Hi%20Kem%20Bumi%20Jati%2C%20saya%20ingin%20mendapatkan%20maklumat%20mengenai%20pakej%20program%20anda.";
 
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

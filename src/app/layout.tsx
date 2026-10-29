@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   verification: {
-    google: "YOUR_GOOGLE_SEARCH_CONSOLE_CODE", // Insert code from Google Search Console
+    google: "google-site-verification=vN2yZEqIUo8nkNaC1IM9S9IuhfPqNr0eJCfwRkAY2hk",
   },
   openGraph: {
     type: "website",

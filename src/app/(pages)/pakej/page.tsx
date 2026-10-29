@@ -5,7 +5,7 @@ import PageBanner from "@/components/page-banner";
 import WorkInProgress from "@/components/work-in-progress";
 
 export const metadata: Metadata = {
-  title: "Program | Kem Bumi Jati",
+  title: "Program",
   description: "Pakej Kem Akademik, Team Building serta Motivasi & Kepimpinan.",
 };
 

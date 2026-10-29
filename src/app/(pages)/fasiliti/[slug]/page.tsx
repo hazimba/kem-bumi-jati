@@ -17,15 +17,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!data) {
     return {
-      title: "Fasiliti Tidak Dijumpai | Kem Bumi Jati",
+      title: "Fasiliti Tidak Dijumpai",
     };
   }
 
   return {
-    title: `${data.type.label} | Kem Bumi Jati`,
+    title: `${data.type.label}`,
     description: data.type.description || `Galeri gambar untuk ${data.type.label}`,
     openGraph: {
-      title: `${data.type.label} | Kem Bumi Jati`,
+      title: `${data.type.label}`,
       description: data.type.description || `Galeri gambar untuk ${data.type.label}`,
       images: [data.type.cover_url || BANNER_IMAGE],
     },

@@ -11,6 +11,7 @@ const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 export async function POST(request: Request) {
   try {
     const { url, visitorId } = await request.json();
+    console.log("Analytics POST request:", { url, visitorId });
 
     if (typeof visitorId !== "string" || !UUID_RE.test(visitorId)) {
       return NextResponse.json({ success: false, error: "invalid visitorId" }, { status: 400 });
@@ -35,9 +36,9 @@ export async function POST(request: Request) {
     const forwardedFor = request.headers.get("x-forwarded-for");
     const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : "127.0.0.1";
     const isLocal = ip === "127.0.0.1" || ip === "::1";
-    if (isLocal) {
-      return NextResponse.json({ success: true, skipped: true });
-    }
+    // if (isLocal) {
+    //   return NextResponse.json({ success: true, skipped: true });
+    // }
 
     const rawCity = request.headers.get("x-vercel-ip-city") || request.headers.get("cf-ipcity") || "";
     let city = rawCity ? decodeURIComponent(rawCity) : "";

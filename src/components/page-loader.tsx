@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Loading from "@/app/(pages)/home/loading";
+import Loading from "@/app/(pages)/utama/loading";
 
 export default function PageLoader() {
   const pathname = usePathname();

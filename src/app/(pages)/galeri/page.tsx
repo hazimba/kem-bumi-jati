@@ -3,7 +3,7 @@ import PageBanner from "@/components/page-banner";
 import GalleryGrid from "@/components/gallery-grid";
 
 export const metadata: Metadata = {
-  title: "Galeri | Kem Bumi Jati",
+  title: "Galeri",
   description: "Galeri program dan kemudahan Kem Bumi Jati.",
   alternates: {
     canonical: "/galeri",

@@ -3,9 +3,10 @@ import Image from "next/image";
 import { Check, Eye, Mountain, Target } from "lucide-react";
 import PageBanner from "@/components/page-banner";
 import ImagePreviewDialog from "@/components/image-preview-dialog";
+import YouTubeFacade from "@/components/youtube-facede";
 
 export const metadata: Metadata = {
-  title: "Latar Belakang | Kem Bumi Jati",
+  title: "Latar Belakang",
   description: "Mengenai Kem Bumi Jati, objektif, visi dan misi.",
   alternates: {
     canonical: "/latar-belakang",
@@ -21,7 +22,7 @@ const ABOUT_IMAGE =
 const MAP_IMAGE =
   "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
 const VIDEO_SRC = "https://www.youtube.com/embed/wdxeBjvC2FU";
-const VIDEO_POSTER = "https://img.youtube.com/vi/wdxeBjvC2FU/maxresdefault.jpg";
+const VIDEO_ID = "wdxeBjvC2FU";
 
 const objektif = [
   "Menyediakan lokasi yang selesa dan sesuai untuk program berkumpulan.",
@@ -83,22 +84,7 @@ const LatarBelakangPage = async () => {
           </article>
         </section>
 
-        {/* Peta & Video */}
         <section className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-[1.5fr_1fr]">
-          {/* <div>
-            <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">Peta &amp; Layout Kem</h3>
-            <div className="relative mt-3 aspect-[4/3] w-full overflow-hidden rounded-xl shadow-sm">
-              <Image src={MAP_IMAGE} alt="Peta dan layout Kem Bumi Jati" fill unoptimized className="object-cover" />
-            </div>
-            <a
-              href={MAP_IMAGE}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-block rounded-lg px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-              style={{ backgroundColor: GREEN }}>
-              Lihat Dalam Saiz Penuh
-            </a>
-          </div> */}
           <ImagePreviewDialog
             src={MAP_IMAGE}
             alt="Peta dan layout Kem Bumi Jati"
@@ -108,15 +94,8 @@ const LatarBelakangPage = async () => {
 
           <div>
             <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">Video Masuk Kem</h3>
-            <div className="mt-3 overflow-hidden rounded-xl bg-black shadow-sm">
-              <iframe
-                src={VIDEO_SRC}
-                title="Kem Bumi Jati Video"
-                className="aspect-[4/3] w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
+            <div className="mt-3">
+              <YouTubeFacade videoId={VIDEO_ID} title="Kem Bumi Jati Video" />
             </div>
           </div>
         </section>

@@ -4,7 +4,7 @@ import Image from "next/image";
 // import PartnersSection from "../home/Partners";
 
 export const metadata: Metadata = {
-  title: "About Us | Kem Bumi Jati",
+  title: "About Us",
   description: "Ketahui lebih lanjut tentang Kem Bumi Jati, legasi, visi dan misi kami.",
   alternates: {
     canonical: "/about-us",

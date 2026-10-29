@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 const Page = async () => {
-  redirect("/home");
+  redirect("/utama");
 };
 
 export default Page;

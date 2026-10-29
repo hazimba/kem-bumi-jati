@@ -85,13 +85,11 @@ const HeroSection = () => {
       onTouchEnd={onTouchEnd}
       aria-roledescription="carousel"
       aria-label="Kem Bumi Jati highlights">
-      {/* Dynamic Slide Background Rendering */}
       {slides.map((s, i) => {
         // PERF FIX 1: Lazy render non-active slides to avoid downloading 3 large images on initial page load
         const isActive = i === index;
         const isNextSlide = i === (index + 1) % slides.length;
 
-        // Only render the active slide or preload the next slide
         if (!isActive && !isNextSlide) return null;
 
         return (
@@ -118,22 +116,20 @@ const HeroSection = () => {
                 isActive && reducedMotion && "scale-100"
               )}
             />
-            <div className={cn("absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent", s.tint)} />
+            <div className={cn("absolute inset-0 bg-gradient-to-t", s.tint)} />
           </div>
         );
       })}
 
-      {/* Navigation Bar Header */}
       <div className="absolute inset-x-0 top-0 z-50">
         <NavigationBar variant="overlay" />
       </div>
 
-      {/* Content Overlay */}
       <div className="relative z-20 flex h-full items-center px-8 sm:px-14 max-w-7xl mx-auto">
-        <motion.div style={{ y: textY, opacity: textOpacity }} className="max-w-xl" aria-live="polite">
+        <motion.div style={{ y: textY, opacity: textOpacity }} className="max-w-2xl" aria-live="polite">
           <p className="mb-3 text-xs tracking-[0.25em] uppercase text-[#D4A24C]">{slide.eyebrow}</p>
-          <h2 className="font-serif text-4xl sm:text-5xl italic leading-tight text-[#F3EDE0]">{slide.heading}</h2>
-          <p className="mt-5 text-sm sm:text-base leading-relaxed text-[#F3EDE0]/80">{slide.description}</p>
+          <h2 className="font-serif font-[500] text-4xl sm:text-6xl italic leading-tight text-[#F3EDE0]">{slide.heading}</h2>
+          <p className="mt-5 text-lg leading-relaxed text-[#F3EDE0]/80">{slide.description}</p>
           {slide.cta && (
             <Button asChild className="mt-8 bg-secondary text-primary py-4 px-6 border hover:bg-[#D4A24C]/90">
               <Link href={slide.cta.href}>{slide.cta.label}</Link>

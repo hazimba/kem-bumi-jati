@@ -8,10 +8,10 @@ export function NavRender() {
   const pathname = usePathname();
 
   // Hide nav on home page
-  if (pathname === "/home") {
+  if (pathname === "/utama" || pathname === "/") {
     return null;
   }
-  
+
   // Use admin nav for admin routes
   if (pathname.startsWith("/admin")) {
     return <AdminNavBar />;

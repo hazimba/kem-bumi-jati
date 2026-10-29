@@ -4,7 +4,7 @@ import { Mail, MapPin, MessageCircle } from "lucide-react";
 import PageBanner from "@/components/page-banner";
 
 export const metadata: Metadata = {
-  title: "Hubungi Kami | Kem Bumi Jati",
+  title: "Hubungi Kami",
   description: "Hubungi pasukan Kem Bumi Jati untuk maklumat berkaitan pakej, tarikh, kemudahan dan tempahan.",
   alternates: {
     canonical: "/hubungi-kami",
