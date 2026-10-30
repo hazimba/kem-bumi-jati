@@ -1,20 +1,60 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL! || "https://mlapxffieyehdpvuzsyw.supabase.co",
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY! || "sb_publishable_ZOmLKMqnmBsr9RgREljNkw_D9-H3i0x"
-);
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!);
+
 const VISIT_WINDOW_MS = 5 * 60 * 60 * 1000; // 5 hours
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function isPrivateIp(ip: string): boolean {
+  const v = ip.replace(/^::ffff:/i, "");
+  return (
+    v === "::1" ||
+    v.startsWith("127.") ||
+    v.startsWith("10.") ||
+    v.startsWith("192.168.") ||
+    /^172\.(1[6-9]|2\d|3[01])\./.test(v) ||
+    v.startsWith("169.254.") ||
+    /^f[cd][0-9a-f]{2}:/i.test(v) ||
+    v.startsWith("fe80:")
+  );
+}
+
+function getClientIp(request: Request): string | null {
+  const h = request.headers;
+
+  // Single-value headers set by the platform/CDN (most trustworthy first)
+  const direct = h.get("cf-connecting-ip") || h.get("x-vercel-forwarded-for") || h.get("x-real-ip") || h.get("true-client-ip");
+  if (direct && !isPrivateIp(direct.trim())) return direct.trim();
+
+  // Chain header: take the first public IP in the list
+  const xff = h.get("x-forwarded-for");
+  if (xff) {
+    for (const part of xff.split(",")) {
+      const ip = part.trim().replace(/^::ffff:/i, "");
+      if (ip && !isPrivateIp(ip)) return ip;
+    }
+  }
+  return null;
+}
 
 export async function POST(request: Request) {
   try {
     const { url, visitorId } = await request.json();
-    console.log("Analytics POST request:", { url, visitorId });
 
     if (typeof visitorId !== "string" || !UUID_RE.test(visitorId)) {
       return NextResponse.json({ success: false, error: "invalid visitorId" }, { status: 400 });
+    }
+
+    const ip = getClientIp(request);
+    if (!ip) {
+      // Helps you debug proxy config in production logs
+      console.warn("No public client IP found. Headers:", {
+        xff: request.headers.get("x-forwarded-for"),
+        xri: request.headers.get("x-real-ip"),
+        cf: request.headers.get("cf-connecting-ip"),
+      });
+      return NextResponse.json({ success: true, skipped: true });
     }
 
     const since = new Date(Date.now() - VISIT_WINDOW_MS).toISOString();
@@ -33,19 +73,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, skipped: true });
     }
 
-    const forwardedFor = request.headers.get("x-forwarded-for");
-    const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : "127.0.0.1";
-    const isLocal = ip === "127.0.0.1" || ip === "::1";
-    // if (isLocal) {
-    //   return NextResponse.json({ success: true, skipped: true });
-    // }
-
-    const rawCity = request.headers.get("x-vercel-ip-city") || request.headers.get("cf-ipcity") || "";
+    const h = request.headers;
+    const rawCity = h.get("x-vercel-ip-city") || h.get("cf-ipcity") || "";
     let city = rawCity ? decodeURIComponent(rawCity) : "";
-    const country = request.headers.get("x-vercel-ip-country") || request.headers.get("cf-ipcountry") || "";
-    const region = request.headers.get("x-vercel-ip-country-region") || request.headers.get("cf-region") || "";
+    const country = h.get("x-vercel-ip-country") || h.get("cf-ipcountry") || "";
+    const region = h.get("x-vercel-ip-country-region") || h.get("cf-region") || "";
 
-    if (!city && !isLocal) {
+    if (!city) {
       try {
         const geoRes = await fetch(`http://ip-api.com/json/${ip}?fields=status,city`, {
           signal: AbortSignal.timeout(2000),
@@ -58,8 +92,7 @@ export async function POST(request: Request) {
         // ignore geo failure
       }
     }
-
-    if (!city) city = isLocal ? "Localhost / Test" : "Lain-lain / Tidak diketahui";
+    if (!city) city = "Lain-lain / Tidak diketahui";
 
     const { error } = await supabase.from("site_visitors").insert({
       ip_address: ip,
