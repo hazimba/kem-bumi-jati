@@ -538,7 +538,7 @@
 }
 
 .program-track {
-  animation: program-scroll 40s linear infinite; /* bigger = slower */
+  animation: program-scroll 80s linear infinite; /* bigger = slower */
 }
 .program-slider:hover .program-track {
   animation-play-state: paused;                  /* stop on hover */

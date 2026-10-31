@@ -9,18 +9,15 @@ const LocationBanner = () => {
 
   return (
     <section className="relative h-[420px] w-full overflow-hidden">
-      {/* Background image */}
       <Image
-        src="/assets/location-banner.jpg"
+        src="https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/others/location-banner.jpg"
         alt="Aerial view of the venue in Shah Alam"
         fill
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Dark gradient for text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
 
-      {/* Content aligned with max-w-7xl */}
       <div className="absolute inset-x-0 bottom-0 z-10 mx-auto w-full max-w-7xl px-6 pb-8 text-white sm:px-8">
         <h2 className="text-2xl font-bold leading-tight sm:text-3xl">Lokasi Strategik di Shah Alam</h2>
 
