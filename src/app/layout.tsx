@@ -98,6 +98,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //
   return (
     <html lang="en" className={` ${robotoMono.variable}  h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
