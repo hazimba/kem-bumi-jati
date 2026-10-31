@@ -100,7 +100,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={` ${robotoMono.variable}  h-full antialiased`} suppressHydrationWarning>
-      <head>
+      {/* <head>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-YM0M9XWBJH" strategy="afterInteractive" />
 
         <Script id="google-analytics" strategy="afterInteractive">
@@ -112,7 +112,7 @@ export default function RootLayout({
             window.gtag('config', 'G-YM0M9XWBJH');
           `}
         </Script>
-      </head>
+      </head> */}
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NavRender />
