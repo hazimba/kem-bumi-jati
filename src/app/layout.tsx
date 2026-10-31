@@ -10,7 +10,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import { AnalyticsTracker } from "@/components/analytic-tracker";
 import Script from "next/script";
-import GoogleAnalytics from "@/components/google-analytics";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   verification: {
-    google: "google-site-verification=vN2yZEqIUo8nkNaC1IM9S9IuhfPqNr0eJCfwRkAY2hk",
+    google: "vN2yZEqIUo8nkNaC1IM9S9IuhfPqNr0eJCfwRkAY2hk",
   },
   openGraph: {
     type: "website",
@@ -100,19 +100,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={` ${robotoMono.variable}  h-full antialiased`} suppressHydrationWarning>
-      {/* <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YM0M9XWBJH" strategy="afterInteractive" />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            window.gtag = gtag;
-            window.gtag('js', new Date());
-            window.gtag('config', 'G-YM0M9XWBJH');
-          `}
-        </Script>
-      </head> */}
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NavRender />
@@ -120,10 +107,14 @@ export default function RootLayout({
             <PageLoader />
           </Suspense>
           <div className="flex-1">
-            <GoogleAnalytics />
+            <Suspense fallback={null}>
+              <GoogleAnalytics gaId="G-YM0M9XWBJH" />
+            </Suspense>
             {children}
           </div>
-          <AnalyticsTracker />
+          <Suspense fallback={null}>
+            <AnalyticsTracker />
+          </Suspense>
           <Footer />
           <WhatsAppButton />
           <Toaster />
