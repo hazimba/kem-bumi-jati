@@ -108,9 +108,9 @@ export default function RootLayout({
             <PageLoader />
           </Suspense>
           <div className="flex-1">
-            <Suspense fallback={null}>
+            {/* <Suspense fallback={null}>
               <GoogleAnalytics gaId="G-YM0M9XWBJH" />
-            </Suspense>
+            </Suspense> */}
             {children}
           </div>
           <Suspense fallback={null}>

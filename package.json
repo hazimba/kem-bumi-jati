@@ -12,7 +12,8 @@
     "start:vinext": "vite preview",
     "deploy:vinext": "vinext-cloudflare deploy",
     "deploy:staging": "vinext-cloudflare deploy --env staging",
-    "deploy:response-store": "cf deploy --prebuilt --mode production --worker kem-bumi-jati-response-store"
+    "deploy:response-store": "cf deploy --prebuilt --mode production --worker kem-bumi-jati-response-store",
+    "deploy:response-store:staging": "cf deploy --prebuilt --mode staging --worker kem-bumi-jati-staging-response-store"
   },
   "dependencies": {
     "@cloudflare/workers-response-store": "^1.1.3",
