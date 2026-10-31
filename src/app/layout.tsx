@@ -10,7 +10,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import { AnalyticsTracker } from "@/components/analytic-tracker";
 import Script from "next/script";
-import { GoogleAnalytics } from "@next/third-parties/google";
+// import { GoogleAnalytics } from "@next/third-parties/google";
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
@@ -98,6 +98,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //
   return (
     <html lang="en" className={` ${robotoMono.variable}  h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
@@ -106,12 +107,7 @@ export default function RootLayout({
           <Suspense fallback={null}>
             <PageLoader />
           </Suspense>
-          <div className="flex-1">
-            <Suspense fallback={null}>
-              <GoogleAnalytics gaId="G-YM0M9XWBJH" />
-            </Suspense>
-            {children}
-          </div>
+          <div className="flex-1">{children}</div>
           <Suspense fallback={null}>
             <AnalyticsTracker />
           </Suspense>
@@ -119,6 +115,16 @@ export default function RootLayout({
           <WhatsAppButton />
           <Toaster />
         </ThemeProvider>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YM0M9XWBJH" strategy="afterInteractive" />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YM0M9XWBJH');
+      `}
+        </Script>
       </body>
     </html>
   );
