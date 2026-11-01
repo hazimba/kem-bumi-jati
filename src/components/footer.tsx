@@ -11,8 +11,8 @@ const Footer = () => {
               <Image
                 src="/assets/kbj-icon.jpeg"
                 alt="Kem Bumi Jati Logo"
-                width={10}
-                height={10}
+                width={100}
+                height={100}
                 priority
                 className="object-contain w-auto h-14 pr-4"
               />
@@ -117,7 +117,7 @@ const Footer = () => {
             <div className="space-y-3">
               <h3 className="font-bold text-white border-b border-gray-700 pb-2">HUBUNGI</h3>
               <div className="text-sm space-y-4">
-                <p className="font-semibold text-gray-200">+0351616692/ 0162294114</p>
+                <p className="font-semibold text-gray-200">0162294114</p>
                 <div className="space-y-1">
                   <p>Lot 3319, Jalan Kem Bumi Jati</p>
                   <p>Batu 7, Jalan Kebun, Seksyen 30</p>
