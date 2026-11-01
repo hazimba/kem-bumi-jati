@@ -17,14 +17,14 @@ const features: Feature[] = [
 
 const programs: Program[] = [
   {
-    title: "Kem Akademik",
-    description: "Program akademik, motivasi dan kecemerlangan pelajar.",
+    title: "Trained Nepalese Guard ",
+    description: "Pengawal keselamatan berpengalaman dan terlatih untuk memastikan keselamatan peserta.",
     image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
   },
   {
     title: "Team Building",
     description: "Kursus, latihan organisasi dan aktiviti kumpulan.",
-    image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
+    image: "https://placehold.co/1600x500/png?text=Team+Building",
   },
   {
     title: "Motivasi & Kepimpinan",
@@ -32,9 +32,29 @@ const programs: Program[] = [
     image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg",
   },
   {
-    title: "Latihan & Kursus",
-    description: "Program latihan dan kursus untuk organisasi dan individu.",
+    title: "Kem Kepimpinan & Jati Diri",
+    description: "Program pembangunan diri dan kepimpinan untuk remaja dan belia.",
     image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg",
+  },
+  {
+    title: "Kem Smart Solat",
+    description: "Program pembangunan diri dan kepimpinan untuk remaja dan belia.",
+    image: "https://placehold.co/1600x500/png?text=Kem+Smart+Solat",
+  },
+  {
+    title: "Kem Akademik Skor SPM",
+    description: "Program pembangunan diri dan kepimpinan untuk remaja dan belia.",
+    image: "https://placehold.co/1600x500/png?text=Kem+Akademik+Skor+SPM",
+  },
+  {
+    title: "Kem Perkhemahan",
+    description: "Program akademik untuk pelajar SPM.",
+    image: "https://placehold.co/1600x500/png?text=Kem+Perkhemahan",
+  },
+  {
+    title: "Program Ai & Sahsiah Diri",
+    description: "Program akademik untuk pelajar SPM.",
+    image: "https://placehold.co/1600x500/png?text=Program+Ai+&+Sahsiah+Diri",
   },
 ];
 
@@ -47,7 +67,7 @@ const clients: Client[] = [
   { name: "GMA", logo: "/assets/logo-gma.png" },
 ];
 
-const loop = [...programs, ...programs];
+const loop = [...programs, ...programs, ...programs];
 
 const GREEN = "#1f6b3a";
 
