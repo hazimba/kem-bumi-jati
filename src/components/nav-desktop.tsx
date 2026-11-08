@@ -19,11 +19,11 @@ interface NavigationDesktopProps {
 const NavigationDesktop = ({ isOverlay }: NavigationDesktopProps) => {
   // Shared by BOTH plain links and dropdown triggers so they look identical
   const navItemClass = cn(
-    "inline-flex h-auto items-center px-3 py-2 text-sm font-medium transition-colors",
+    "inline-flex h-auto items-center px-3 py-2 text-md font-medium transition-colors",
     "bg-transparent hover:bg-transparent focus:bg-transparent",
     "data-[state=open]:bg-transparent data-[active]:bg-transparent",
     isOverlay
-      ? "text-[#F3EDE0] hover:text-[#D4A24C] focus:text-[#D4A24C] data-[state=open]:text-[#D4A24C] "
+      ? "text-white/90 hover:text-[#D4A24C] focus:text-[#D4A24C] data-[state=open]:text-[#D4A24C] "
       : "text-foreground hover:text-muted-foreground focus:text-muted-foreground data-[state=open]:text-muted-foreground"
   );
 
@@ -55,7 +55,7 @@ const NavigationDesktop = ({ isOverlay }: NavigationDesktopProps) => {
                   </NavigationMenuContent>
                 </>
               ) : (
-                <NavigationMenuLink asChild>
+                <NavigationMenuLink asChild className="text-md">
                   <Link href={link.href} prefetch={false} className={navItemClass}>
                     {link.label}
                   </Link>

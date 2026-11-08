@@ -1,16 +1,15 @@
 import Footer from "@/components/footer";
 import { NavRender } from "@/components/nav-render";
-import PageLoader from "@/components/page-loader";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import WhatsAppButton from "@/components/whatsapp-button";
+import { ClientPageWrapper } from "@/components/client-page-wrapper";
 import type { Metadata, Viewport } from "next";
 import { Roboto_Mono } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
 import { AnalyticsTracker } from "@/components/analytic-tracker";
 import Script from "next/script";
-// import { GoogleAnalytics } from "@next/third-parties/google";
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
@@ -98,16 +97,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  //
   return (
-    <html lang="en" className={` ${robotoMono.variable}  h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${robotoMono.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <NavRender />
-          <Suspense fallback={null}>
-            <PageLoader />
-          </Suspense>
-          <div className="flex-1">{children}</div>
+          <NavFixed />
+          <main className="flex-1">
+            <ClientPageWrapper>{children}</ClientPageWrapper>
+          </main>
           <Suspense fallback={null}>
             <AnalyticsTracker />
           </Suspense>
@@ -128,4 +125,8 @@ export default function RootLayout({
       </body>
     </html>
   );
+}
+
+export function NavFixed() {
+  return <NavRender />;
 }

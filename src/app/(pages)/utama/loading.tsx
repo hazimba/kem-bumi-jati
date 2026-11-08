@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <div
       id="preloader"
-      className="fixed inset-0 z-[9999] flex items-center bg-white dark:bg-brand-dark dark:text-brand-white justify-center backdrop-blur-sm">
+      className="fixed inset-0 z-[9999] h-screen flex items-center bg-white dark:bg-brand-dark dark:text-brand-white justify-center backdrop-blur-sm">
       <div className="flex flex-col items-center gap-4 text-center">
         <div className="relative flex items-center justify-center">
           <div className="absolute h-16 w-16 animate-ping rounded-full" />
