@@ -8,12 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Upload, Loader2, Image as ImageIcon } from "lucide-react";
 import Link from "next/link";
-import {
-  getPageBanners,
-  updatePageBanner,
-  DEFAULT_PAGE_BANNERS,
-  type PageBanner,
-} from "@/lib/actions/page-banners";
+import { getPageBanners, updatePageBanner, DEFAULT_PAGE_BANNERS, type PageBanner } from "@/lib/actions/page-banners";
 
 export default function AdminBannerPage() {
   const router = useRouter();
@@ -78,14 +73,12 @@ export default function AdminBannerPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <Link
+            {/* <Link
               href="/admin"
               className="inline-flex items-center text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 mb-2 transition-colors">
               <ArrowLeft className="h-4 w-4 mr-1" /> Kembali ke Dashboard
-            </Link>
-            <h1 className="font-serif text-3xl font-bold text-neutral-900 dark:text-neutral-100">
-              Pengurusan Banner Halaman
-            </h1>
+            </Link> */}
+            <h1 className="font-serif text-3xl font-bold text-neutral-900 dark:text-neutral-100">Pengurusan Banner Halaman</h1>
             <p className="text-neutral-600 dark:text-neutral-400 mt-1">
               Muat naik dan tukar imej banner bagi setiap halaman utama. Imej akan dioptimumkan ke WebP dan disimpan di Cloudflare R2.
             </p>
@@ -107,13 +100,7 @@ export default function AdminBannerPage() {
                 <Card key={slug} className="overflow-hidden border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
                   <div className="relative aspect-[16/6] bg-neutral-100 dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-800 overflow-hidden">
                     {bannerUrl ? (
-                      <Image
-                        src={bannerUrl}
-                        alt={info.page_title}
-                        fill
-                        className="object-cover"
-                        unoptimized
-                      />
+                      <Image src={bannerUrl} alt={info.page_title} fill className="object-cover" unoptimized />
                     ) : (
                       <div className="flex items-center justify-center h-full text-neutral-400">
                         <ImageIcon className="h-10 w-10" />

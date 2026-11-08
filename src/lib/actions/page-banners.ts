@@ -31,10 +31,10 @@ export const DEFAULT_PAGE_BANNERS: Record<string, { page_title: string; default_
     page_title: "Galeri & Aktiviti",
     default_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg",
   },
-  pakej: {
-    page_title: "Program & Pakej",
-    default_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
-  },
+  // pakej: {
+  //   page_title: "Program & Pakej",
+  //   default_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
+  // },
 };
 
 export async function getPageBanners(): Promise<PageBanner[]> {
