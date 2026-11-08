@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import PageBanner from "@/components/page-banner";
 import { getFacilityTypes } from "@/lib/quaries/faciliti";
+import { getPageBannerBySlug } from "@/lib/actions/page-banners";
 
 export const metadata: Metadata = {
   title: "Fasiliti Kem Bumi Jati | Penginapan & Kemudahan",
@@ -26,7 +27,8 @@ export const metadata: Metadata = {
 };
 
 const GREEN = "#1f6b3a";
-const BANNER_IMAGE = "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg";
+const DEFAULT_BANNER =
+  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg";
 
 const ICONS: Record<string, LucideIcon> = {
   "dewan-kuliah": Presentation,
@@ -41,10 +43,11 @@ const ICONS: Record<string, LucideIcon> = {
 
 const FasilitiPage = async () => {
   const facilities = await getFacilityTypes();
+  const bannerImage = await getPageBannerBySlug("fasiliti", DEFAULT_BANNER);
 
   return (
     <main className="w-full bg-white dark:bg-neutral-950">
-      <PageBanner title="Fasiliti Utama" image={BANNER_IMAGE} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Fasiliti" }]} />
+      <PageBanner title="Fasiliti Utama" image={bannerImage} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Fasiliti" }]} />
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <p className="max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-lg">

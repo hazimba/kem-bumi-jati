@@ -25,6 +25,11 @@ const WhatsAppButton = () => {
   };
 
   const confirmRedirect = () => {
+    window.gtag?.("event", "whatsapp_click", {
+      page_path: window.location.pathname,
+      button_location: "floating_button",
+    });
+
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setIsOpen(false);
   };

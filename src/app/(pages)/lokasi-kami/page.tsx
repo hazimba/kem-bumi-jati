@@ -4,6 +4,7 @@ import { Car, MapPin } from "lucide-react";
 import PageBanner from "@/components/page-banner";
 import ImagePreviewDialog from "@/components/image-preview-dialog";
 import MapFacade from "@/components/map-facade";
+import { getPageBannerBySlug } from "@/lib/actions/page-banners";
 
 export const metadata: Metadata = {
   title: "Lokasi Kami",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 
 const GREEN = "#1f6b3a";
 
-const BANNER_IMAGE =
+const DEFAULT_BANNER =
   "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati/73aa3e5f-e96a-49ec-839b-1edf029a9b48.jpg";
 const MAP_LAYOUT_IMAGE =
   "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
@@ -28,9 +29,11 @@ const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Shah+Al
 const MAP_EMBED_URL = "https://maps.google.com/maps?q=2.9633331,101.5424996&z=17&output=embed";
 
 const LokasiKamiPage = async () => {
+  const bannerImage = await getPageBannerBySlug("lokasi-kami", DEFAULT_BANNER);
+
   return (
     <main className="w-full bg-white dark:bg-neutral-950">
-      <PageBanner title="Lokasi Kami" image={BANNER_IMAGE} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Lokasi" }]} />
+      <PageBanner title="Lokasi Kami" image={bannerImage} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Lokasi" }]} />
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <section className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.4fr]">

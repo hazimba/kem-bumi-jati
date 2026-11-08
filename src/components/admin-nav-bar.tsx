@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, Users, Package, Image as ImageIconLucide, Settings, LogOut, Menu, X, Layers } from "lucide-react";
+import { LayoutDashboard, Users, Package, Image as ImageIconLucide, ImagePlay, Settings, LogOut, Menu, X, Layers } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
@@ -15,6 +15,7 @@ const ADMIN_NAV_LINKS = [
   { href: "/admin/packages", label: "Pakej Program", icon: Package },
   // { href: "/admin/gallery", label: "Galeri dan Fasiliti", icon: ImageIconLucide },
   { href: "/admin/fasiliti", label: "Galeri dan Fasiliti", icon: Layers },
+  { href: "/admin/banner", label: "Banner", icon: ImagePlay },
   { href: "/admin/settings", label: "Tetapan", icon: Settings },
 ];
 

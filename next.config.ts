@@ -61,6 +61,11 @@ const nextConfig: NextConfig = {
         hostname: "mlapxffieyehdpvuzsyw.supabase.co",
         pathname: "/storage/v1/object/public/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.kembumijati.com",
+        pathname: "/**",
+      },
     ],
   },
 };

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Package, ImageIcon, Calendar } from "lucide-react";
+import { Users, Package, ImageIcon, Calendar, Image as ImageBannerIcon } from "lucide-react";
 import Link from "next/link";
 import { AdminVisitorAnalytics } from "@/components/admin-visitor-analytics";
 
@@ -18,6 +18,7 @@ const quickActions = [
   { label: "Kelola Pengguna", href: "/admin/users", icon: Users, desc: "Tambah, edit atau padam pengguna" },
   { label: "Kelola Pakej", href: "/admin/packages", icon: Package, desc: "Urus pakej program dan harga" },
   { label: "Kelola Fasiliti dan Galeri", href: "/admin/fasiliti", icon: ImageIcon, desc: "Muat naik dan urus foto" },
+  { label: "Kelola Banner Page", href: "/admin/banner-page", icon: ImageBannerIcon, desc: "Urus imej tajuk utama bagi setiap halaman" },
   { label: "Tetapan Sistem", href: "/admin/settings", icon: Users, desc: "Konfigurasi sistem & profil" },
 ];
 
