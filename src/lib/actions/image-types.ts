@@ -1,4 +1,5 @@
 import { createClient } from "../supabase/client";
+import { uploadToR2, deleteFromR2 } from "@/lib/r2-storage";
 
 export type Section = "faciliti" | "galeri";
 
@@ -14,8 +15,6 @@ export interface ImageType {
   cover_path: string | null;
 }
 
-const BUCKET = "kem_bumi_jati";
-
 const slugify = (s: string) =>
   s
     .toLowerCase()
@@ -23,42 +22,52 @@ const slugify = (s: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-export async function getImageTypes(section?: Section) {
-  const supabase = createClient();
-  let q = supabase.from("image_types").select("*").order("sort_order");
-  if (section) q = q.eq("section", section);
-  const { data, error } = await q;
-  if (error) throw new Error(`Gagal muat jenis imej: ${error.message}`);
-  return data as ImageType[];
-}
-
 async function uploadCover(file: File) {
-  const supabase = createClient();
-  const ext = file.name.split(".").pop();
-  const path = `covers/${crypto.randomUUID()}.${ext}`;
+  const uploaded = await uploadToR2(file, "covers");
 
-  const { error } = await supabase.storage.from(BUCKET).upload(path, file);
-  if (error) throw new Error(`Gagal muat naik cover: ${error.message}`);
-
-  const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
-  return { url: data.publicUrl, path };
+  return {
+    url: uploaded.url,
+    path: uploaded.path,
+  };
 }
 
 async function removeCoverFile(path: string | null) {
   if (!path) return;
-  await createClient().storage.from(BUCKET).remove([path]);
+  await deleteFromR2(path);
+}
+
+export async function getImageTypes(section?: Section) {
+  const supabase = createClient();
+
+  let q = supabase.from("image_types").select("*").order("sort_order");
+
+  if (section) {
+    q = q.eq("section", section);
+  }
+
+  const { data, error } = await q;
+
+  if (error) {
+    throw new Error(`Gagal muat jenis imej: ${error.message}`);
+  }
+
+  return data as ImageType[];
 }
 
 export async function createImageType(section: Section, label: string, cover?: File | null) {
   const supabase = createClient();
 
-  const { data: last } = await supabase
+  const { data: last, error: orderError } = await supabase
     .from("image_types")
     .select("sort_order")
     .eq("section", section)
     .order("sort_order", { ascending: false })
     .limit(1)
     .maybeSingle();
+
+  if (orderError) {
+    throw new Error(`Gagal semak susunan: ${orderError.message}`);
+  }
 
   const uploaded = cover ? await uploadCover(cover) : null;
 
@@ -76,10 +85,21 @@ export async function createImageType(section: Section, label: string, cover?: F
     .single();
 
   if (error) {
-    await removeCoverFile(uploaded?.path ?? null); // no orphan file
-    if (error.code === "23505") throw new Error("Jenis ini sudah wujud dalam seksyen ini.");
+    if (uploaded) {
+      try {
+        await removeCoverFile(uploaded.path);
+      } catch (cleanupError) {
+        console.error("Cover cleanup failed:", cleanupError);
+      }
+    }
+
+    if (error.code === "23505") {
+      throw new Error("Jenis ini sudah wujud dalam seksyen ini.");
+    }
+
     throw new Error(`Gagal cipta jenis imej: ${error.message}`);
   }
+
   return data as ImageType;
 }
 
@@ -87,21 +107,42 @@ export async function setImageTypeCover(type: Pick<ImageType, "id" | "cover_path
   const supabase = createClient();
   const uploaded = await uploadCover(file);
 
-  const { error } = await supabase.from("image_types").update({ cover_url: uploaded.url, cover_path: uploaded.path }).eq("id", type.id);
+  const { data, error } = await supabase
+    .from("image_types")
+    .update({
+      cover_url: uploaded.url,
+      cover_path: uploaded.path,
+    })
+    .eq("id", type.id)
+    .select("id");
 
-  if (error) {
+  if (error || !data?.length) {
     await removeCoverFile(uploaded.path);
-    throw new Error(`Gagal kemas kini cover: ${error.message}`);
+
+    throw new Error(`Gagal kemas kini cover: ${error?.message ?? "Rekod tidak dijumpai"}`);
   }
-  await removeCoverFile(type.cover_path); // remove the old one only after success
+
+  // Only remove the previous cover after a successful update.
+  if (type.cover_path && type.cover_path !== uploaded.path) {
+    await removeCoverFile(type.cover_path);
+  }
 }
 
-export async function updateImageType(id: string, updates: { label?: string; sort_order?: number; is_active?: boolean }) {
+export async function updateImageType(
+  id: string,
+  updates: {
+    label?: string;
+    sort_order?: number;
+    is_active?: boolean;
+  }
+) {
   const supabase = createClient();
 
   const { data, error } = await supabase.from("image_types").update(updates).eq("id", id).select().single();
 
-  if (error) throw new Error(`Gagal menggenerate jenis imej: ${error.message}`);
+  if (error) {
+    throw new Error(`Gagal kemas kini jenis imej: ${error.message}`);
+  }
 
   return data as ImageType;
 }
@@ -109,21 +150,29 @@ export async function updateImageType(id: string, updates: { label?: string; sor
 export async function deleteImageType(id: string) {
   const supabase = createClient();
 
-  const { data: row } = await supabase.from("image_types").select("cover_path").eq("id", id).single();
-
-  await removeCoverFile(row?.cover_path ?? null);
-
   const { count, error: countError } = await supabase.from("site_images").select("id", { count: "exact", head: true }).eq("type_id", id);
 
-  if (countError) throw new Error(`Gagal semak imej: ${countError.message}`);
+  if (countError) {
+    throw new Error(`Gagal semak imej: ${countError.message}`);
+  }
 
   if (count && count > 0) {
     throw new Error(`Tidak boleh padam: masih ada ${count} imej menggunakan jenis ini. Sila pindah atau padam imej dahulu.`);
   }
 
-  const { error } = await supabase.from("image_types").delete().eq("id", id);
-  if (error) throw new Error(`Gagal padam jenis imej: ${error.message}`);
-}
+  const { data: row, error: fetchError } = await supabase.from("image_types").select("cover_path").eq("id", id).single();
 
-// in updateImageType, change the message to:
-// `Gagal kemas kini jenis imej: ${error.message}`
+  if (fetchError) {
+    throw new Error(`Gagal muat jenis imej: ${fetchError.message}`);
+  }
+
+  const { data: deleted, error } = await supabase.from("image_types").delete().eq("id", id).select("id");
+
+  if (error || !deleted?.length) {
+    throw new Error(`Gagal padam jenis imej: ${error?.message ?? "Tiada kebenaran"}`);
+  }
+
+  if (row.cover_path) {
+    await removeCoverFile(row.cover_path);
+  }
+}

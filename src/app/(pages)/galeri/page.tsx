@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/page-banner";
 import GalleryGrid from "@/components/gallery-grid";
+import { getPageBannerBySlug } from "@/lib/actions/page-banners";
 
 export const metadata: Metadata = {
   title: "Galeri",
@@ -10,15 +11,17 @@ export const metadata: Metadata = {
   },
 };
 
-const BANNER_IMAGE =
+const DEFAULT_BANNER_IMAGE =
   "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260115_155433.jpg";
 
 const GaleriPage = async () => {
+  const bannerImage = await getPageBannerBySlug("galeri", DEFAULT_BANNER_IMAGE);
+
   return (
     <main className="w-full bg-background text-foreground">
       <PageBanner
         title="Galeri Program & Kemudahan"
-        image={BANNER_IMAGE}
+        image={bannerImage}
         breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Galeri" }]}
       />
 

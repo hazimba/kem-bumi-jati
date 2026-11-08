@@ -1,7 +1,6 @@
 import { createClient } from "@/lib/supabase/client";
 import type { Section } from "@/lib/actions/image-types";
-
-const BUCKET = "kem_bumi_jati";
+import { uploadToR2, deleteFromR2 } from "@/lib/r2-storage";
 
 export interface SiteImage {
   id: string;
@@ -19,9 +18,13 @@ export interface SiteImage {
 
 export async function getImages() {
   const supabase = createClient();
+
   const { data, error } = await supabase.from("site_images_view").select("*").order("created_at", { ascending: false });
 
-  if (error) throw new Error(`Gagal muat imej: ${error.message}`);
+  if (error) {
+    throw new Error(`Gagal muat imej: ${error.message}`);
+  }
+
   return data as SiteImage[];
 }
 
@@ -29,20 +32,14 @@ export async function uploadImage(params: { file: File; typeId: string; caption?
   const supabase = createClient();
   const { file, typeId, caption } = params;
 
-  const ext = file.name.split(".").pop();
-  const storagePath = `${crypto.randomUUID()}.${ext}`;
-
-  const { error: uploadError } = await supabase.storage.from(BUCKET).upload(storagePath, file);
-  if (uploadError) throw new Error(`Gagal muat naik fail: ${uploadError.message}`);
-
-  const { data: pub } = supabase.storage.from(BUCKET).getPublicUrl(storagePath);
+  const uploaded = await uploadToR2(file, "images");
 
   const { data: row, error: insertError } = await supabase
     .from("site_images")
     .insert({
-      url: pub.publicUrl,
+      url: uploaded.url,
       filename: file.name,
-      storage_path: storagePath,
+      storage_path: uploaded.path,
       type_id: typeId,
       caption: caption?.trim() || null,
     })
@@ -50,22 +47,38 @@ export async function uploadImage(params: { file: File; typeId: string; caption?
     .single();
 
   if (insertError) {
-    // don't leave an orphan file in storage
-    await supabase.storage.from(BUCKET).remove([storagePath]);
+    try {
+      await deleteFromR2(uploaded.path);
+    } catch (cleanupError) {
+      console.error("R2 upload cleanup failed:", cleanupError);
+    }
+
     throw new Error(`Gagal simpan imej: ${insertError.message}`);
   }
 
   const { data, error } = await supabase.from("site_images_view").select("*").eq("id", row.id).single();
 
-  if (error) throw new Error(`Gagal muat imej: ${error.message}`);
+  if (error) {
+    throw new Error(`Gagal muat imej: ${error.message}`);
+  }
+
   return data as SiteImage;
 }
 
 export async function deleteImage(image: Pick<SiteImage, "id" | "storage_path">) {
   const supabase = createClient();
 
-  const { error } = await supabase.from("site_images").delete().eq("id", image.id);
-  if (error) throw new Error(`Gagal padam imej: ${error.message}`);
+  // Remove database row first.
+  const { data, error } = await supabase.from("site_images").delete().eq("id", image.id).select("id");
 
-  await supabase.storage.from(BUCKET).remove([image.storage_path]);
+  if (error) {
+    throw new Error(`Gagal padam imej: ${error.message}`);
+  }
+
+  if (!data?.length) {
+    throw new Error("Imej tidak dijumpai atau tiada kebenaran.");
+  }
+
+  // Remove the corresponding object from R2.
+  await deleteFromR2(image.storage_path);
 }

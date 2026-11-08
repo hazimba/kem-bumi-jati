@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Mail, MapPin, MessageCircle } from "lucide-react";
 import PageBanner from "@/components/page-banner";
+import { getPageBannerBySlug } from "@/lib/actions/page-banners";
 
 export const metadata: Metadata = {
   title: "Hubungi Kami",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 const GREEN = "#1f6b3a";
 
-const BANNER_IMAGE =
+const DEFAULT_BANNER =
   "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260108_123242.jpg";
 const SIDE_IMAGE = "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211449.jpg";
 
@@ -21,9 +22,11 @@ const WHATSAPP_DISPLAY = "+60 11-1461 5206";
 const EMAIL = "info@kembumijati.com";
 
 const HubungiKamiPage = async () => {
+  const bannerImage = await getPageBannerBySlug("hubungi-kami", DEFAULT_BANNER);
+
   return (
     <main className="w-full bg-white dark:bg-neutral-950">
-      <PageBanner title="Hubungi Kami" image={BANNER_IMAGE} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Hubungi Kami" }]} />
+      <PageBanner title="Hubungi Kami" image={bannerImage} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Hubungi Kami" }]} />
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 sm:text-2xl">Ada pertanyaan tentang program anda?</h2>
