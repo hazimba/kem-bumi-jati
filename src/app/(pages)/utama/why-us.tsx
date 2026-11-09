@@ -1,9 +1,9 @@
 import { Home, Hotel, MapPin, Tent, Utensils, Waves, type LucideIcon } from "lucide-react";
 import Image from "next/image";
 import { GoogleCalendarSync } from "@/components/google-calendar-sync";
+import { getPrograms } from "@/lib/actions/programs";
 
 type Feature = { label: string; icon: LucideIcon };
-type Program = { title: string; description: string; image: string };
 type Client = { name: string; logo: string };
 
 const features: Feature[] = [
@@ -15,49 +15,6 @@ const features: Feature[] = [
   { label: "Lokasi strategik", icon: MapPin },
 ];
 
-const programs: Program[] = [
-  {
-    title: "Trained Nepalese Guard ",
-    description: "Pengawal keselamatan berpengalaman dan terlatih untuk memastikan keselamatan peserta.",
-    image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
-  },
-  {
-    title: "Team Building",
-    description: "Kursus, latihan organisasi dan aktiviti kumpulan.",
-    image: "https://placehold.co/1600x500/png?text=Team+Building",
-  },
-  {
-    title: "Motivasi & Kepimpinan",
-    description: "Program pembangunan diri dan kepimpinan.",
-    image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg",
-  },
-  {
-    title: "Kem Kepimpinan & Jati Diri",
-    description: "Program pembangunan diri dan kepimpinan untuk remaja dan belia.",
-    image: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg",
-  },
-  {
-    title: "Kem Smart Solat",
-    description: "Program pembangunan diri dan kepimpinan untuk remaja dan belia.",
-    image: "https://placehold.co/1600x500/png?text=Kem+Smart+Solat",
-  },
-  {
-    title: "Kem Akademik Skor SPM",
-    description: "Program pembangunan diri dan kepimpinan untuk remaja dan belia.",
-    image: "https://placehold.co/1600x500/png?text=Kem+Akademik+Skor+SPM",
-  },
-  {
-    title: "Kem Perkhemahan",
-    description: "Program akademik untuk pelajar SPM.",
-    image: "https://placehold.co/1600x500/png?text=Kem+Perkhemahan",
-  },
-  {
-    title: "Program Ai & Sahsiah Diri",
-    description: "Program akademik untuk pelajar SPM.",
-    image: "https://placehold.co/1600x500/png?text=Program+Ai+&+Sahsiah+Diri",
-  },
-];
-
 const clients: Client[] = [
   { name: "JAK Selangor", logo: "/assets/logo-zakat-selangor.png" },
   { name: "PASTI", logo: "/assets/logo-pasti.png" },
@@ -67,11 +24,12 @@ const clients: Client[] = [
   { name: "GMA", logo: "/assets/logo-gma.png" },
 ];
 
-const loop = [...programs, ...programs, ...programs];
-
 const GREEN = "#1f6b3a";
 
-const WhyChooseSection = () => {
+const WhyChooseSection = async () => {
+  const programsData = await getPrograms();
+  const loop = [...programsData, ...programsData, ...programsData];
+
   return (
     <section className="w-full bg-white dark:bg-neutral-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -100,15 +58,15 @@ const WhyChooseSection = () => {
 
         <div className="program-slider mt-6 overflow-hidden">
           <div className="program-track flex" style={{ width: `calc(${loop.length} * 100% / var(--visible))` }}>
-            {loop.map(({ title, description, image }, i) => (
-              <div key={`${title}-${i}`} className="shrink-0 px-2" style={{ width: `${100 / loop.length}%` }}>
+            {loop.map((item, i) => (
+              <div key={`${item.id}-${i}`} className="shrink-0 px-2" style={{ width: `${100 / loop.length}%` }}>
                 <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-neutral-100 pb-5 shadow-sm dark:bg-neutral-900">
                   <div className="relative h-40 w-full overflow-hidden rounded-xl">
-                    <Image src={image} alt={title} fill unoptimized className="object-cover" />
+                    <Image src={item.image_url} alt={item.title} fill unoptimized className="object-cover" />
                   </div>
                   <div className="flex flex-1 flex-col px-4 pt-4">
-                    <h3 className="min-h-[3.5rem] text-lg font-bold leading-snug text-neutral-800 dark:text-neutral-100">{title}</h3>
-                    <p className="mt-1 flex-1 text-sm leading-snug text-neutral-500 dark:text-neutral-400">{description}</p>
+                    <h3 className="min-h-[3.5rem] text-lg font-bold leading-snug text-neutral-800 dark:text-neutral-100">{item.title}</h3>
+                    <p className="mt-1 flex-1 text-sm leading-snug text-neutral-500 dark:text-neutral-400">{item.description}</p>
                   </div>
                 </div>
               </div>

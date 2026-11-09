@@ -17,8 +17,9 @@ const stats = [
 const quickActions = [
   { label: "Kelola Pengguna", href: "/admin/users", icon: Users, desc: "Tambah, edit atau padam pengguna" },
   { label: "Kelola Pakej", href: "/admin/packages", icon: Package, desc: "Urus pakej program dan harga" },
+  { label: "Kelola Program Utama", href: "/admin/programs", icon: Package, desc: "Urus senarai program di halaman utama" },
   { label: "Kelola Fasiliti dan Galeri", href: "/admin/fasiliti", icon: ImageIcon, desc: "Muat naik dan urus foto" },
-  { label: "Kelola Banner Page", href: "/admin/banner-page", icon: ImageBannerIcon, desc: "Urus imej tajuk utama bagi setiap halaman" },
+  { label: "Kelola Banner Page", href: "/admin/banner", icon: ImageBannerIcon, desc: "Urus imej tajuk utama bagi setiap halaman" },
   { label: "Tetapan Sistem", href: "/admin/settings", icon: Users, desc: "Konfigurasi sistem & profil" },
 ];
 

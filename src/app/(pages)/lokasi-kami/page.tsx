@@ -16,13 +16,11 @@ export const metadata: Metadata = {
 
 const GREEN = "#1f6b3a";
 
-const DEFAULT_BANNER =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati/73aa3e5f-e96a-49ec-839b-1edf029a9b48.jpg";
-const MAP_LAYOUT_IMAGE =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
+const DEFAULT_BANNER = "https://images.kembumijati.com/kem_bumi_jati/73aa3e5f-e96a-49ec-839b-1edf029a9b48.jpg";
+const MAP_LAYOUT_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
 
 const MAP_PREVIEW_IMAGE =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/Screenshot%202026-10-29%20at%202.36.40%20PM.png";
+  "https://images.kembumijati.com/kem_bumi_jati_header_background_img/Screenshot%202026-10-29%20at%202.36.40%20PM.png";
 
 // Replace with the real coordinates / place link
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Shah+Alam,+Selangor";

@@ -13,27 +13,27 @@ export interface PageBanner {
 export const DEFAULT_PAGE_BANNERS: Record<string, { page_title: string; default_url: string }> = {
   "hubungi-kami": {
     page_title: "Hubungi Kami",
-    default_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg",
+    default_url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000144361.jpg",
   },
   "latar-belakang": {
     page_title: "Latar Belakang",
-    default_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg",
+    default_url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000144361.jpg",
   },
   "lokasi-kami": {
     page_title: "Lokasi Kami",
-    default_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
+    default_url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000211396.jpg",
   },
   fasiliti: {
     page_title: "Fasiliti Utama",
-    default_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
+    default_url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000211396.jpg",
   },
   galeri: {
     page_title: "Galeri & Aktiviti",
-    default_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg",
+    default_url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000144361.jpg",
   },
   // pakej: {
   //   page_title: "Program & Pakej",
-  //   default_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
+  //   default_url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000211396.jpg",
   // },
 };
 

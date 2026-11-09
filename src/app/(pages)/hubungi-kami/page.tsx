@@ -14,9 +14,8 @@ export const metadata: Metadata = {
 
 const GREEN = "#1f6b3a";
 
-const DEFAULT_BANNER =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260108_123242.jpg";
-const SIDE_IMAGE = "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211449.jpg";
+const DEFAULT_BANNER = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/IMG_20260108_123242.jpg";
+const SIDE_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000211449.jpg";
 
 const WHATSAPP_DISPLAY = "+60 11-1461 5206";
 const EMAIL = "info@kembumijati.com";

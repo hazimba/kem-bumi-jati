@@ -127,7 +127,7 @@ export function AdminVisitorAnalytics() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
         {/* BAR CHART 1: IP Address & City */}
-        <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 lg:col-span-6">
+        {/* <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 lg:col-span-6">
           <CardHeader>
             <CardTitle className="text-base font-bold flex items-center gap-2 text-neutral-900 dark:text-neutral-100">
               <Network className="h-5 w-5 text-blue-600" />
@@ -142,9 +142,9 @@ export function AdminVisitorAnalytics() {
                   <div key={ip} className="space-y-1.5">
                     <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300">
                       <div className="flex items-center gap-2">
-                        {/* <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-bold text-blue-700 dark:bg-neutral-800 dark:text-blue-400">
+                        <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-bold text-blue-700 dark:bg-neutral-800 dark:text-blue-400">
                           {ip}
-                        </code> */}
+                        </code>
                         <span className="flex items-center gap-1 text-[11px] text-neutral-500 dark:text-neutral-400">
                           <MapPin className="h-3 w-3 text-rose-500" />
                           {city}
@@ -165,10 +165,10 @@ export function AdminVisitorAnalytics() {
               <p className="py-8 text-center text-xs text-neutral-400">Tiada rekod IP pelawat.</p>
             )}
           </CardContent>
-        </Card>
+        </Card> */}
 
         {/* BAR CHART 2: Popular Pages (URL) */}
-        <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 lg:col-span-6">
+        {/* <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 lg:col-span-6">
           <CardHeader>
             <CardTitle className="text-base font-bold flex items-center gap-2 text-neutral-900 dark:text-neutral-100">
               <Globe className="h-5 w-5 text-green-600" />
@@ -200,11 +200,11 @@ export function AdminVisitorAnalytics() {
               <p className="py-8 text-center text-xs text-neutral-400">Tiada rekod halaman dijumpai.</p>
             )}
           </CardContent>
-        </Card>
+        </Card> */}
       </div>
 
       {/* Recent Visitors Detailed Logs */}
-      <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
+      {/* <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
         <CardHeader>
           <CardTitle className="text-base font-bold flex items-center gap-2 text-neutral-900 dark:text-neutral-100">
             <Users className="h-5 w-5 text-purple-600" />
@@ -237,7 +237,7 @@ export function AdminVisitorAnalytics() {
             )}
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   );
 }

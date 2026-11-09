@@ -11,8 +11,7 @@ export const metadata: Metadata = {
   },
 };
 
-const DEFAULT_BANNER_IMAGE =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260115_155433.jpg";
+const DEFAULT_BANNER_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/IMG_20260115_155433.jpg";
 
 const GaleriPage = async () => {
   const bannerImage = await getPageBannerBySlug("galeri", DEFAULT_BANNER_IMAGE);

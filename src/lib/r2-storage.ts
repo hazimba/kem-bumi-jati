@@ -42,8 +42,6 @@ export async function uploadToR2(file: File, folder: "images" | "covers"): Promi
   // Compress and convert to webp before uploading
   const processedFile = await compressAndConvertToWebp(file);
 
-  console.log("processedFile:", processedFile);
-
   const formData = new FormData();
   formData.append("file", processedFile);
   formData.append("folder", folder);
