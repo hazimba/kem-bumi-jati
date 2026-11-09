@@ -10,7 +10,7 @@ const LocationBanner = () => {
   return (
     <section className="relative h-[420px] w-full overflow-hidden">
       <Image
-        src="https://images.kembumijati.com/others/location-banner.jpg"
+        src="https://images.kembumijati.com/kem_bumi_jati/75165be6-ea04-492b-9c4d-ed88b65db9a9.webp"
         alt="Aerial view of the venue in Shah Alam"
         fill
         className="absolute inset-0 h-full w-full object-cover"
