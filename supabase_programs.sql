@@ -41,10 +41,10 @@ CREATE TRIGGER update_programs_updated_at_trigger
 
 -- Seed initial programs data
 INSERT INTO public.programs (title, description, image_url, sort_order) VALUES
-  ('Trained Nepalese Guard', 'Pengawal keselamatan berpengalaman dan terlatih untuk memastikan keselamatan peserta.', 'https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg', 1),
+  ('Trained Nepalese Guard', 'Pengawal keselamatan berpengalaman dan terlatih untuk memastikan keselamatan peserta.', 'https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000211396.jpg', 1),
   ('Team Building', 'Kursus, latihan organisasi dan aktiviti kumpulan.', 'https://placehold.co/1600x500/png?text=Team+Building', 2),
-  ('Motivasi & Kepimpinan', 'Program pembangunan diri dan kepimpinan.', 'https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg', 3),
-  ('Kem Kepimpinan & Jati Diri', 'Program pembangunan diri dan kepimpinan untuk remaja dan belia.', 'https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg', 4),
+  ('Motivasi & Kepimpinan', 'Program pembangunan diri dan kepimpinan.', 'https://images.kembumijati.com/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg', 3),
+  ('Kem Kepimpinan & Jati Diri', 'Program pembangunan diri dan kepimpinan untuk remaja dan belia.', 'https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000144361.jpg', 4),
   ('Kem Smart Solat', 'Program pembangunan diri dan kepimpinan untuk remaja dan belia.', 'https://placehold.co/1600x500/png?text=Kem+Smart+Solat', 5),
   ('Kem Akademik Skor SPM', 'Program pembangunan diri dan kepimpinan untuk remaja dan belia.', 'https://placehold.co/1600x500/png?text=Kem+Akademik+Skor+SPM', 6),
   ('Kem Perkhemahan', 'Program akademik untuk pelajar SPM.', 'https://placehold.co/1600x500/png?text=Kem+Perkhemahan', 7),

@@ -27,8 +27,7 @@ export const metadata: Metadata = {
 };
 
 const GREEN = "#1f6b3a";
-const DEFAULT_BANNER =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg";
+const DEFAULT_BANNER = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000211396.jpg";
 
 const ICONS: Record<string, LucideIcon> = {
   "dewan-kuliah": Presentation,

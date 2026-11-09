@@ -39,9 +39,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Kem Bumi Jati" }],
   creator: "Kem Bumi Jati",
   publisher: "Kem Bumi Jati",
-  alternates: {
-    canonical: "/",
-  },
   verification: {
     google: "vN2yZEqIUo8nkNaC1IM9S9IuhfPqNr0eJCfwRkAY2hk",
   },
@@ -54,7 +51,7 @@ export const metadata: Metadata = {
     description: "Pusat kem latihan, motivasi, dan team building lengkap di Selangor sejak 1973.",
     images: [
       {
-        url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
+        url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000211396.jpg",
         width: 1200,
         height: 630,
         alt: "Kawasan Kem Bumi Jati",
@@ -65,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kem Bumi Jati | Outdoor Camp & Retreat",
     description: "Pusat kem latihan, motivasi, dan team building lengkap di Selangor sejak 1973.",
-    images: ["https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg"],
+    images: ["https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000211396.jpg"],
   },
   icons: {
     icon: "/assets/favicon.ico",

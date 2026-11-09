@@ -18,7 +18,7 @@ export const FALLBACK_PROGRAMS: ProgramItem[] = [
     id: "fallback-1",
     title: "Trained Nepalese Guard",
     description: "Pengawal keselamatan berpengalaman dan terlatih untuk memastikan keselamatan peserta.",
-    image_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000211396.jpg",
+    image_url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000211396.jpg",
     storage_path: null,
     sort_order: 1,
     is_active: true,
@@ -36,7 +36,7 @@ export const FALLBACK_PROGRAMS: ProgramItem[] = [
     id: "fallback-3",
     title: "Motivasi & Kepimpinan",
     description: "Program pembangunan diri dan kepimpinan.",
-    image_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg",
+    image_url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg",
     storage_path: null,
     sort_order: 3,
     is_active: true,
@@ -45,7 +45,7 @@ export const FALLBACK_PROGRAMS: ProgramItem[] = [
     id: "fallback-4",
     title: "Kem Kepimpinan & Jati Diri",
     description: "Program pembangunan diri dan kepimpinan untuk remaja dan belia.",
-    image_url: "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg",
+    image_url: "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000144361.jpg",
     storage_path: null,
     sort_order: 4,
     is_active: true,
@@ -90,11 +90,7 @@ export const FALLBACK_PROGRAMS: ProgramItem[] = [
 
 export async function getPrograms(): Promise<ProgramItem[]> {
   const supabase = createClient();
-  const { data, error } = await supabase
-    .from("programs")
-    .select("*")
-    .eq("is_active", true)
-    .order("sort_order", { ascending: true });
+  const { data, error } = await supabase.from("programs").select("*").eq("is_active", true).order("sort_order", { ascending: true });
 
   if (error || !data || data.length === 0) {
     return FALLBACK_PROGRAMS;
@@ -105,10 +101,7 @@ export async function getPrograms(): Promise<ProgramItem[]> {
 
 export async function getAllProgramsAdmin(): Promise<ProgramItem[]> {
   const supabase = createClient();
-  const { data, error } = await supabase
-    .from("programs")
-    .select("*")
-    .order("sort_order", { ascending: true });
+  const { data, error } = await supabase.from("programs").select("*").order("sort_order", { ascending: true });
 
   if (error) {
     console.error("Gagal muat senarai program:", error);
@@ -200,12 +193,7 @@ export async function updateProgram(params: {
   if (storagePath !== undefined) updates.storage_path = storagePath;
   if (params.isActive !== undefined) updates.is_active = params.isActive;
 
-  const { data, error } = await supabase
-    .from("programs")
-    .update(updates)
-    .eq("id", params.id)
-    .select()
-    .single();
+  const { data, error } = await supabase.from("programs").update(updates).eq("id", params.id).select().single();
 
   if (error) {
     throw new Error(`Gagal kemaskini program: ${error.message}`);
@@ -230,10 +218,7 @@ export async function deleteProgram(id: string, storagePath?: string | null): Pr
 
 export async function toggleProgramStatus(id: string, isActive: boolean): Promise<void> {
   const supabase = createClient();
-  const { error } = await supabase
-    .from("programs")
-    .update({ is_active: isActive })
-    .eq("id", id);
+  const { error } = await supabase.from("programs").update({ is_active: isActive }).eq("id", id);
 
   if (error) {
     throw new Error(`Gagal tukar status: ${error.message}`);

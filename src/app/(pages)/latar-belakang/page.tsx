@@ -17,12 +17,9 @@ export const metadata: Metadata = {
 const GREEN = "#1f6b3a";
 const ORANGE = "#D4A24C";
 
-const DEFAULT_BANNER =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/1000144361.jpg";
-const ABOUT_IMAGE =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg";
-const MAP_IMAGE =
-  "https://mlapxffieyehdpvuzsyw.supabase.co/storage/v1/object/public/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
+const DEFAULT_BANNER = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000144361.jpg";
+const ABOUT_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg";
+const MAP_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
 const VIDEO_SRC = "https://www.youtube.com/embed/wdxeBjvC2FU";
 const VIDEO_ID = "wdxeBjvC2FU";
 
