@@ -14,16 +14,12 @@ export const metadata: Metadata = {
   },
 };
 
-const GREEN = "#1f6b3a";
-
 const DEFAULT_BANNER = "https://images.kembumijati.com/kem_bumi_jati/73aa3e5f-e96a-49ec-839b-1edf029a9b48.jpg";
 const MAP_LAYOUT_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
 
 const MAP_PREVIEW_IMAGE =
   "https://images.kembumijati.com/kem_bumi_jati_header_background_img/Screenshot%202026-10-29%20at%202.36.40%20PM.png";
 
-// Replace with the real coordinates / place link
-const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Shah+Alam,+Selangor";
 const MAP_EMBED_URL = "https://maps.google.com/maps?q=2.9633331,101.5424996&z=17&output=embed";
 
 const LokasiKamiPage = async () => {
@@ -35,7 +31,6 @@ const LokasiKamiPage = async () => {
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <section className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.4fr]">
-          {/* Info */}
           <div>
             <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">Kem Bumi Jati</h2>
             <p className="mt-3 text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
