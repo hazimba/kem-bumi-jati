@@ -20,7 +20,6 @@ const ORANGE = "#D4A24C";
 const DEFAULT_BANNER = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000144361.jpg";
 const ABOUT_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg";
 const MAP_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
-const VIDEO_SRC = "https://www.youtube.com/embed/wdxeBjvC2FU";
 const VIDEO_ID = "wdxeBjvC2FU";
 
 const objektif = [
@@ -38,7 +37,6 @@ const LatarBelakangPage = async () => {
       <PageBanner title="Latar Belakang" image={bannerImage} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Latar Belakang" }]} />
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-        {/* Mengenai */}
         <section className="grid grid-cols-1 items-center gap-6 md:grid-cols-[1.5fr_1fr] md:gap-8">
           <div>
             <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 sm:text-3xl">Mengenai Kem Bumi Jati</h2>
@@ -52,7 +50,6 @@ const LatarBelakangPage = async () => {
           </div>
         </section>
 
-        {/* Objektif / Visi / Misi */}
         <section className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
           <article className="rounded-2xl bg-neutral-100 p-6 shadow-sm dark:bg-neutral-900">
             <Target className="h-10 w-10" style={{ color: GREEN }} aria-hidden="true" />

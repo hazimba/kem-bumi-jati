@@ -31,8 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/lokasi-kami`,
-      changeFrequency: "yearly",
-      priority: 0.8,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/hubungi-kami`,

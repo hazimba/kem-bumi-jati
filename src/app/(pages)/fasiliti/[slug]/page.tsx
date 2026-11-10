@@ -18,15 +18,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) {
     return {
       title: "Fasiliti Tidak Dijumpai",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
+  const title = data.type.label;
+  const description = data.type.description || `Galeri gambar untuk ${data.type.label}`;
+
+  const canonical = `/fasiliti/${slug}`;
+
   return {
-    title: `${data.type.label}`,
-    description: data.type.description || `Galeri gambar untuk ${data.type.label}`,
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
     openGraph: {
-      title: `${data.type.label}`,
-      description: data.type.description || `Galeri gambar untuk ${data.type.label}`,
+      title,
+      description,
+      url: canonical,
       images: [data.type.cover_url || BANNER_IMAGE],
     },
   };
