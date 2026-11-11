@@ -26,6 +26,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/hubungi-kami`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/latar-belakang`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
   ];
 
   const facilityPages: MetadataRoute.Sitemap = facilitySlugs.map((slug) => ({
