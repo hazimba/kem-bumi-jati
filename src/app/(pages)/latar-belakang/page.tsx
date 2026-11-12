@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Check, Eye, Mountain, Target } from "lucide-react";
 import PageBanner from "@/components/page-banner";
 import ImagePreviewDialog from "@/components/image-preview-dialog";
-import YouTubeFacade from "@/components/youtube-facede";
+// import YouTubeFacade from "@/components/youtube-facede";
 import { getPageBannerBySlug } from "@/lib/actions/page-banners";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ const ORANGE = "#D4A24C";
 const DEFAULT_BANNER = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000144361.jpg";
 const ABOUT_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg";
 const MAP_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
-const VIDEO_ID = "wdxeBjvC2FU";
+// const VIDEO_ID = "wdxeBjvC2FU";
 
 const objektif = [
   "Menyediakan lokasi yang selesa dan sesuai untuk program berkumpulan.",
@@ -39,12 +39,46 @@ const LatarBelakangPage = async () => {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <section className="grid grid-cols-1 items-center gap-6 md:grid-cols-[1.5fr_1fr] md:gap-8">
           <div>
-            <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 sm:text-3xl">Mengenai Kem Bumi Jati</h2>
-            <p className="mt-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-base">
-              Kem Bumi Jati merupakan sebuah pusat latihan dan aktiviti berkumpulan yang menyediakan kemudahan bagi pelbagai program seperti
-              kem akademik, motivasi, kursus, latihan organisasi, seminar dan aktiviti pembangunan diri.
-            </p>
+            <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 sm:text-3xl">Pengenalan Kem Bumi Jati</h2>
+
+            <h3 className="mt-3 text-lg font-semibold text-neutral-700 dark:text-neutral-200 sm:text-xl">
+              Lebih 30 Tahun Membina Pengalaman, Mencipta Kecemerlangan.
+            </h3>
+
+            <div className="mt-5 space-y-4 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-base">
+              <p>
+                Kem Bumi Jati merupakan sebuah pusat latihan, perkhemahan dan aktiviti berkumpulan yang telah ditubuhkan pada tahun 1993.
+                Terletak di Batu 7, Kampung Jalan Kebun, Seksyen 30, Shah Alam, Selangor, kem ini dibangunkan dengan matlamat menyediakan
+                sebuah lokasi yang sesuai bagi pelaksanaan pelbagai program pendidikan, latihan dan pembangunan insan.
+              </p>
+
+              <p>
+                Kem Bumi Jati ditadbir dan diuruskan oleh ZH Warisan Holdings Sdn. Bhd. Pembinaannya telah disiapkan pada tahun 1993 dan
+                mula beroperasi sepenuhnya pada bulan Disember tahun yang sama.
+              </p>
+
+              <p>
+                Sejak mula beroperasi, Kem Bumi Jati terus memainkan peranan sebagai lokasi penganjuran pelbagai aktiviti dan program
+                berkumpulan. Sepanjang perjalanannya, kem ini menjadi tempat berlangsungnya program kem akademik, motivasi pelajar, seminar,
+                kursus kepimpinan, latihan organisasi serta pelbagai aktiviti pembangunan sahsiah.
+              </p>
+
+              <p>
+                Berbekalkan pengalaman lebih tiga dekad, Kem Bumi Jati terus komited menyediakan persekitaran yang sesuai untuk
+                pembelajaran, perkongsian ilmu, pembentukan jati diri dan pembangunan potensi individu.
+              </p>
+
+              <p>
+                Bagi kami, setiap program membawa matlamat dan harapan tersendiri. Justeru, Kem Bumi Jati sentiasa berusaha menjadi
+                sebahagian daripada perjalanan yang membentuk pengalaman, mencetus inspirasi dan melahirkan kejayaan.
+              </p>
+
+              <p className="pt-2 font-semibold text-neutral-800 dark:text-neutral-100">
+                Kem Bumi Jati – Membina Potensi, Melakar Kecemerlangan.
+              </p>
+            </div>
           </div>
+
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-sm">
             <Image src={ABOUT_IMAGE} alt="Kem Bumi Jati" fill unoptimized className="object-cover" />
           </div>
@@ -90,12 +124,12 @@ const LatarBelakangPage = async () => {
             // buttonLabel="Lihat Peta & Layout Kem"
           />
 
-          <div>
+          {/* <div>
             <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">Video Masuk Kem</h3>
             <div className="mt-3">
               <YouTubeFacade videoId={VIDEO_ID} title="Kem Bumi Jati Video" />
             </div>
-          </div>
+          </div> */}
         </section>
       </div>
     </main>
