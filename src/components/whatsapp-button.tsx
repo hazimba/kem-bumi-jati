@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,43 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname === "/" && sessionStorage.getItem("scrollToCalendar") === "true") {
+      sessionStorage.removeItem("scrollToCalendar");
+      setTimeout(() => {
+        const element = document.getElementById("kem-bumi-jati-calendar");
+        if (element) {
+          const offset = 50;
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: elementPosition - offset,
+            behavior: "smooth",
+          });
+        }
+      }, 300);
+    }
+  }, [pathname]);
+
+  const scrollToCalendar = () => {
+    const element = document.getElementById("kem-bumi-jati-calendar");
+
+    if (element) {
+      const offset = 50;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: "smooth",
+      });
+    } else {
+      sessionStorage.setItem("scrollToCalendar", "true");
+      router.push("/");
+    }
+  };
+
   const whatsappUrl =
     "https://wa.me/+60162294114?text=Hi%20Kem%20Bumi%20Jati%2C%20saya%20ingin%20mendapatkan%20maklumat%20mengenai%20pakej%20program%20anda.";
 
@@ -37,18 +75,23 @@ const WhatsAppButton = () => {
   return (
     <>
       <div className="fixed bottom-6 left-0 right-0 z-50 pointer-events-none">
-        <div className="max-w-7xl mx-auto px-6 flex justify-end">
+        <div className="max-w-7xl mx-auto px-6 flex justify-end gap-3 items-center">
+          <button
+            onClick={scrollToCalendar}
+            className="pointer-events-auto bg-primary hover:cursor-pointer text-sm dark:bg-neutral-800/90 backdrop-blur px-4 py-3 rounded-full font-semibold text-neutral-800 shadow-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 transition-all">
+            Lihat Tarikh
+          </button>
           <a
             href={whatsappUrl}
             onClick={handleWhatsAppClick}
             target="_blank"
             rel="noopener noreferrer"
-            className="group pointer-events-auto flex items-center h-14 bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out px-3.5 hover:px-5"
+            className="group pointer-events-auto flex items-center h-12 bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out px-3.5 hover:px-5"
             aria-label="Hubungi Kami melalui WhatsApp">
             <div className="flex items-center justify-center">
-              <WhatsAppIcon className="h-7 w-7" />
+              <WhatsAppIcon className="h-5 w-5" />
             </div>
-            <span className="max-w-0 overflow-hidden whitespace-nowrap font-bold transition-all duration-300 group-hover:max-w-xs group-hover:ml-3">
+            <span className="max-w-0 overflow-hidden whitespace-nowrap font-bold text-sm transition-all duration-300 group-hover:max-w-xs group-hover:ml-3">
               Hubungi Kami
             </span>
           </a>
@@ -58,7 +101,6 @@ const WhatsAppButton = () => {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="sm:max-w-md bg-white dark:bg-neutral-900 border-none rounded-2xl shadow-2xl overflow-hidden p-0">
           <div className="bg-[#25D366] p-8 flex justify-center items-center relative overflow-hidden">
-            {/* Decorative background circle */}
             <div className="absolute inset-0 rounded-full scale-150 translate-y-1/2" />
             <WhatsAppIcon className="h-16 w-16 text-white drop-shadow-lg" />
           </div>
