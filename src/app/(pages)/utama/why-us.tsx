@@ -1,6 +1,8 @@
 import { Home, Hotel, MapPin, Tent, Utensils, Waves, type LucideIcon } from "lucide-react";
 import Image from "next/image";
 import { GoogleCalendarSync } from "@/components/google-calendar-sync";
+import { ProgramsSlider } from "@/components/programs-slider";
+import { ClientsSlider } from "@/components/clients-slider";
 import { getPrograms } from "@/lib/actions/programs";
 
 type Feature = { label: string; icon: LucideIcon };
@@ -22,16 +24,22 @@ const clients: Client[] = [
   { name: "IKRAM", logo: "/assets/logo-ikram.png" },
   { name: "PIKM", logo: "/assets/logo-pikm.png" },
   { name: "GMA", logo: "/assets/logo-gma.png" },
+  { name: "DBKL", logo: "/assets/logo_dbkl.webp" },
+  { name: "AL ISRA", logo: "/assets/logo_al_isra.png" },
+  { name: "KOLEJ KOMUNITI", logo: "/assets/logo_kolej_komuniti.png" },
+  { name: "MAAHAD", logo: "/assets/logo_maahad_tahfiz.png" },
+  { name: "RELA", logo: "/assets/logo_rela.jpeg" },
+  { name: "UITM", logo: "/assets/logo_uitm.png" },
+  { name: "UPSI", logo: "/assets/logo_upsi.png" },
 ];
 
 const GREEN = "#1f6b3a";
 
 const WhyChooseSection = async () => {
   const programsData = await getPrograms();
-  const loop = [...programsData, ...programsData, ...programsData];
 
   return (
-    <section className="w-full bg-white dark:bg-neutral-950">
+    <section className="w-full bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-2xl font-extrabold uppercase tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-4xl">
           Kenapa Pilih Kem Bumi Jati?
@@ -56,23 +64,7 @@ const WhyChooseSection = async () => {
 
         <h2 className="mt-12 text-center text-xl font-extrabold uppercase text-neutral-800 dark:text-neutral-100 sm:text-3xl">Program</h2>
 
-        <div className="program-slider mt-6 overflow-hidden">
-          <div className="program-track flex" style={{ width: `calc(${loop.length} * 100% / var(--visible))` }}>
-            {loop.map((item, i) => (
-              <div key={`${item.id}-${i}`} className="shrink-0 px-2" style={{ width: `${100 / loop.length}%` }}>
-                <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-neutral-100 pb-5 shadow-sm dark:bg-neutral-900">
-                  <div className="relative h-40 w-full overflow-hidden rounded-xl">
-                    <Image src={item.image_url} alt={item.title} fill unoptimized className="object-cover" />
-                  </div>
-                  <div className="flex flex-1 flex-col px-4 pt-4">
-                    <h3 className="min-h-[3.5rem] text-lg font-bold leading-snug text-neutral-800 dark:text-neutral-100">{item.title}</h3>
-                    <p className="mt-1 flex-1 text-sm leading-snug text-neutral-500 dark:text-neutral-400">{item.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <ProgramsSlider programs={programsData} />
         {/* Google Calendar component synced with personal Google Calendar */}
         <div className="mt-16">
           <GoogleCalendarSync />
@@ -80,13 +72,7 @@ const WhyChooseSection = async () => {
         <h2 className="mt-16 text-center text-lg font-extrabold uppercase text-neutral-800 dark:text-neutral-100 sm:text-2xl">
           Organisasi Yang Telah Bersama Kami
         </h2>
-        <ul className="mt-6 grid grid-cols-3 items-center gap-4 lg:grid-cols-6">
-          {clients.map(({ name, logo }) => (
-            <li key={name} className="flex h-16 items-center justify-center rounded-lg bg-white p-2 dark:bg-neutral-100">
-              <Image src={logo} alt={name} width={120} height={60} unoptimized className="max-h-14 w-auto object-contain" />
-            </li>
-          ))}
-        </ul>
+        <ClientsSlider clients={clients} />
       </div>
     </section>
   );

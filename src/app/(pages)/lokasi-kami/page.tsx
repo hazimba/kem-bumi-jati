@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Car, MapPin } from "lucide-react";
+// import Image from "next/image";
+// import { Car, MapPin } from "lucide-react";
 import PageBanner from "@/components/page-banner";
 import ImagePreviewDialog from "@/components/image-preview-dialog";
 import MapFacade from "@/components/map-facade";
