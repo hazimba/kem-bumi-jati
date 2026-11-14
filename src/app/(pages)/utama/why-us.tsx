@@ -2,6 +2,7 @@ import { Home, Hotel, MapPin, Tent, Utensils, Waves, type LucideIcon } from "luc
 import Image from "next/image";
 import { GoogleCalendarSync } from "@/components/google-calendar-sync";
 import { ProgramsSlider } from "@/components/programs-slider";
+import { ClientsSlider } from "@/components/clients-slider";
 import { getPrograms } from "@/lib/actions/programs";
 
 type Feature = { label: string; icon: LucideIcon };
@@ -23,6 +24,13 @@ const clients: Client[] = [
   { name: "IKRAM", logo: "/assets/logo-ikram.png" },
   { name: "PIKM", logo: "/assets/logo-pikm.png" },
   { name: "GMA", logo: "/assets/logo-gma.png" },
+  { name: "DBKL", logo: "/assets/logo_dbkl.webp" },
+  { name: "AL ISRA", logo: "/assets/logo_al_isra.png" },
+  { name: "KOLEJ KOMUNITI", logo: "/assets/logo_kolej_komuniti.png" },
+  { name: "MAAHAD", logo: "/assets/logo_maahad_tahfiz.png" },
+  { name: "RELA", logo: "/assets/logo_rela.jpeg" },
+  { name: "UITM", logo: "/assets/logo_uitm.png" },
+  { name: "UPSI", logo: "/assets/logo_upsi.png" },
 ];
 
 const GREEN = "#1f6b3a";
@@ -64,13 +72,7 @@ const WhyChooseSection = async () => {
         <h2 className="mt-16 text-center text-lg font-extrabold uppercase text-neutral-800 dark:text-neutral-100 sm:text-2xl">
           Organisasi Yang Telah Bersama Kami
         </h2>
-        <ul className="mt-6 grid grid-cols-3 items-center gap-4 lg:grid-cols-6">
-          {clients.map(({ name, logo }) => (
-            <li key={name} className="flex h-16 items-center justify-center rounded-lg bg-white p-2 dark:bg-neutral-100">
-              <Image src={logo} alt={name} width={120} height={60} unoptimized className="max-h-14 w-auto object-contain" />
-            </li>
-          ))}
-        </ul>
+        <ClientsSlider clients={clients} />
       </div>
     </section>
   );
