@@ -5,6 +5,9 @@ import PageBanner from "@/components/page-banner";
 import ImagePreviewDialog from "@/components/image-preview-dialog";
 // import YouTubeFacade from "@/components/youtube-facede";
 import { getPageBannerBySlug } from "@/lib/actions/page-banners";
+import AnimatedItem from "@/components/animated-item";
+import AnimatedText from "@/components/animated-text-fade-in";
+import { AnimatedTextChild, AnimatedTextGroup } from "@/components/animation-text-group";
 
 export const metadata: Metadata = {
   title: "Latar Belakang",
@@ -18,7 +21,7 @@ const GREEN = "#1f6b3a";
 const ORANGE = "#D4A24C";
 
 const DEFAULT_BANNER = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/1000144361.jpg";
-const ABOUT_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/IMG_20260803_142041.jpg";
+const ABOUT_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/WhatsApp%20Image%202026-11-12%20at%2011.52.42.jpeg";
 const MAP_IMAGE = "https://images.kembumijati.com/kem_bumi_jati_header_background_img/LAYOUT%20KEM%202026.jpg";
 // const VIDEO_ID = "wdxeBjvC2FU";
 
@@ -33,7 +36,7 @@ const LatarBelakangPage = async () => {
   const bannerImage = await getPageBannerBySlug("latar-belakang", DEFAULT_BANNER);
 
   return (
-    <main className="w-full bg-white dark:bg-neutral-950">
+    <main className="w-full bg-white dark:bg-neutral-950 pt-26">
       <PageBanner title="Latar Belakang" image={bannerImage} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Latar Belakang" }]} />
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
@@ -45,38 +48,40 @@ const LatarBelakangPage = async () => {
               Lebih 30 Tahun Membina Pengalaman, Mencipta Kecemerlangan.
             </h3>
 
-            <div className="mt-5 space-y-4 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-base">
-              <p>
+            <AnimatedTextGroup
+              className="mt-5 space-y-4 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-base"
+              staggerDelay={0.5}>
+              <AnimatedTextChild>
                 Kem Bumi Jati merupakan sebuah pusat latihan, perkhemahan dan aktiviti berkumpulan yang telah ditubuhkan pada tahun 1993.
                 Terletak di Batu 7, Kampung Jalan Kebun, Seksyen 30, Shah Alam, Selangor, kem ini dibangunkan dengan matlamat menyediakan
                 sebuah lokasi yang sesuai bagi pelaksanaan pelbagai program pendidikan, latihan dan pembangunan insan.
-              </p>
+              </AnimatedTextChild>
 
-              <p>
+              <AnimatedTextChild>
                 Kem Bumi Jati ditadbir dan diuruskan oleh ZH Warisan Holdings Sdn. Bhd. Pembinaannya telah disiapkan pada tahun 1993 dan
                 mula beroperasi sepenuhnya pada bulan Disember tahun yang sama.
-              </p>
+              </AnimatedTextChild>
 
-              <p>
+              <AnimatedTextChild>
                 Sejak mula beroperasi, Kem Bumi Jati terus memainkan peranan sebagai lokasi penganjuran pelbagai aktiviti dan program
                 berkumpulan. Sepanjang perjalanannya, kem ini menjadi tempat berlangsungnya program kem akademik, motivasi pelajar, seminar,
                 kursus kepimpinan, latihan organisasi serta pelbagai aktiviti pembangunan sahsiah.
-              </p>
+              </AnimatedTextChild>
 
-              <p>
+              <AnimatedTextChild>
                 Berbekalkan pengalaman lebih tiga dekad, Kem Bumi Jati terus komited menyediakan persekitaran yang sesuai untuk
                 pembelajaran, perkongsian ilmu, pembentukan jati diri dan pembangunan potensi individu.
-              </p>
+              </AnimatedTextChild>
 
-              <p>
+              <AnimatedTextChild>
                 Bagi kami, setiap program membawa matlamat dan harapan tersendiri. Justeru, Kem Bumi Jati sentiasa berusaha menjadi
                 sebahagian daripada perjalanan yang membentuk pengalaman, mencetus inspirasi dan melahirkan kejayaan.
-              </p>
+              </AnimatedTextChild>
 
-              <p className="pt-2 font-semibold text-neutral-800 dark:text-neutral-100">
+              <AnimatedTextChild className="pt-2 font-semibold text-neutral-800 dark:text-neutral-100">
                 Kem Bumi Jati – Membina Potensi, Melakar Kecemerlangan.
-              </p>
-            </div>
+              </AnimatedTextChild>
+            </AnimatedTextGroup>
           </div>
 
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-sm">
@@ -88,12 +93,19 @@ const LatarBelakangPage = async () => {
           <article className="rounded-2xl bg-neutral-100 p-6 shadow-sm dark:bg-neutral-900">
             <Target className="h-10 w-10" style={{ color: GREEN }} aria-hidden="true" />
             <h3 className="mt-3 text-xl font-bold text-neutral-800 dark:text-neutral-100">Objektif</h3>
+
             <ul className="mt-3 space-y-3">
-              {objektif.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm leading-snug text-neutral-600 dark:text-neutral-400">
+              {objektif.map((item, index) => (
+                <AnimatedItem
+                  key={item}
+                  as="li"
+                  index={index}
+                  staggerDelay={0.1}
+                  direction="left"
+                  className="flex items-start gap-3 text-sm leading-snug text-neutral-600 dark:text-neutral-400">
                   <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: ORANGE }} aria-hidden="true" />
                   <span>{item}</span>
-                </li>
+                </AnimatedItem>
               ))}
             </ul>
           </article>

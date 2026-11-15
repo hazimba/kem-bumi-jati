@@ -3,6 +3,7 @@ import { FeaturesGrid } from "@/components/features-grid";
 import { ProgramsSlider } from "@/components/programs-slider";
 import { ClientsSlider } from "@/components/clients-slider";
 import { getPrograms } from "@/lib/actions/programs";
+import { AnimatedTextChild, AnimatedTextGroup } from "@/components/animation-text-group";
 
 type Client = { name: string; logo: string };
 
@@ -28,13 +29,20 @@ const WhyChooseSection = async () => {
   return (
     <section className="w-full bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-2xl font-extrabold uppercase tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-4xl">
-          Kenapa Pilih Kem Bumi Jati?
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-neutral-500 dark:text-neutral-400 sm:text-base">
-          Kem Bumi Jati menyediakan kemudahan lengkap untuk pelbagai jenis program termasuk kem akademik, kem motivasi, kursus, latihan
-          organisasi dan aktiviti pembangunan diri.
-        </p>
+        <AnimatedTextGroup staggerDelay={0.3}>
+          <AnimatedTextChild
+            as="h2"
+            className="text-center text-2xl font-extrabold uppercase tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-4xl">
+            Kenapa Pilih Kem Bumi Jati?
+          </AnimatedTextChild>
+
+          <AnimatedTextChild
+            as="p"
+            className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-neutral-500 dark:text-neutral-400 sm:text-base">
+            Kem Bumi Jati menyediakan kemudahan lengkap untuk pelbagai jenis program termasuk kem akademik, kem motivasi, kursus, latihan
+            organisasi dan aktiviti pembangunan diri.
+          </AnimatedTextChild>
+        </AnimatedTextGroup>
 
         <FeaturesGrid />
 

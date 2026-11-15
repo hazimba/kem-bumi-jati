@@ -1,3 +1,4 @@
+import AnimatedText from "@/components/animated-text-fade-in";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
@@ -19,12 +20,14 @@ const LocationBanner = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
 
       <div className="absolute inset-x-0 bottom-0 z-10 mx-auto w-full max-w-7xl px-6 pb-8 text-white sm:px-8">
-        <h2 className="text-2xl font-bold leading-tight sm:text-3xl">Lokasi Strategik di Shah Alam</h2>
+        <AnimatedText as="h2" className="text-2xl font-bold leading-tight sm:text-3xl" duration={0.6}>
+          Lokasi Strategik di Shah Alam
+        </AnimatedText>
 
-        <p className="mt-3 text-base leading-relaxed sm:text-lg">
+        <AnimatedText as="p" className="mt-3 text-base leading-relaxed sm:text-lg" delay={0.2} duration={0.8}>
           Persekitaran yang selesa, selamat dan lengkap
           <br className="hidden sm:block" /> untuk pelbagai program.
-        </p>
+        </AnimatedText>
 
         <Button variant="secondary" className="mt-6">
           <Link

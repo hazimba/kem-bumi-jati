@@ -17,7 +17,7 @@ const GaleriPage = async () => {
   const bannerImage = await getPageBannerBySlug("galeri", DEFAULT_BANNER_IMAGE);
 
   return (
-    <main className="w-full bg-background text-foreground">
+    <main className="w-full bg-background text-foreground pt-26">
       <PageBanner
         title="Galeri Program & Kemudahan"
         image={bannerImage}

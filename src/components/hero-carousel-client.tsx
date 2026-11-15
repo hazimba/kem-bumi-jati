@@ -117,9 +117,7 @@ const HeroSection = () => {
         );
       })}
 
-      <div className="absolute inset-x-0 top-0 z-50">
-        <NavigationBar variant="overlay" />
-      </div>
+      {/* Removed NavigationBar from here as it is now in the global layout */}
 
       <div className="relative z-20 flex h-full items-center px-8 sm:px-14 max-w-7xl mx-auto">
         <motion.div style={{ y: textY, opacity: textOpacity }} className="max-w-xl" aria-live="polite">

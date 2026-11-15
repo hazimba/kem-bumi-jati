@@ -4,6 +4,7 @@ import PageBanner from "@/components/page-banner";
 import { getFacilityType } from "@/lib/quaries/faciliti";
 import { Check, ImageIcon } from "lucide-react";
 import ImagePreviewDialog from "@/components/image-preview-dialog";
+import AnimatedItem from "@/components/animated-item";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -56,7 +57,7 @@ export default async function FasilitiDetailPage({ params }: Props) {
   const { type, images } = data;
 
   return (
-    <main className="w-full bg-white dark:bg-neutral-950">
+    <main className="w-full bg-white dark:bg-neutral-950 pt-26">
       <PageBanner
         title={type.label}
         image={type.cover_url || BANNER_IMAGE}
@@ -72,14 +73,21 @@ export default async function FasilitiDetailPage({ params }: Props) {
           {type.general_description.facilities?.length > 0 && (
             <ul className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3">
               {type.general_description.facilities.map((facility: string, index: number) => (
-                <li
+                <AnimatedItem
                   key={index}
+                  as="li"
+                  index={index}
+                  staggerDelay={0.05}
+                  direction="up"
+                  duration={0.5}
+                  distance={20}
                   className="group flex items-center gap-2 rounded-lg border border-neutral-200 bg-white px-2.5 py-2 shadow-sm transition-all hover:border-emerald-300 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-emerald-700 sm:gap-3 sm:rounded-xl sm:px-4 sm:py-3">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400 sm:h-8 sm:w-8 sm:rounded-lg">
                     <Check className="h-3 w-3 sm:h-4 sm:w-4" strokeWidth={3} />
                   </span>
+
                   <span className="text-xs font-medium leading-tight text-neutral-700 dark:text-neutral-200 sm:text-sm">{facility}</span>
-                </li>
+                </AnimatedItem>
               ))}
             </ul>
           )}

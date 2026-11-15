@@ -82,25 +82,27 @@ const WhatsAppButton = () => {
     <>
       <div className="fixed bottom-6 left-0 right-0 z-50 pointer-events-none">
         <div className="max-w-7xl mx-auto px-6 flex justify-end gap-3 items-center">
-          <button
-            onClick={scrollToCalendar}
-            className="pointer-events-auto bg-primary hover:cursor-pointer text-sm dark:bg-neutral-800/90 backdrop-blur px-4 py-3 rounded-full font-semibold text-neutral-800 shadow-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 transition-all">
-            Lihat Tarikh
-          </button>
-          <a
-            href={whatsappUrl}
-            onClick={handleWhatsAppClick}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group pointer-events-auto flex items-center h-12 bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out px-3.5 hover:px-5"
-            aria-label="Hubungi Kami melalui WhatsApp">
-            <div className="flex items-center justify-center">
-              <WhatsAppIcon className="h-5 w-5" />
-            </div>
-            <span className="max-w-0 overflow-hidden whitespace-nowrap font-bold text-sm transition-all duration-300 group-hover:max-w-xs group-hover:ml-3">
-              Hubungi Kami
-            </span>
-          </a>
+          <div className="p-0.5 rounded-full dark:border-neutral-800 bg-white border dark:!bg-white shadow-lg flex gap-3 items-center pointer-events-auto">
+            <a
+              href={whatsappUrl}
+              onClick={handleWhatsAppClick}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group pointer-events-auto flex items-center h-12 bg-[#25D366] text-white rounded-full shadow-2xl hover:shadow-2xl transition-all duration-300 ease-in-out px-3.5 hover:px-5"
+              aria-label="Hubungi Kami melalui WhatsApp">
+              <div className="flex items-center justify-center">
+                <WhatsAppIcon className="h-5 w-5" />
+              </div>
+              <span className="max-w-0 overflow-hidden whitespace-nowrap font-bold text-sm transition-all duration-300 group-hover:max-w-xs group-hover:ml-3">
+                Hubungi Kami
+              </span>
+            </a>
+            <button
+              onClick={scrollToCalendar}
+              className="pointer-events-auto bg-primary dark:!bg-secondary dark:text-white hover:cursor-pointer text-sm dark:bg-neutral-800/90 backdrop-blur px-4 py-3 rounded-full text-neutral-800 shadow-lg border border-neutral-200 hover:bg-neutral-100 transition-all">
+              Lihat Tarikh
+            </button>
+          </div>
         </div>
       </div>
 
