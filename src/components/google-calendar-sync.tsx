@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar as CalendarIcon, CheckCircle2, Users, ChevronDown } from "lucide-react";
 
 export function GoogleCalendarSync() {
@@ -14,6 +14,15 @@ export function GoogleCalendarSync() {
     if (!isOpen) setHasOpened(true);
     setIsOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    const handleOpen = () => {
+      setHasOpened(true);
+      setIsOpen(true);
+    };
+    window.addEventListener("kbj:open-calendar", handleOpen);
+    return () => window.removeEventListener("kbj:open-calendar", handleOpen);
+  }, []);
 
   return (
     <div className="mx-auto mt-8 max-w-7xl overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">

@@ -29,6 +29,9 @@ const WhatsAppButton = () => {
             top: elementPosition - offset,
             behavior: "smooth",
           });
+          setTimeout(() => {
+            window.dispatchEvent(new CustomEvent("kbj:open-calendar"));
+          }, 600);
         }
       }, 300);
     }
@@ -45,6 +48,9 @@ const WhatsAppButton = () => {
         top: elementPosition - offset,
         behavior: "smooth",
       });
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent("kbj:open-calendar"));
+      }, 600);
     } else {
       sessionStorage.setItem("scrollToCalendar", "true");
       router.push("/");
