@@ -15,7 +15,9 @@ export interface PublicImage {
   url: string;
   filename: string;
   caption: string | null;
-  subcaption?: string | null;
+  description: string | null;
+  sort_order: number;
+  created_at: string;
 }
 
 const FACILITY_ORDER = ["dewan-kuliah", "dewan-makan", "bilik-urusetia", "surau", "asrama", "padang-kawad", "kolam-renang", "obstacle"];
@@ -70,10 +72,10 @@ export async function getFacilityType(slug: string) {
 
   const { data: images, error } = await supabase
     .from("site_images")
-    .select("id, url, filename, caption")
+    .select("id, url, filename, caption, description, sort_order, created_at")
     .eq("type_id", type.id)
-    .order("sort_order")
-    .order("created_at", { ascending: false });
+    .order("sort_order", { ascending: true })
+    .order("created_at", { ascending: true });
 
   if (error) throw new Error(error.message);
   return { type, images: (images ?? []) as PublicImage[] };
