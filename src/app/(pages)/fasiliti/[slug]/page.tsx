@@ -157,9 +157,9 @@ export default async function FasilitiDetailPage({ params }: Props) {
                     </p>
                   )}
 
-                  {profile.items.length > 1 && (
+                  {profile?.items?.length > 1 && (
                     <div className="mt-auto pt-4 flex flex-wrap gap-2">
-                      {profile.items.slice(1, 5).map((img, imgIdx) => (
+                      {profile?.items?.slice(1, 5).map((img, imgIdx) => (
                         <ImagePreviewDialog
                           key={img.id}
                           images={profile.items}

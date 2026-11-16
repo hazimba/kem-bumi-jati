@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Check, Eye, Mountain, Target } from "lucide-react";
 import PageBanner from "@/components/page-banner";
-import ImagePreviewDialog from "@/components/image-preview-dialog";
 // import YouTubeFacade from "@/components/youtube-facede";
 import { getPageBannerBySlug } from "@/lib/actions/page-banners";
 import AnimatedItem from "@/components/animated-item";
-import AnimatedText from "@/components/animated-text-fade-in";
 import { AnimatedTextChild, AnimatedTextGroup } from "@/components/animation-text-group";
+import ImagePreviewUrlDialog from "@/components/image-preview-url-dialog";
 
 export const metadata: Metadata = {
   title: "Latar Belakang",
@@ -129,7 +128,7 @@ const LatarBelakangPage = async () => {
         </section>
 
         <section className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-[1.5fr_1fr]">
-          <ImagePreviewDialog
+          <ImagePreviewUrlDialog
             src={MAP_IMAGE}
             alt="Peta dan layout Kem Bumi Jati"
             title="Peta & Layout Kem"

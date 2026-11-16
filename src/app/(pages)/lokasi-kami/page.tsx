@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/page-banner";
-import ImagePreviewDialog from "@/components/image-preview-dialog";
 import MapFacade from "@/components/map-facade";
 import { getPageBannerBySlug } from "@/lib/actions/page-banners";
 import AnimatedItem from "@/components/animated-item";
+import ImagePreviewUrlDialog from "@/components/image-preview-url-dialog";
 
 export const metadata: Metadata = {
   title: "Lokasi Kem Bumi Jati di Shah Alam, Selangor",
@@ -63,7 +63,7 @@ const LokasiKamiPage = async () => {
           <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">Peta &amp; Layout Kem</h2>
 
           <AnimatedItem as="div" direction="up" duration={0.8} distance={25} delay={0.2} className="mt-4">
-            <ImagePreviewDialog
+            <ImagePreviewUrlDialog
               src={MAP_LAYOUT_IMAGE}
               alt="Peta dan pelan susun atur Kem Bumi Jati di Shah Alam"
               title="Peta & Layout Kem"

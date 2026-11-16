@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 interface ImageItem {
@@ -19,12 +19,15 @@ interface ImagePreviewDialogProps {
 }
 
 export default function ImagePreviewDialog({ images, initialIndex = 0, title, trigger }: ImagePreviewDialogProps) {
-  if (initialIndex < 0 || initialIndex >= images.length) {
-    return null;
-  }
-
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [open, setOpen] = useState(false);
+
+  // Sync index when dialog opens or initialIndex changes
+  useEffect(() => {
+    if (open) {
+      setCurrentIndex(initialIndex);
+    }
+  }, [open, initialIndex]);
 
   const handlePrevious = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -36,11 +39,13 @@ export default function ImagePreviewDialog({ images, initialIndex = 0, title, tr
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  if (!images.length) return null;
+  if (!images?.length || !trigger) return null;
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogTrigger asChild>
+        {trigger}
+      </DialogTrigger>
 
       <DialogContent className="w-[95vw] max-w-[95vw] gap-0 overflow-hidden rounded-2xl border border-slate-200 bg-white p-0 shadow-2xl sm:max-w-[92vw] lg:max-w-6xl [&>button]:hidden">
         <div className="flex max-h-[92vh] flex-col">
