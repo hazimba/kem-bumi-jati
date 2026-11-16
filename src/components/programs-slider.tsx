@@ -8,7 +8,7 @@ import { type ProgramItem } from "@/lib/actions/programs";
 export function ProgramsSlider({ programs }: { programs: ProgramItem[] }) {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start", dragFree: true }, [
     AutoScroll({
-      speed: 0.8,
+      speed: 0.4,
       startDelay: 0,
       stopOnInteraction: false,
       stopOnMouseEnter: true,

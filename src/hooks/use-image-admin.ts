@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { getImageTypes, type ImageType, type Section } from "@/lib/actions/image-types";
-import { getImages, deleteImage, type SiteImage } from "@/lib/actions/site-images";
+import { getImages, deleteImage, deleteImages, type SiteImage } from "@/lib/actions/site-images";
 
 export function useImageAdmin() {
   const [types, setTypes] = useState<ImageType[]>([]);
@@ -44,17 +44,34 @@ export function useImageAdmin() {
       (img) =>
         img.section === section &&
         (!selectedTypeId || img.type_id === selectedTypeId) &&
-        (!q || img.filename.toLowerCase().includes(q) || img.caption?.toLowerCase().includes(q) || img.type_label.toLowerCase().includes(q))
+        (!q ||
+          img.filename.toLowerCase().includes(q) ||
+          img.caption?.toLowerCase().includes(q) ||
+          img.description?.toLowerCase().includes(q) ||
+          img.type_label.toLowerCase().includes(q))
     );
   }, [images, section, selectedTypeId, search]);
 
-  const addImage = (img: SiteImage) => setImages((prev) => [img, ...prev]);
+  const addImages = (newImages: SiteImage[]) => {
+    setImages((prev) => [...newImages, ...prev]);
+  };
 
   const removeImage = async (img: SiteImage) => {
     try {
       await deleteImage(img);
       setImages((prev) => prev.filter((i) => i.id !== img.id));
       toast.success("Gambar dipadam");
+    } catch (e: any) {
+      toast.error(e.message);
+    }
+  };
+
+  const removeProfileGroup = async (groupImages: SiteImage[]) => {
+    try {
+      await deleteImages(groupImages);
+      const idsToRemove = new Set(groupImages.map((i) => i.id));
+      setImages((prev) => prev.filter((i) => !idsToRemove.has(i.id)));
+      toast.success("Profil fasiliti dan semua gambarnya dipadam");
     } catch (e: any) {
       toast.error(e.message);
     }
@@ -71,7 +88,8 @@ export function useImageAdmin() {
     search,
     setSearch,
     loadTypes,
-    addImage,
+    addImages,
     removeImage,
+    removeProfileGroup,
   };
 }

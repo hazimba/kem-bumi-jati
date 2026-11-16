@@ -98,7 +98,9 @@ export default function RootLayout({
     <html lang="en" className={`${robotoMono.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <NavFixed />
+          <div className="fixed inset-x-0 top-0 z-50">
+            <NavFixed />
+          </div>
           <main className="flex-1">
             <ClientPageWrapper>{children}</ClientPageWrapper>
           </main>

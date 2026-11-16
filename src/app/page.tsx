@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-16 md:gap-38">
+    <div className="flex flex-col gap-16 md:gap-38 !pt-0">
       <HeroSection />
       <WhyUs />
       <LocationBanner />

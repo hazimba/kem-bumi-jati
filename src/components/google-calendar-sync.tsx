@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar as CalendarIcon, CheckCircle2, Users, ChevronDown } from "lucide-react";
 
 export function GoogleCalendarSync() {
@@ -14,6 +14,15 @@ export function GoogleCalendarSync() {
     if (!isOpen) setHasOpened(true);
     setIsOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    const handleOpen = () => {
+      setHasOpened(true);
+      setIsOpen(true);
+    };
+    window.addEventListener("kbj:open-calendar", handleOpen);
+    return () => window.removeEventListener("kbj:open-calendar", handleOpen);
+  }, []);
 
   return (
     <div className="mx-auto mt-8 max-w-7xl overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
@@ -29,7 +38,7 @@ export function GoogleCalendarSync() {
             <CalendarIcon className="h-5 w-5" />
           </div>
 
-          <div>
+          <div id="kem-bumi-jati-calendar">
             <h3 className="text-lg font-bold text-neutral-800 dark:text-neutral-100">Semak Ketersediaan</h3>
             <p className="text-xs text-neutral-500 dark:text-neutral-400">
               {isOpen
@@ -46,7 +55,6 @@ export function GoogleCalendarSync() {
 
       {/* Smooth accordion: animates grid row height 0fr <-> 1fr */}
       <div
-        id="kem-bumi-jati-calendar"
         role="region"
         aria-hidden={!isOpen}
         className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out motion-reduce:transition-none ${
