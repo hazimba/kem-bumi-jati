@@ -15,18 +15,17 @@ export interface PublicImage {
   url: string;
   filename: string;
   caption: string | null;
+  subcaption?: string | null;
 }
+
+const FACILITY_ORDER = ["dewan-kuliah", "dewan-makan", "bilik-urusetia", "surau", "asrama", "padang-kawad", "kolam-renang", "obstacle"];
 
 export async function getFacilityTypes(): Promise<PublicType[]> {
   const supabase = await createClient();
 
   const [{ data: types, error: typesError }, { data: images, error: imagesError }] = await Promise.all([
-    supabase
-      .from("image_types")
-      .select("id, slug, label, description, cover_url")
-      .eq("section", "faciliti")
-      .eq("is_active", true)
-      .order("sort_order"),
+    supabase.from("image_types").select("id, slug, label, description, cover_url").eq("section", "faciliti").eq("is_active", true),
+
     supabase
       .from("site_images_view")
       .select("type_id, url")
@@ -38,10 +37,22 @@ export async function getFacilityTypes(): Promise<PublicType[]> {
   if (typesError) throw new Error(typesError.message);
   if (imagesError) throw new Error(imagesError.message);
 
-  return (types ?? []).map((t) => {
-    const own = (images ?? []).filter((i) => i.type_id === t.id);
-    return { ...t, cover: own[0]?.url ?? null, count: own.length };
-  });
+  return (types ?? [])
+    .map((t) => {
+      const own = (images ?? []).filter((i) => i.type_id === t.id);
+
+      return {
+        ...t,
+        cover: own[0]?.url ?? null,
+        count: own.length,
+      };
+    })
+    .sort((a, b) => {
+      const aIndex = FACILITY_ORDER.indexOf(a.slug);
+      const bIndex = FACILITY_ORDER.indexOf(b.slug);
+
+      return (aIndex === -1 ? Infinity : aIndex) - (bIndex === -1 ? Infinity : bIndex);
+    });
 }
 
 export async function getFacilityType(slug: string) {

@@ -24,7 +24,7 @@ export default function ImagePreviewDialog({
         <button
           type="button"
           aria-label={buttonText}
-          className={`relative mt-3 aspect-[4/3] w-full overflow-hidden rounded-xl shadow-sm cursor-zoom-in ${className}`}>
+          className={`relative aspect-[4/3] w-full overflow-hidden rounded-xl rounded-b-none shadow-sm cursor-zoom-in ${className}`}>
           <Image
             src={src}
             alt={alt}
