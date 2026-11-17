@@ -35,7 +35,7 @@ const LatarBelakangPage = async () => {
   const bannerImage = await getPageBannerBySlug("latar-belakang", DEFAULT_BANNER);
 
   return (
-    <main className="w-full bg-white dark:bg-neutral-950 pt-26">
+    <main className="w-full bg-white dark:bg-neutral-950 pt-28 lg:pt-28">
       <PageBanner title="Latar Belakang" image={bannerImage} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Latar Belakang" }]} />
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
