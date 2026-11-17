@@ -60,19 +60,25 @@ const WhatsAppButton = () => {
   const whatsappUrl =
     "https://wa.me/+60162294114?text=Hi%20Kem%20Bumi%20Jati%2C%20saya%20ingin%20mendapatkan%20maklumat%20mengenai%20pakej%20program%20anda.";
 
-  const handleWhatsAppClick = (e: React.MouseEvent) => {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      e.preventDefault();
-      setIsOpen(true);
-    }
-  };
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
 
-  const confirmRedirect = () => {
-    window.gtag?.("event", "whatsapp_click", {
+    window.gtag?.("event", "whatsapp_dialog_open", {
       page_path: window.location.pathname,
       button_location: "floating_button",
     });
+
+    setIsOpen(true);
+  };
+
+  const confirmRedirect = () => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "whatsapp_click", {
+        page_path: window.location.pathname,
+        button_location: "floating_button",
+        debug_mode: true,
+      });
+    }
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setIsOpen(false);
@@ -82,7 +88,7 @@ const WhatsAppButton = () => {
     <>
       <div className="fixed bottom-6 left-0 right-0 z-50 pointer-events-none">
         <div className="max-w-7xl mx-auto px-6 flex justify-end gap-3 items-center">
-          <div className="p-0.5 rounded-full dark:border-neutral-800 bg-white border dark:!bg-white shadow-lg flex gap-3 items-center pointer-events-auto">
+          <div className="p-1.5 rounded-full dark:border-neutral-800 bg-white border dark:!bg-white shadow-lg flex gap-3 items-center pointer-events-auto">
             <a
               href={whatsappUrl}
               onClick={handleWhatsAppClick}

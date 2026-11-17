@@ -48,7 +48,7 @@ const FasilitiPage = async () => {
   const bannerImage = await getPageBannerBySlug("fasiliti", DEFAULT_BANNER);
 
   return (
-    <main className="w-full bg-white dark:bg-neutral-950 pt-26">
+    <main className="w-full bg-white dark:bg-neutral-950 pt-26 sm:pt-20">
       <PageBanner title="Fasiliti Utama" image={bannerImage} breadcrumbs={[{ label: "Utama", href: "/" }, { label: "Fasiliti" }]} />
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">

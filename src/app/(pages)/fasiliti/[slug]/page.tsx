@@ -74,7 +74,7 @@ export default async function FasilitiDetailPage({ params }: Props) {
   const profiles = Object.values(groupedProfiles);
 
   return (
-    <main className="w-full bg-white dark:bg-neutral-950 pt-26">
+    <main className="w-full bg-white dark:bg-neutral-950 pt-26 sm:pt-20">
       <PageBanner
         title={type.label}
         image={type.cover_url || BANNER_IMAGE}
