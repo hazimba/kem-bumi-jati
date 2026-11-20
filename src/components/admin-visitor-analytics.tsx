@@ -168,7 +168,7 @@ export function AdminVisitorAnalytics() {
         </Card> */}
 
         {/* BAR CHART 2: Popular Pages (URL) */}
-        {/* <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 lg:col-span-6">
+        <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900 lg:col-span-6">
           <CardHeader>
             <CardTitle className="text-base font-bold flex items-center gap-2 text-neutral-900 dark:text-neutral-100">
               <Globe className="h-5 w-5 text-green-600" />
@@ -200,11 +200,11 @@ export function AdminVisitorAnalytics() {
               <p className="py-8 text-center text-xs text-neutral-400">Tiada rekod halaman dijumpai.</p>
             )}
           </CardContent>
-        </Card> */}
+        </Card>
       </div>
 
       {/* Recent Visitors Detailed Logs */}
-      {/* <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
+      <Card className="border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
         <CardHeader>
           <CardTitle className="text-base font-bold flex items-center gap-2 text-neutral-900 dark:text-neutral-100">
             <Users className="h-5 w-5 text-purple-600" />
@@ -237,7 +237,7 @@ export function AdminVisitorAnalytics() {
             )}
           </div>
         </CardContent>
-      </Card> */}
+      </Card>
     </div>
   );
 }

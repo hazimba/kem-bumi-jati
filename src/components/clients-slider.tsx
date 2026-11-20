@@ -13,9 +13,9 @@ export function ClientsSlider({ clients }: { clients: { name: string; logo: stri
 
   return (
     <div className="mt-6 mx-2 overflow-hidden select-none" ref={emblaRef}>
-      <div className="flex gap-4 -ml-4">
+      <div className="flex -ml-4">
         {clients.map((client) => (
-          <div key={client.name} className="min-w-[140px] sm:min-w-[180px] shrink-0 px-0">
+          <div key={client.name} className="min-w-0 shrink-0 grow-0 basis-[156px] pl-4 sm:basis-[196px]">
             <div className="flex h-16 items-center justify-center rounded-lg bg-white p-2 dark:bg-neutral-100">
               <Image
                 src={client.logo}
