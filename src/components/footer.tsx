@@ -22,8 +22,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm leading-relaxed text-justify">
-              ZH Warisan Holdings Sdn. Bhd. <br /> <br /> Pusat latihan, kem motivasi dan pembangunan insan profesional di Shah Alam,
-              Selangor
+              ZH Warisan Holdings Sdn. Bhd. <br /> <br /> Pusat latihan dan kem motivasi di Shah Alam, Selangor yang menyediakan kemudahan
+              lengkap untuk program team building, kem bina semangat, kursus kepimpinan, latihan korporat dan pembangunan modal insan.
             </p>
             <div className="flex space-x-4 pt-2">
               <Link prefetch={false} href="https://www.facebook.com/kembumijati" target="_blank" key={"facebook"} rel="noopener noreferrer">
@@ -102,11 +102,14 @@ const Footer = () => {
                   Kemudahan
                 </Link>
                 {/* <p>Aktiviti</p> */}
-                <Link className="pt-1 italic" href="/pakej">
+                {/* <Link className="pt-1 italic" href="/pakej">
                   Pakej
-                </Link>
+                </Link> */}
                 <Link className="pt-1 italic" href="/galeri">
                   Galeri
+                </Link>
+                <Link className="pt-1 italic" href="/lokasi">
+                  Lokasi
                 </Link>
                 <Link className="pt-1 italic" href="/hubungi-kami">
                   Hubungi Kami

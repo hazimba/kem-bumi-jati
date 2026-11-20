@@ -13,6 +13,48 @@ interface Props {
 
 const BANNER_IMAGE = "https://placehold.co/1600x500/png?text=Banner";
 
+const facilitySEO: Record<string, { title: string; description: string }> = {
+  asrama: {
+    title: "Asrama Kem Latihan di Shah Alam",
+    description:
+      "Asrama Kem Bumi Jati di Shah Alam menyediakan penginapan berkumpulan sehingga 280 peserta untuk kem motivasi, kursus dan latihan.",
+  },
+  "dewan-kuliah": {
+    title: "Dewan Kuliah & Dewan Latihan di Shah Alam",
+    description:
+      "Kemudahan dewan kuliah dan dewan latihan di Kem Bumi Jati, Shah Alam untuk kursus, seminar, program motivasi dan aktiviti berkumpulan.",
+  },
+  "dewan-makan": {
+    title: "Dewan Makan Kem Latihan di Shah Alam",
+    description:
+      "Dewan makan Kem Bumi Jati di Shah Alam mampu menampung sehingga 400 orang, sesuai untuk program kem motivasi, kursus dan latihan.",
+  },
+  "bilik-urusetia": {
+    title: "Bilik Urusetia & Penginapan di Shah Alam",
+    description:
+      "Kem Bumi Jati menyediakan bilik urusetia dan kemudahan penginapan untuk penganjur program, kursus serta latihan berkumpulan di Shah Alam.",
+  },
+  surau: {
+    title: "Surau & Kemudahan Solat di Kem Bumi Jati",
+    description:
+      "Surau Kem Bumi Jati di Shah Alam dilengkapi pendingin hawa dan sistem PA serta mampu menampung sehingga 250 orang jemaah.",
+  },
+  "padang-kawad": {
+    title: "Padang Kawad & Kawasan Latihan di Shah Alam",
+    description:
+      "Kemudahan padang kawad di Kem Bumi Jati, Shah Alam untuk aktiviti berkumpulan, latihan kawad dan program kem bina semangat.",
+  },
+  "kolam-renang": {
+    title: "Kolam Renang Kem Bumi Jati Shah Alam",
+    description: "Ketahui kemudahan kolam renang di Kem Bumi Jati, Shah Alam untuk aktiviti air dan program berkumpulan.",
+  },
+  obstacle: {
+    title: "Obstacle Course & Latihan Berhalangan",
+    description:
+      "Kemudahan obstacle course di Kem Bumi Jati, Shah Alam untuk aktiviti latihan berhalangan, kem bina semangat dan program berkumpulan.",
+  },
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await getFacilityType(slug);
@@ -27,10 +69,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = data.type.label;
-  const description = data.type.description || `Galeri gambar untuk ${data.type.label}`;
+  const seo = facilitySEO[slug];
 
-  const canonical = `/fasiliti/${slug}`;
+  const title = seo?.title ?? data.type.label;
+
+  const description =
+    seo?.description ?? data.type.description ?? `Ketahui kemudahan ${data.type.label} di Kem Bumi Jati, Shah Alam, Selangor.`;
+
+  const canonical = `https://kembumijati.com/fasiliti/${slug}`;
 
   return {
     title,
@@ -42,7 +88,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       url: canonical,
-      images: [data.type.cover_url || BANNER_IMAGE],
+      type: "website",
+      images: data.type.cover_url ? [{ url: data.type.cover_url }] : [],
     },
   };
 }
